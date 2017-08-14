@@ -30,3 +30,4 @@ The goals of the AdapterBase are as follows, in decreasing order of importance:
 
 - Chaim A Schramm, Vaccine Research Center, NIAID, NIH, chaim.schramm@nih.gov
 - Dan Davis, Systems/Applications Architect, OCCS/AB, NLM, NIH, daniel.davis@nih.gov
+- Scott Lewis, Pulmonary Critical Care Medicine, Washington University in St. Louis, slewis3827@gmail.com

@@ -16,24 +16,24 @@ The goals of the AdapterBase are as follows, in decreasing order of importance:
 4. Create language-specific bindings for the API. Preferably, Python will be the first language supported, but the responsible team can choose whichever language in which they're most comfortable.
 5. Integrate the AdpaterBase API into [Atropos](https://github.com/jdidion/atropos), an NGS read trimming tool written in Python.
 
-## Database
+## System Design
 
-## API
+We have settled on Python 3 for our implementation language. The database will be implemented in SQLite??? and the web interface and API will be implemented in Django.
 
-## Web Interface
+### Database
 
-## Language Bindings
+### API
 
-## Atropos Integration
+### Web Interface
+
+### Language Bindings
+
+### Atropos Integration
 
 ## Project Team
 
-Chaim A Schramm
-
-Vaccine Research Center, NIAID, NIH
-
-chaim.schramm@nih.gov
-
-Scott Lewis
-Pulmonary Critical Care Medicine, Washington University in St. Louis
-slewis3827@gmail.com
+- Chaim A Schramm, Vaccine Research Center, NIAID, NIH, chaim.schramm@nih.gov
+- Dan Davis, Systems/Applications Architect, OCCS/AB, NLM, NIH, daniel.davis@nih.gov
+- Scott Lewis, Pulmonary Critical Care Medicine, Washington University in St. Louis, slewis3827@gmail.com
+- John P Didion, NHGRI/NIH, john.didion@nih.gov
+- Vamsi Vungutur OCCS/AB NLM, NIH vamsi.vungutur@nih.gov

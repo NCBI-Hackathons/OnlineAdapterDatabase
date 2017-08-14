@@ -33,3 +33,7 @@ Chaim A Schramm
 Vaccine Research Center, NIAID, NIH
 
 chaim.schramm@nih.gov
+
+Scott Lewis
+Pulmonary Critical Care Medicine, Washington University in St. Louis
+slewis3827@gmail.com

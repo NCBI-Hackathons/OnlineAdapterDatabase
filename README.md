@@ -28,8 +28,5 @@ The goals of the AdapterBase are as follows, in decreasing order of importance:
 
 ## Project Team
 
-Chaim A Schramm
-
-Vaccine Research Center, NIAID, NIH
-
-chaim.schramm@nih.gov
+- Chaim A Schramm, Vaccine Research Center, NIAID, NIH, chaim.schramm@nih.gov
+- Dan Davis, Systems/Applications Architect, OCCS/AB, NLM, NIH, daniel.davis@nih.gov

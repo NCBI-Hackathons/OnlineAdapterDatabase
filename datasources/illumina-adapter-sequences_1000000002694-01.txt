@@ -1,0 +1,2810 @@
+Illumina Adapter Sequences
+
+Illumina Adapter Sequences
+This document provides the nucleotide sequences that comprise Illumina oligonucleotides used in Illumina
+sequencing technologies. These sequences are provided for the sole purpose of understanding and
+publishing the results of your sequencing experiments.
+
+Proprietary to Illumina
+The oligonucleotides are proprietary to Illumina. Their manufacture, use, and sequence information are
+protected by intellectual property, including issued or pending patents, copyright, and trade secrets. Illumina
+reserves all rights in the oligonucleotides and their sequence information, except for the strictly limited
+permissions as follows.
+Most Illumina oligonucleotides are specially modified and purified in a proprietary manner to enable and
+optimize their performance with Illumina instruments. Illumina is the only authorized supplier of the oligos.
+Illumina has no control over the quality, composition, or compatibility of reagents from unauthorized suppliers.
+We cannot troubleshoot or provide other support for experiments performed with unauthorized reagents, and
+we cannot guarantee the performance of Illumina products when used with such reagents.
+
+Limited Permissions
+Your permission to copy or distribute sequence information is limited to within your institution for use only with
+Illumina instruments and associated equipment, consumables, and software. You may not copy or distribute
+this information outside your institution, except under the following circumstances.
+•
+
+You may distribute outside your institution and publish the sequence information in presentations,
+manuscripts, or publications authored by you, if the following copyright notice is included:
+Oligonucleotide sequences © 2016 Illumina, Inc. All rights reserved.
+
+•
+
+If you modify or adapt any sequence information contained in this letter and distribute or publish the
+modified sequences, you must include the following copyright notice:
+Oligonucleotide sequences © 2016 Illumina, Inc. All rights reserved. Derivative works created by
+Illumina customers are authorized for use with Illumina instruments and products only. All other
+uses are strictly prohibited.
+
+For all other uses of the sequence information or for questions on custom oligonucleotides, please contact
+Illumina to discuss the permissions or licenses that might be required.
+
+Document # 1000000002694 v01
+February 2016
+
+1
+
+Illumina Adapter Sequences
+
+Contents
+Introduction .................................................................................................. 5
+TruSight Amplicon Panels ............................................................................. 5
+Index 1 (i7) Adapters ................................................................................ 5
+Index 2 (i5) Adapter .................................................................................. 6
+TruSight Cardio ............................................................................................. 6
+Index 1 (i7) Adapters ................................................................................ 6
+Index 2 (i5) Adapter .................................................................................. 7
+TruSight One ................................................................................................. 7
+Index 1 (i7) Adapters ................................................................................ 7
+Index 2 (i5) Adapter .................................................................................. 7
+TruSight Rapid Capture ................................................................................. 8
+Index 1 (i7) Adapters ................................................................................ 8
+Index 2 (i5) Adapter .................................................................................. 8
+TruSight Tumor 15 ........................................................................................ 9
+Index 1 (i7) Adapters ................................................................................ 9
+Index 2 (i5) Adapter ................................................................................ 10
+TruSight RNA Pan-Cancer Panel .................................................................. 10
+Universal Adapter .................................................................................... 10
+Index Adapters ....................................................................................... 10
+Illumina Nextera Library Prep Kits .............................................................. 12
+Nextera Transposase Adapters .................................................................. 12
+Nextera Index Kit – PCR Primers ............................................................... 12
+Nextera Index Kit - Index 1 (i7) Adapters................................................... 12
+Nextera Index Kit - Index 2 (i5) Adapters................................................... 13
+Nextera XT Index Kit v2 - Index 1 (i7) Adapters.......................................... 13
+Nextera XT Index Kit v2 - Index 2 (i5) Adapters.......................................... 14
+TruSeq Amplicon Kits .................................................................................. 16
+Index 1 (i7) Adapters .............................................................................. 16
+Index 2 (i5) Adapter ................................................................................ 16
+TruSeq DNA Methylation ............................................................................. 17
+Index PCR Primers .................................................................................. 17
+Index Adapters ....................................................................................... 17
+TruSeq HT Kits ............................................................................................ 17
+D501–D508 Adapters .............................................................................. 17
+D701–D712 Adapters .............................................................................. 17
+Index 1 (i7) Adapters .............................................................................. 18
+
+Document # 1000000002694 v01
+February 2016
+
+2
+
+Illumina Adapter Sequences
+Index 2 (i5) Adapters .............................................................................. 18
+TruSeq LT Kits and TruSeq v1/v2 Kits ......................................................... 19
+TruSeq Universal Adapter ......................................................................... 19
+TruSeq Index Adapters (Index 1–27) ......................................................... 19
+TruSeq Ribo Profile ..................................................................................... 20
+3’ Adapter .............................................................................................. 20
+Forward PCR Primer................................................................................. 20
+Index PCR Primers .................................................................................. 20
+Index Adapters ....................................................................................... 21
+TruSeq Synthetic Long-Read DNA ............................................................... 21
+Long Reads Adapter ................................................................................ 21
+TruSeq Small RNA ....................................................................................... 21
+RNA 5’ Adapter (RA5) .............................................................................. 21
+RNA 3’ Adapter (RA3) .............................................................................. 21
+Stop Oligo (STP) ..................................................................................... 21
+RNA RT Primer (RTP) ............................................................................... 22
+RNA PCR Index Primers (RPI1–RPI48) ....................................................... 22
+TruSeq Targeted RNA Expression ................................................................ 25
+Index 1 (i7) Adapters .............................................................................. 25
+Index 2 (i5) Adapter ................................................................................ 26
+Process Controls for TruSeq Kits ................................................................. 27
+Nextera DNA Sample Prep Kit (Epicentre Biotechnologies) ......................... 33
+Transposon Sequences ............................................................................ 33
+Adapters (showing optional bar code) ........................................................ 33
+PCR Primers ........................................................................................... 33
+Oligonucleotide Sequences for Genomic DNA .............................................. 33
+Adapters ................................................................................................ 33
+PCR Primers ........................................................................................... 33
+Genomic DNA Sequencing Primer .............................................................. 33
+Oligonucleotide Sequences for Paired End DNA........................................... 34
+PE Adapters ............................................................................................ 34
+PE PCR Primer 1.0 ................................................................................... 34
+PE PCR Primer 2.0 ................................................................................... 34
+PE Read 1 Sequencing Primer ................................................................... 34
+PE Read 2 Sequencing Primer ................................................................... 34
+Oligonucleotide Sequences for the Multiplexing Sample Prep Oligo Only Kit34
+Multiplexing Adapters .............................................................................. 34
+Multiplexing PCR Primer 1.0...................................................................... 34
+Document # 1000000002694 v01
+February 2016
+
+3
+
+Illumina Adapter Sequences
+Multiplexing PCR Primer 2.0...................................................................... 34
+Multiplexing Read 1 Sequencing Primer ...................................................... 34
+Multiplexing Index Read Sequencing Primer ................................................ 34
+Multiplexing Read 2 Sequencing Primer ...................................................... 35
+PCR Primer Index Sequences 1–12 ............................................................ 35
+Oligonucleotide Sequences for the v1 and v1.5 Small RNA Kits ................... 35
+RT Primer ............................................................................................... 35
+5' RNA Adapter ....................................................................................... 36
+3' RNA Adapter ....................................................................................... 36
+v1.5 Small RNA 3' Adapter ....................................................................... 36
+Small RNA PCR Primer 1 .......................................................................... 36
+Small RNA PCR Primer 2 .......................................................................... 36
+Small RNA Sequencing Primer................................................................... 36
+Revision History .......................................................................................... 37
+
+Document # 1000000002694 v01
+February 2016
+
+4
+
+Illumina Adapter Sequences
+
+Introduction
+This document lists the index adapter sequences for Illumina library prep kits. The sequences are grouped
+into sections for TruSight kits, Nextera kits, and TruSeq kits, with an appendix that lists TruSeq controls and
+information for legacy Illumina kits.
+Sequencing on the MiniSeq, NextSeq, and HiSeq 3000/4000 systems follow a different dual-indexing
+workflow than other Illumina systems, which requires the reverse complement of the i5 index adapter
+sequence.
+•
+•
+
+If you are creating a sample sheet manually for the MiniSeq, NextSeq, or HiSeq 3000/4000 systems,
+include the reverse complement of the sequence on your sample sheet.
+If you are using the Illumina Experiment Manager (IEM), BaseSpace Prep tab, or Local Run Manager to
+record the adapter sequences, the software creates the reverse complement automatically.
+
+TruSight Amplicon Panels
+Includes TruSight Myeloid Sequencing Panel and TruSight Tumor 26
+
+Index 1 (i7) Adapters
+i7 Index Name
+
+i7 Bases for Sample Sheet
+
+A701
+
+ATCACGAC
+
+A702
+
+ACAGTGGT
+
+A703
+
+CAGATCCA
+
+A704
+
+ACAAACGG
+
+A705
+
+ACCCAGCA
+
+A706
+
+AACCCCTC
+
+A707
+
+CCCAACCT
+
+A708
+
+CACCACAC
+
+A709
+
+GAAACCCA
+
+A710
+
+TGTGACCA
+
+A711
+
+AGGGTCAA
+
+A712
+
+AGGAGTGG
+
+Document # 1000000002694 v01
+February 2016
+
+5
+
+Illumina Adapter Sequences
+
+Index 2 (i5) Adapter
+i5 Index Name
+
+i5 Bases for Sample Sheet
+MiSeq, HiSeq 2000/2500
+
+i5 Bases for Sample Sheet
+MiniSeq, NextSeq, HiSeq 3000/4000
+
+A501
+
+TGAACCTT
+
+AAGGTTCA
+
+A502
+
+TGCTAAGT
+
+ACTTAGCA
+
+A503
+
+TGTTCTCT
+
+AGAGAACA
+
+A504
+
+TAAGACAC
+
+GTGTCTTA
+
+A505
+
+CTAATCGA
+
+TCGATTAG
+
+A506
+
+CTAGAACA
+
+TGTTCTAG
+
+A507
+
+TAAGTTCC
+
+GGAACTTA
+
+A508
+
+TAGACCTA
+
+TAGGTCTA
+
+TruSight Cardio
+Index 1 (i7) Adapters
+i7 Index Name
+
+i7 Bases for Sample Sheet
+
+N701
+
+TAAGGCGA
+
+N702
+
+CGTACTAG
+
+N703
+
+AGGCAGAA
+
+N704
+
+TCCTGAGC
+
+N705
+
+GGACTCCT
+
+N706
+
+TAGGCATG
+
+N707
+
+CTCTCTAC
+
+N708
+
+CAGAGAGG
+
+N709
+
+GCTACGCT
+
+N710
+
+CGAGGCTG
+
+N711
+
+AAGAGGCA
+
+N712
+
+GTAGAGGA
+
+Document # 1000000002694 v01
+February 2016
+
+6
+
+Illumina Adapter Sequences
+
+Index 2 (i5) Adapter
+i5 Index Name
+
+i5 Bases for Sample Sheet
+MiSeq, HiSeq 2000/2500
+
+i5 Bases for Sample Sheet
+NextSeq, HiSeq 3000/4000
+
+E505
+
+GTAAGGAG
+
+CTCCTTAC
+
+TruSight One
+Index 1 (i7) Adapters
+i7 Index Name
+
+i7 Bases for Sample Sheet
+
+N701
+
+TAAGGCGA
+
+N702
+
+CGTACTAG
+
+N703
+
+AGGCAGAA
+
+N704
+
+TCCTGAGC
+
+N705
+
+GGACTCCT
+
+N706
+
+TAGGCATG
+
+N707
+
+CTCTCTAC
+
+N708
+
+CAGAGAGG
+
+N709
+
+GCTACGCT
+
+N710
+
+CGAGGCTG
+
+N711
+
+AAGAGGCA
+
+N712
+
+GTAGAGGA
+
+Index 2 (i5) Adapter
+i5 Index Name
+
+i5 Bases for Sample Sheet
+MiSeq, HiSeq 2000/2500
+
+i5 Bases for Sample Sheet
+MiniSeq, NextSeq, HiSeq 3000/4000
+
+E502
+
+CTCTCTAT
+
+ATAGAGAG
+
+E503
+
+TATCCTCT
+
+AGAGGATA
+
+E504
+
+AGAGTAGA
+
+TCTACTCT
+
+E505
+
+GTAAGGAG
+
+CTCCTTAC
+
+Document # 1000000002694 v01
+February 2016
+
+7
+
+Illumina Adapter Sequences
+
+TruSight Rapid Capture
+Includes TruSight Autism, TruSight Cancer, and TruSight Inherited Disease
+
+Index 1 (i7) Adapters
+i7 Index Name
+
+i7 Bases for Sample Sheet
+
+N701
+
+TAAGGCGA
+
+N702
+
+CGTACTAG
+
+N703
+
+AGGCAGAA
+
+N704
+
+TCCTGAGC
+
+N705
+
+GGACTCCT
+
+N706
+
+TAGGCATG
+
+N707
+
+CTCTCTAC
+
+N708
+
+CAGAGAGG
+
+N709
+
+GCTACGCT
+
+N710
+
+CGAGGCTG
+
+N711
+
+AAGAGGCA
+
+N712
+
+GTAGAGGA
+
+Index 2 (i5) Adapter
+i5 Index Name
+
+i5 Bases for Sample Sheet
+MiSeq, HiSeq 2000/2500
+
+i5 Bases for Sample Sheet
+MiniSeq, NextSeq, HiSeq 3000/4000
+
+E502
+
+CTCTCTAT
+
+ATAGAGAG
+
+E505
+
+GTAAGGAG
+
+CTCCTTAC
+
+E506
+
+ACTGCATA
+
+TATGCAGT
+
+E517
+
+GCGTAAGA
+
+TCTTACGC
+
+Document # 1000000002694 v01
+February 2016
+
+8
+
+Illumina Adapter Sequences
+
+TruSight Tumor 15
+Index 1 (i7) Adapters
+i7 Index Name
+
+i7 Bases for Sample Sheet
+
+R701
+
+ATCACG
+
+R702
+
+CGATGT
+
+R703
+
+TTAGGC
+
+R704
+
+TGACCA
+
+R705
+
+ACAGTG
+
+R706
+
+GCCAAT
+
+R707
+
+CAGATC
+
+R708
+
+ACTTGA
+
+R709
+
+GATCAG
+
+R711
+
+GGCTAC
+
+R712
+
+CTTGTA
+
+R725
+
+ACTGAT
+
+R726
+
+ATGAGC
+
+R727
+
+ATTCCT
+
+R728
+
+CAAAAG
+
+R729
+
+CAACTA
+
+R730
+
+CACCGG
+
+R731
+
+CACGAT
+
+R732
+
+CACTCA
+
+R733
+
+CAGGCG
+
+R734
+
+CATGGC
+
+R735
+
+CATTTT
+
+R736
+
+CCAACA
+
+R749
+
+GATGCT
+
+Document # 1000000002694 v01
+February 2016
+
+9
+
+Illumina Adapter Sequences
+
+Index 2 (i5) Adapter
+i5 Index Name
+
+i5 Bases for Sample Sheet
+MiSeq, HiSeq 2000/2500
+
+i5 Bases for Sample Sheet
+MiniSeq, NextSeq, HiSeq 3000/4000
+
+A501
+
+TGAACCTT
+
+AAGGTTCA
+
+A502
+
+TGCTAAGT
+
+ACTTAGCA
+
+TruSight RNA Pan-Cancer Panel
+Universal Adapter
+5’ AATGATACGGCGACCACCGAGATCTACACTCTTTCCCTACACGACGCTCTTCCGATCT
+Adapter, Index 1–12
+5’ GATCGGAAGAGCACACGTCTGAACTCCAGTCAC[6 bases]ATCTCGTATGCCGTCTTCTGCTTG
+Adapter, Index 13
+5’ GATCGGAAGAGCACACGTCTGAACTCCAGTCAC[6 bases]CAATCTCGTATGCCGTCTTCTGCTTG
+Adapter, Index 14
+5’ GATCGGAAGAGCACACGTCTGAACTCCAGTCAC[6 bases]GTATCTCGTATGCCGTCTTCTGCTTG
+Adapter, Index 15 and Index 21
+5’ GATCGGAAGAGCACACGTCTGAACTCCAGTCAC[6 bases]GAATCTCGTATGCCGTCTTCTGCTTG
+Adapter, Index 16 and Index 19
+5’ GATCGGAAGAGCACACGTCTGAACTCCAGTCAC[6 bases]CGATCTCGTATGCCGTCTTCTGCTTG
+Adapter, Index 18
+5’ GATCGGAAGAGCACACGTCTGAACTCCAGTCAC[6 bases]ACATCTCGTATGCCGTCTTCTGCTTG
+Adapter, Index 20 and Index 27
+5’ GATCGGAAGAGCACACGTCTGAACTCCAGTCAC[6 bases]TTATCTCGTATGCCGTCTTCTGCTTG
+Adapter, Index 22
+5’ GATCGGAAGAGCACACGTCTGAACTCCAGTCAC[6 bases]TAATCTCGTATGCCGTCTTCTGCTTG
+Adapter, Index 23 and Index 25
+5’ GATCGGAAGAGCACACGTCTGAACTCCAGTCAC[6 bases]ATATCTCGTATGCCGTCTTCTGCTTG
+
+Index Adapters
+In this set of adapters, index numbering does not include numbers 17, 24, or 26.
+LT Set A/B
+
+Index Name
+
+6-Base Sequence for Sample Sheet
+
+B
+
+AR001
+
+ATCACG
+
+A
+
+AR002
+
+CGATGT
+
+Document # 1000000002694 v01
+February 2016
+
+10
+
+Illumina Adapter Sequences
+
+LT Set A/B
+
+Index Name
+
+6-Base Sequence for Sample Sheet
+
+B
+
+AR003
+
+TTAGGC
+
+A
+
+AR004
+
+TGACCA
+
+A
+
+AR005
+
+ACAGTG
+
+A
+
+AR006
+
+GCCAAT
+
+A
+
+AR007
+
+CAGATC
+
+B
+
+AR008
+
+ACTTGA
+
+B
+
+AR009
+
+GATCAG
+
+B
+
+AR010
+
+TAGCTT
+
+B
+
+AR011
+
+GGCTAC
+
+A
+
+AR012
+
+CTTGTA
+
+A
+
+AR013
+
+AGTCAA
+
+A
+
+AR014
+
+AGTTCC
+
+A
+
+AR015
+
+ATGTCA
+
+A
+
+AR016
+
+CCGTCC
+
+A
+
+AR018
+
+GTCCGC
+
+A
+
+AR019
+
+GTGAAA
+
+B
+
+AR020
+
+GTGGCC
+
+B
+
+AR021
+
+GTTTCG
+
+B
+
+AR022
+
+CGTACG
+
+B
+
+AR023
+
+GAGTGG
+
+B
+
+AR025
+
+ACTGAT
+
+B
+
+AR027
+
+ATTCCT
+
+Document # 1000000002694 v01
+February 2016
+
+11
+
+Illumina Adapter Sequences
+
+Illumina Nextera Library Prep Kits
+Includes Nextera DNA, Nextera XT, Nextera Enrichment (obsolete), and Nextera Rapid Capture
+
+Nextera Transposase Adapters
+(Used for Nextera tagmentation)
+
+Read 1
+5’ TCGTCGGCAGCGTCAGATGTGTATAAGAGACAG
+Read 2
+5’ GTCTCGTGGGCTCGGAGATGTGTATAAGAGACAG
+
+Nextera Index Kit – PCR Primers
+Index 1 Read
+5’ CAAGCAGAAGACGGCATACGAGAT[i7]GTCTCGTGGGCTCGG
+Index 2 Read
+5’ AATGATACGGCGACCACCGAGATCTACAC[i5]TCGTCGGCAGCGTC
+
+Nextera Index Kit - Index 1 (i7) Adapters
+Bases in Adapter
+
+i7 Index Name
+
+i7 Bases for Sample Sheet
+
+TCGCCTTA
+
+N701
+
+TAAGGCGA
+
+CTAGTACG
+
+N702
+
+CGTACTAG
+
+TTCTGCCT
+
+N703
+
+AGGCAGAA
+
+GCTCAGGA
+
+N704
+
+TCCTGAGC
+
+AGGAGTCC
+
+N705
+
+GGACTCCT
+
+CATGCCTA
+
+N706
+
+TAGGCATG
+
+GTAGAGAG
+
+N707
+
+CTCTCTAC
+
+CCTCTCTG
+
+N708
+
+CAGAGAGG
+
+AGCGTAGC
+
+N709
+
+GCTACGCT
+
+CAGCCTCG
+
+N710
+
+CGAGGCTG
+
+TGCCTCTT
+
+N711
+
+AAGAGGCA
+
+TCCTCTAC
+
+N712
+
+GTAGAGGA
+
+Document # 1000000002694 v01
+February 2016
+
+12
+
+Illumina Adapter Sequences
+
+Nextera Index Kit - Index 2 (i5) Adapters
+The i5 index names vary for different Nextera products as follows:
+•
+•
+•
+
+N50x—Nextera DNA
+S50x—Nextera XT
+E50x—Nextera Enrichment and Nextera Rapid Capture
+
+i5 Bases for Sample Sheet
+Bases in Adapter i5 Index Name MiSeq, HiSeq 2000/2500
+
+i5 Bases for Sample Sheet
+MiniSeq, NextSeq, HiSeq 3000/4000
+
+TAGATCGC
+
+[N/S/E]501
+
+TAGATCGC
+
+GCGATCTA
+
+CTCTCTAT
+
+[N/S/E]502
+
+CTCTCTAT
+
+ATAGAGAG
+
+TATCCTCT
+
+[N/S/E]503
+
+TATCCTCT
+
+AGAGGATA
+
+AGAGTAGA
+
+[N/S/E]504
+
+AGAGTAGA
+
+TCTACTCT
+
+GTAAGGAG
+
+[N/S/E]505
+
+GTAAGGAG
+
+CTCCTTAC
+
+ACTGCATA
+
+[N/S/E]506
+
+ACTGCATA
+
+TATGCAGT
+
+AAGGAGTA
+
+[N/S/E]507
+
+AAGGAGTA
+
+TACTCCTT
+
+CTAAGCCT
+
+[N/S/E]508
+
+CTAAGCCT
+
+AGGCTTAG
+
+GCGTAAGA
+
+[N/S/E]517
+
+GCGTAAGA
+
+TCTTACGC
+
+Nextera XT Index Kit v2 - Index 1 (i7) Adapters
+Bases in Adapter
+
+i7 Index Name
+
+i7 Bases for Entry on Sample Sheet
+
+TCGCCTTA
+
+N701
+
+TAAGGCGA
+
+CTAGTACG
+
+N702
+
+CGTACTAG
+
+TTCTGCCT
+
+N703
+
+AGGCAGAA
+
+GCTCAGGA
+
+N704
+
+TCCTGAGC
+
+AGGAGTCC
+
+N705
+
+GGACTCCT
+
+CATGCCTA
+
+N706
+
+TAGGCATG
+
+GTAGAGAG
+
+N707
+
+CTCTCTAC
+
+CAGCCTCG
+
+N710
+
+CGAGGCTG
+
+TGCCTCTT
+
+N711
+
+AAGAGGCA
+
+TCCTCTAC
+
+N712
+
+GTAGAGGA
+
+TCATGAGC
+
+N714
+
+GCTCATGA
+
+Document # 1000000002694 v01
+February 2016
+
+13
+
+Illumina Adapter Sequences
+
+Bases in Adapter
+
+i7 Index Name
+
+i7 Bases for Entry on Sample Sheet
+
+CCTGAGAT
+
+N715
+
+ATCTCAGG
+
+TAGCGAGT
+
+N716
+
+ACTCGCTA
+
+GTAGCTCC
+
+N718
+
+GGAGCTAC
+
+TACTACGC
+
+N719
+
+GCGTAGTA
+
+AGGCTCCG
+
+N720
+
+CGGAGCCT
+
+GCAGCGTA
+
+N721
+
+TACGCTGC
+
+CTGCGCAT
+
+N722
+
+ATGCGCAG
+
+GAGCGCTA
+
+N723
+
+TAGCGCTC
+
+CGCTCAGT
+
+N724
+
+ACTGAGCG
+
+GTCTTAGG
+
+N726
+
+CCTAAGAC
+
+ACTGATCG
+
+N727
+
+CGATCAGT
+
+TAGCTGCA
+
+N728
+
+TGCAGCTA
+
+GACGTCGA
+
+N729
+
+TCGACGTC
+
+Nextera XT Index Kit v2 - Index 2 (i5) Adapters
+i5 Bases for Sample Sheet
+Bases in Adapter i5 Index Name MiSeq, HiSeq 2000/2500
+
+i5 Bases for Sample Sheet
+MiniSeq, NextSeq, HiSeq 3000/4000
+
+CTCTCTAT
+
+S502
+
+CTCTCTAT
+
+ATAGAGAG
+
+TATCCTCT
+
+S503
+
+TATCCTCT
+
+AGAGGATA
+
+GTAAGGAG
+
+S505
+
+GTAAGGAG
+
+CTCCTTAC
+
+ACTGCATA
+
+S506
+
+ACTGCATA
+
+TATGCAGT
+
+AAGGAGTA
+
+S507
+
+AAGGAGTA
+
+TACTCCTT
+
+CTAAGCCT
+
+S508
+
+CTAAGCCT
+
+AGGCTTAG
+
+CGTCTAAT
+
+S510
+
+CGTCTAAT
+
+ATTAGACG
+
+TCTCTCCG
+
+S511
+
+TCTCTCCG
+
+CGGAGAGA
+
+TCGACTAG
+
+S513
+
+TCGACTAG
+
+CTAGTCGA
+
+TTCTAGCT
+
+S515
+
+TTCTAGCT
+
+AGCTAGAA
+
+CCTAGAGT
+
+S516
+
+CCTAGAGT
+
+ACTCTAGG
+
+Document # 1000000002694 v01
+February 2016
+
+14
+
+Illumina Adapter Sequences
+
+i5 Bases for Sample Sheet
+Bases in Adapter i5 Index Name MiSeq, HiSeq 2000/2500
+
+i5 Bases for Sample Sheet
+MiniSeq, NextSeq, HiSeq 3000/4000
+
+GCGTAAGA
+
+S517
+
+GCGTAAGA
+
+TCTTACGC
+
+CTATTAAG
+
+S518
+
+CTATTAAG
+
+CTTAATAG
+
+AAGGCTAT
+
+S520
+
+AAGGCTAT
+
+ATAGCCTT
+
+GAGCCTTA
+
+S521
+
+GAGCCTTA
+
+TAAGGCTC
+
+TTATGCGA
+
+S522
+
+TTATGCGA
+
+TCGCATAA
+
+Document # 1000000002694 v01
+February 2016
+
+15
+
+Illumina Adapter Sequences
+
+TruSeq Amplicon Kits
+TruSeq Custom Amplicon 1.5, TruSeq Amplicon Cancer Panel, and TruSeq Custom Amplicon Low Input
+
+Index 1 (i7) Adapters
+i7 Index Name
+
+i7 Bases for Sample Sheet
+
+A701
+
+ATCACGAC
+
+A702
+
+ACAGTGGT
+
+A703
+
+CAGATCCA
+
+A704
+
+ACAAACGG
+
+A705
+
+ACCCAGCA
+
+A706
+
+AACCCCTC
+
+A707
+
+CCCAACCT
+
+A708
+
+CACCACAC
+
+A709
+
+GAAACCCA
+
+A710
+
+TGTGACCA
+
+A711
+
+AGGGTCAA
+
+A712
+
+AGGAGTGG
+
+Index 2 (i5) Adapter
+i5 Index Name
+
+i5 Bases for Sample Sheet
+MiSeq, HiSeq 2000/2500
+
+i5 Bases for Sample Sheet
+MiniSeq, NextSeq, HiSeq 3000/4000
+
+A501
+
+TGAACCTT
+
+AAGGTTCA
+
+A502
+
+TGCTAAGT
+
+ACTTAGCA
+
+A503
+
+TGTTCTCT
+
+AGAGAACA
+
+A504
+
+TAAGACAC
+
+GTGTCTTA
+
+A505
+
+CTAATCGA
+
+TCGATTAG
+
+A506
+
+CTAGAACA
+
+TGTTCTAG
+
+A507
+
+TAAGTTCC
+
+GGAACTTA
+
+A508
+
+TAGACCTA
+
+TAGGTCTA
+
+Document # 1000000002694 v01
+February 2016
+
+16
+
+Illumina Adapter Sequences
+
+TruSeq DNA Methylation
+Index PCR Primers
+5’ CAAGCAGAAGACGGCATACGAGAT[6 bases]GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT
+
+Index Adapters
+Index Name
+
+6-Base Sequence for Sample Sheet
+
+Index 1
+
+ATCACG
+
+Index 2
+
+CGATGT
+
+Index 3
+
+TTAGGC
+
+Index 4
+
+TGACCA
+
+Index 5
+
+ACAGTG
+
+Index 6
+
+GCCAAT
+
+Index 7
+
+CAGATC
+
+Index 8
+
+ACTTGA
+
+Index 9
+
+GATCAG
+
+Index 10
+
+TAGCTT
+
+Index 11
+
+GGCTAC
+
+Index 12
+
+CTTGTA
+
+TruSeq HT Kits
+Includes TruSeq DNA PCR-Free HT, TruSeq Nano HT, TruSeq Stranded mRNA HT, and TruSeq Total RNA
+HT
+
+D501–D508 Adapters
+AATGATACGGCGACCACCGAGATCTACAC[i5]ACACTCTTTCCCTACACGACGCTCTTCCGATCT
+
+D701–D712 Adapters
+GATCGGAAGAGCACACGTCTGAACTCCAGTCAC[i7]ATCTCGTATGCCGTCTTCTGCTTG
+
+Document # 1000000002694 v01
+February 2016
+
+17
+
+Illumina Adapter Sequences
+
+Index 1 (i7) Adapters
+i7 Index Name
+
+i7 Bases for Sample Sheet
+
+D701
+
+ATTACTCG
+
+D702
+
+TCCGGAGA
+
+D703
+
+CGCTCATT
+
+D704
+
+GAGATTCC
+
+D705
+
+ATTCAGAA
+
+D706
+
+GAATTCGT
+
+D707
+
+CTGAAGCT
+
+D708
+
+TAATGCGC
+
+D709
+
+CGGCTATG
+
+D710
+
+TCCGCGAA
+
+D711
+
+TCTCGCGC
+
+D712
+
+AGCGATAG
+
+Index 2 (i5) Adapters
+i5 Index Name
+
+i5 Bases for Sample Sheet
+MiSeq, HiSeq 2000/2500
+
+i5 Bases for Sample Sheet
+MiniSeq, NextSeq, HiSeq 3000/4000
+
+D501
+
+TATAGCCT
+
+AGGCTATA
+
+D502
+
+ATAGAGGC
+
+GCCTCTAT
+
+D503
+
+CCTATCCT
+
+AGGATAGG
+
+D504
+
+GGCTCTGA
+
+TCAGAGCC
+
+D505
+
+AGGCGAAG
+
+CTTCGCCT
+
+D506
+
+TAATCTTA
+
+TAAGATTA
+
+D507
+
+CAGGACGT
+
+ACGTCCTG
+
+D508
+
+GTACTGAC
+
+GTCAGTAC
+
+Document # 1000000002694 v01
+February 2016
+
+18
+
+Illumina Adapter Sequences
+
+TruSeq LT Kits and TruSeq v1/v2 Kits
+Includes TruSeq DNA PCR-Free LT, TruSeq Nano DNA LT, TruSeq DNA v1/v2/LT (obsolete), TruSeq RNA
+v1/v2/LT, TruSeq Stranded mRNA LT, TruSeq Stranded Total RNA LT, TruSeq RNA Access, and TruSeq
+ChIP
+Index sequences are 6 bases as underlined. Enter the underlined 6 bases on the sample sheet.
+
+TruSeq Universal Adapter
+5’ AATGATACGGCGACCACCGAGATCTACACTCTTTCCCTACACGACGCTCTTCCGATCT
+
+TruSeq Index Adapters (Index 1–27)
+Index numbers 17, 24, and 26 are reserved.
+
+TruSeq Adapter, Index 1
+5’ GATCGGAAGAGCACACGTCTGAACTCCAGTCACATCACGATCTCGTATGCCGTCTTCTGCTTG
+TruSeq Adapter, Index 2
+5’ GATCGGAAGAGCACACGTCTGAACTCCAGTCACCGATGTATCTCGTATGCCGTCTTCTGCTTG
+TruSeq Adapter, Index 3
+5’ GATCGGAAGAGCACACGTCTGAACTCCAGTCACTTAGGCATCTCGTATGCCGTCTTCTGCTTG
+TruSeq Adapter, Index 4
+5’ GATCGGAAGAGCACACGTCTGAACTCCAGTCACTGACCAATCTCGTATGCCGTCTTCTGCTTG
+TruSeq Adapter, Index 5
+5’ GATCGGAAGAGCACACGTCTGAACTCCAGTCACACAGTGATCTCGTATGCCGTCTTCTGCTTG
+TruSeq Adapter, Index 6
+5’ GATCGGAAGAGCACACGTCTGAACTCCAGTCACGCCAATATCTCGTATGCCGTCTTCTGCTTG
+TruSeq Adapter, Index 7
+5’ GATCGGAAGAGCACACGTCTGAACTCCAGTCACCAGATCATCTCGTATGCCGTCTTCTGCTTG
+TruSeq Adapter, Index 8
+5’ GATCGGAAGAGCACACGTCTGAACTCCAGTCACACTTGAATCTCGTATGCCGTCTTCTGCTTG
+TruSeq Adapter, Index 9
+5’ GATCGGAAGAGCACACGTCTGAACTCCAGTCACGATCAGATCTCGTATGCCGTCTTCTGCTTG
+TruSeq Adapter, Index 10
+5’ GATCGGAAGAGCACACGTCTGAACTCCAGTCACTAGCTTATCTCGTATGCCGTCTTCTGCTTG
+TruSeq Adapter, Index 11
+5’ GATCGGAAGAGCACACGTCTGAACTCCAGTCACGGCTACATCTCGTATGCCGTCTTCTGCTTG
+TruSeq Adapter, Index 12
+5’ GATCGGAAGAGCACACGTCTGAACTCCAGTCACCTTGTAATCTCGTATGCCGTCTTCTGCTTG
+
+Document # 1000000002694 v01
+February 2016
+
+19
+
+Illumina Adapter Sequences
+
+TruSeq Adapter, Index 13
+5’ GATCGGAAGAGCACACGTCTGAACTCCAGTCACAGTCAACAATCTCGTATGCCGTCTTCTGCTTG
+TruSeq Adapter, Index 14
+5’ GATCGGAAGAGCACACGTCTGAACTCCAGTCACAGTTCCGTATCTCGTATGCCGTCTTCTGCTTG
+TruSeq Adapter, Index 15
+5’ GATCGGAAGAGCACACGTCTGAACTCCAGTCACATGTCAGAATCTCGTATGCCGTCTTCTGCTTG
+TruSeq Adapter, Index 16
+5’ GATCGGAAGAGCACACGTCTGAACTCCAGTCACCCGTCCCGATCTCGTATGCCGTCTTCTGCTTG
+TruSeq Adapter, Index 18
+5’ GATCGGAAGAGCACACGTCTGAACTCCAGTCACGTCCGCACATCTCGTATGCCGTCTTCTGCTTG
+TruSeq Adapter, Index 19
+5’ GATCGGAAGAGCACACGTCTGAACTCCAGTCACGTGAAACGATCTCGTATGCCGTCTTCTGCTTG
+TruSeq Adapter, Index 20
+5’ GATCGGAAGAGCACACGTCTGAACTCCAGTCACGTGGCCTTATCTCGTATGCCGTCTTCTGCTTG
+TruSeq Adapter, Index 21
+5’ GATCGGAAGAGCACACGTCTGAACTCCAGTCACGTTTCGGAATCTCGTATGCCGTCTTCTGCTTG
+TruSeq Adapter, Index 22
+5’ GATCGGAAGAGCACACGTCTGAACTCCAGTCACCGTACGTAATCTCGTATGCCGTCTTCTGCTTG
+TruSeq Adapter, Index 23
+5’ GATCGGAAGAGCACACGTCTGAACTCCAGTCACGAGTGGATATCTCGTATGCCGTCTTCTGCTTG
+TruSeq Adapter, Index 25
+5’ GATCGGAAGAGCACACGTCTGAACTCCAGTCACACTGATATATCTCGTATGCCGTCTTCTGCTTG
+TruSeq Adapter, Index 27
+5’ GATCGGAAGAGCACACGTCTGAACTCCAGTCACATTCCTTTATCTCGTATGCCGTCTTCTGCTTG
+
+TruSeq Ribo Profile
+3’ Adapter
+5’ AGATCGGAAGAGCACACGTCT
+
+Forward PCR Primer
+5’ ATGATACGGCGACCACCGAGATCTACACGTTCAGAGTTCTACAGTCCGACG
+
+Index PCR Primers
+5’ CAAGCAGAAGACGGCATACGAGAT[6 bases]GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT
+
+Document # 1000000002694 v01
+February 2016
+
+20
+
+Illumina Adapter Sequences
+
+Index Adapters
+Index Name
+
+6-Base Sequence for Sample Sheet
+
+A001
+
+ATCACG
+
+A002
+
+CGATGT
+
+A003
+
+TTAGGC
+
+A004
+
+TGACCA
+
+A005
+
+ACAGTG
+
+A006
+
+GCCAAT
+
+A007
+
+CAGATC
+
+A008
+
+ACTTGA
+
+A009
+
+GATCAG
+
+A010
+
+TAGCTT
+
+A011
+
+GGCTAC
+
+A012
+
+CTTGTA
+
+TruSeq Synthetic Long-Read DNA
+Double-stranded DNA adapter containing long-range PCR primer binding site, sequencing primer binding site,
+and end marker sequence.
+
+Long Reads Adapter
+5’ CCGGTTCTTCCCTGCCGAACCCTATCTTCGTCGGCAGCGTCAGATGTGTATAAGAGACAGTACGCTTGCAT
+
+TruSeq Small RNA
+RNA 5’ Adapter (RA5)
+5’ GUUCAGAGUUCUACAGUCCGACGAUC
+
+RNA 3’ Adapter (RA3)
+5’ TGGAATTCTCGGGTGCCAAGG
+
+Stop Oligo (STP)
+5’ GAAUUCCACCACGUUCCCGUGG
+Document # 1000000002694 v01
+February 2016
+
+21
+
+Illumina Adapter Sequences
+
+RNA RT Primer (RTP)
+5’ GCCTTGGCACCCGAGAATTCCA
+RNA PCR Primer (RP1)
+5’ AATGATACGGCGACCACCGAGATCTACACGTTCAGAGTTCTACAGTCCGA
+
+RNA PCR Index Primers (RPI1–RPI48)
+Index sequence is 6 bases as underlined. Enter the underlined 6 bases on the sample sheet. Index
+sequences are read in the reverse complement in TruSeq small RNA libraries.
+
+RNA PCR Primer, Index 1 (RPI1)
+5’ CAAGCAGAAGACGGCATACGAGATCGTGATGTGACTGGAGTTCCTTGGCACCCGAGAATTCCA
+RNA PCR Primer, Index 2 (RPI2)
+5’ CAAGCAGAAGACGGCATACGAGATACATCGGTGACTGGAGTTCCTTGGCACCCGAGAATTCCA
+RNA PCR Primer, Index 3 (RPI3)
+5’ CAAGCAGAAGACGGCATACGAGATGCCTAAGTGACTGGAGTTCCTTGGCACCCGAGAATTCCA
+RNA PCR Primer, Index 4 (RPI4)
+5’ CAAGCAGAAGACGGCATACGAGATTGGTCAGTGACTGGAGTTCCTTGGCACCCGAGAATTCCA
+RNA PCR Primer, Index 5 (RPI5)
+5’ CAAGCAGAAGACGGCATACGAGATCACTGTGTGACTGGAGTTCCTTGGCACCCGAGAATTCCA
+RNA PCR Primer, Index 6 (RPI6)
+5’ CAAGCAGAAGACGGCATACGAGATATTGGCGTGACTGGAGTTCCTTGGCACCCGAGAATTCCA
+RNA PCR Primer, Index 7 (RPI7)
+5’ CAAGCAGAAGACGGCATACGAGATGATCTGGTGACTGGAGTTCCTTGGCACCCGAGAATTCCA
+RNA PCR Primer, Index 8 (RPI8)
+5’ CAAGCAGAAGACGGCATACGAGATTCAAGTGTGACTGGAGTTCCTTGGCACCCGAGAATTCCA
+RNA PCR Primer, Index 9 (RPI9)
+5’ CAAGCAGAAGACGGCATACGAGATCTGATCGTGACTGGAGTTCCTTGGCACCCGAGAATTCCA
+RNA PCR Primer, Index 10 (RPI10)
+5’ CAAGCAGAAGACGGCATACGAGATAAGCTAGTGACTGGAGTTCCTTGGCACCCGAGAATTCCA
+RNA PCR Primer, Index 11 (RPI11)
+5’ CAAGCAGAAGACGGCATACGAGATGTAGCCGTGACTGGAGTTCCTTGGCACCCGAGAATTCCA
+RNA PCR Primer, Index 12 (RPI12)
+5’ CAAGCAGAAGACGGCATACGAGATTACAAGGTGACTGGAGTTCCTTGGCACCCGAGAATTCCA
+RNA PCR Primer, Index 13 (RPI13)
+5’ CAAGCAGAAGACGGCATACGAGATTTGACTGTGACTGGAGTTCCTTGGCACCCGAGAATTCCA
+
+Document # 1000000002694 v01
+February 2016
+
+22
+
+Illumina Adapter Sequences
+
+RNA PCR Primer, Index 14 (RPI14)
+5’ CAAGCAGAAGACGGCATACGAGATGGAACTGTGACTGGAGTTCCTTGGCACCCGAGAATTCCA
+RNA PCR Primer, Index 15 (RPI15)
+5’ CAAGCAGAAGACGGCATACGAGATTGACATGTGACTGGAGTTCCTTGGCACCCGAGAATTCCA
+RNA PCR Primer, Index 16 (RPI16)
+5’ CAAGCAGAAGACGGCATACGAGATGGACGGGTGACTGGAGTTCCTTGGCACCCGAGAATTCCA
+RNA PCR Primer, Index 17 (RPI17)
+5’ CAAGCAGAAGACGGCATACGAGATCTCTACGTGACTGGAGTTCCTTGGCACCCGAGAATTCCA
+RNA PCR Primer, Index 18 (RPI18)
+5’ CAAGCAGAAGACGGCATACGAGATGCGGACGTGACTGGAGTTCCTTGGCACCCGAGAATTCCA
+RNA PCR Primer, Index 19 (RPI19)
+5’ CAAGCAGAAGACGGCATACGAGATTTTCACGTGACTGGAGTTCCTTGGCACCCGAGAATTCCA
+RNA PCR Primer, Index 20 (RPI20)
+5’ CAAGCAGAAGACGGCATACGAGATGGCCACGTGACTGGAGTTCCTTGGCACCCGAGAATTCCA
+RNA PCR Primer, Index 21 (RPI21)
+5’ CAAGCAGAAGACGGCATACGAGATCGAAACGTGACTGGAGTTCCTTGGCACCCGAGAATTCCA
+RNA PCR Primer, Index 22 (RPI22)
+5’ CAAGCAGAAGACGGCATACGAGATCGTACGGTGACTGGAGTTCCTTGGCACCCGAGAATTCCA
+RNA PCR Primer, Index 23 (RPI23)
+5’ CAAGCAGAAGACGGCATACGAGATCCACTCGTGACTGGAGTTCCTTGGCACCCGAGAATTCCA
+RNA PCR Primer, Index 24 (RPI24)
+5’ CAAGCAGAAGACGGCATACGAGATGCTACCGTGACTGGAGTTCCTTGGCACCCGAGAATTCCA
+RNA PCR Primer, Index 25 (RPI25)
+5’ CAAGCAGAAGACGGCATACGAGATATCAGTGTGACTGGAGTTCCTTGGCACCCGAGAATTCCA
+RNA PCR Primer, Index 26 (RPI26)
+5’ CAAGCAGAAGACGGCATACGAGATGCTCATGTGACTGGAGTTCCTTGGCACCCGAGAATTCCA
+RNA PCR Primer, Index 27 (RPI27)
+5’ CAAGCAGAAGACGGCATACGAGATAGGAATGTGACTGGAGTTCCTTGGCACCCGAGAATTCCA
+RNA PCR Primer, Index 28 (RPI28)
+5’ CAAGCAGAAGACGGCATACGAGATCTTTTGGTGACTGGAGTTCCTTGGCACCCGAGAATTCCA
+RNA PCR Primer, Index 29 (RPI29)
+5’ CAAGCAGAAGACGGCATACGAGATTAGTTGGTGACTGGAGTTCCTTGGCACCCGAGAATTCCA
+RNA PCR Primer, Index 30 (RPI30)
+5’ CAAGCAGAAGACGGCATACGAGATCCGGTGGTGACTGGAGTTCCTTGGCACCCGAGAATTCCA
+Document # 1000000002694 v01
+February 2016
+
+23
+
+Illumina Adapter Sequences
+
+RNA PCR Primer, Index 31 (RPI31)
+5’ CAAGCAGAAGACGGCATACGAGATATCGTGGTGACTGGAGTTCCTTGGCACCCGAGAATTCCA
+RNA PCR Primer, Index 32 (RPI32)
+5’ CAAGCAGAAGACGGCATACGAGATTGAGTGGTGACTGGAGTTCCTTGGCACCCGAGAATTCCA
+RNA PCR Primer, Index 33 (RPI33)
+5’ CAAGCAGAAGACGGCATACGAGATCGCCTGGTGACTGGAGTTCCTTGGCACCCGAGAATTCCA
+RNA PCR Primer, Index 34 (RPI34)
+5’ CAAGCAGAAGACGGCATACGAGATGCCATGGTGACTGGAGTTCCTTGGCACCCGAGAATTCCA
+RNA PCR Primer, Index 35 (RPI35)
+5’ CAAGCAGAAGACGGCATACGAGATAAAATGGTGACTGGAGTTCCTTGGCACCCGAGAATTCCA
+RNA PCR Primer, Index 36 (RPI36)
+5’ CAAGCAGAAGACGGCATACGAGATTGTTGGGTGACTGGAGTTCCTTGGCACCCGAGAATTCCA
+RNA PCR Primer, Index 37 (RPI37)
+5’ CAAGCAGAAGACGGCATACGAGATATTCCGGTGACTGGAGTTCCTTGGCACCCGAGAATTCCA
+RNA PCR Primer, Index 38 (RPI38)
+5’ CAAGCAGAAGACGGCATACGAGATAGCTAGGTGACTGGAGTTCCTTGGCACCCGAGAATTCCA
+RNA PCR Primer, Index 39 (RPI39)
+5’ CAAGCAGAAGACGGCATACGAGATGTATAGGTGACTGGAGTTCCTTGGCACCCGAGAATTCCA
+RNA PCR Primer, Index 40 (RPI40)
+5’ CAAGCAGAAGACGGCATACGAGATTCTGAGGTGACTGGAGTTCCTTGGCACCCGAGAATTCCA
+RNA PCR Primer, Index 41 (RPI41)
+5’ CAAGCAGAAGACGGCATACGAGATGTCGTCGTGACTGGAGTTCCTTGGCACCCGAGAATTCCA
+RNA PCR Primer, Index 42 (RPI42)
+5’ CAAGCAGAAGACGGCATACGAGATCGATTAGTGACTGGAGTTCCTTGGCACCCGAGAATTCCA
+RNA PCR Primer, Index 43 (RPI43)
+5’ CAAGCAGAAGACGGCATACGAGATGCTGTAGTGACTGGAGTTCCTTGGCACCCGAGAATTCCA
+RNA PCR Primer, Index 44 (RPI44)
+5’ CAAGCAGAAGACGGCATACGAGATATTATAGTGACTGGAGTTCCTTGGCACCCGAGAATTCCA
+RNA PCR Primer, Index 45 (RPI45)
+5’ CAAGCAGAAGACGGCATACGAGATGAATGAGTGACTGGAGTTCCTTGGCACCCGAGAATTCCA
+RNA PCR Primer, Index 46 (RPI46)
+5’ CAAGCAGAAGACGGCATACGAGATTCGGGAGTGACTGGAGTTCCTTGGCACCCGAGAATTCCA
+RNA PCR Primer, Index 47 (RPI47)
+5’ CAAGCAGAAGACGGCATACGAGATCTTCGAGTGACTGGAGTTCCTTGGCACCCGAGAATTCCA
+Document # 1000000002694 v01
+February 2016
+
+24
+
+Illumina Adapter Sequences
+
+RNA PCR Primer, Index 48 (RPI48)
+5’ CAAGCAGAAGACGGCATACGAGATTGCCGAGTGACTGGAGTTCCTTGGCACCCGAGAATTCCA
+
+TruSeq Targeted RNA Expression
+Index 1 (i7) Adapters
+i7 Index Name
+
+i7 Bases for Sample Sheet
+
+i7 Index Name
+
+i7 Bases for Sample Sheet
+
+R701
+
+ATCACG
+
+R725
+
+ACTGAT
+
+R702
+
+CGATGT
+
+R726
+
+ATGAGC
+
+R703
+
+TTAGGC
+
+R727
+
+ATTCCT
+
+R704
+
+TGACCA
+
+R728
+
+CAAAAG
+
+R705
+
+ACAGTG
+
+R729
+
+CAACTA
+
+R706
+
+GCCAAT
+
+R730
+
+CACCGG
+
+R707
+
+CAGATC
+
+R731
+
+CACGAT
+
+R708
+
+ACTTGA
+
+R732
+
+CACTCA
+
+R709
+
+GATCAG
+
+R733
+
+CAGGCG
+
+R710
+
+TAGCTT
+
+R734
+
+CATGGC
+
+R711
+
+GGCTAC
+
+R735
+
+CATTTT
+
+R712
+
+CTTGTA
+
+R736
+
+CCAACA
+
+R713
+
+AGTCAA
+
+R737
+
+CGGAAT
+
+R714
+
+AGTTCC
+
+R738
+
+CTAGCT
+
+R715
+
+ATGTCA
+
+R739
+
+CTATAC
+
+R716
+
+CCGTCC
+
+R740
+
+CTCAGA
+
+R717
+
+GTAGAG
+
+R741
+
+GACGAC
+
+R718
+
+GTCCGC
+
+R742
+
+TAATCG
+
+R719
+
+GTGAAA
+
+R743
+
+TACAGC
+
+R720
+
+GTGGCC
+
+R744
+
+TATAAT
+
+R721
+
+GTTTCG
+
+R745
+
+TCATTC
+
+R722
+
+CGTACG
+
+R746
+
+TCCCGA
+
+Document # 1000000002694 v01
+February 2016
+
+25
+
+Illumina Adapter Sequences
+
+i7 Index Name
+
+i7 Bases for Sample Sheet
+
+i7 Index Name
+
+i7 Bases for Sample Sheet
+
+R723
+
+GAGTGG
+
+R747
+
+TCGAAG
+
+R724
+
+GGTAGC
+
+R748
+
+TCGGCA
+
+Index 2 (i5) Adapter
+i5 Index Name
+
+i5 Bases for Sample Sheet
+MiSeq, HiSeq 2000/2500
+
+i5 Bases for Sample Sheet
+MiniSeq, NextSeq, HiSeq 3000/4000
+
+A501
+
+TGAACCTT
+
+AAGGTTCA
+
+A502
+
+TGCTAAGT
+
+ACTTAGCA
+
+A503
+
+TGTTCTCT
+
+AGAGAACA
+
+A504
+
+TAAGACAC
+
+GTGTCTTA
+
+A505
+
+CTAATCGA
+
+TCGATTAG
+
+A506
+
+CTAGAACA
+
+TGTTCTAG
+
+A507
+
+TAAGTTCC
+
+GGAACTTA
+
+A508
+
+TAGACCTA
+
+TAGGTCTA
+
+Document # 1000000002694 v01
+February 2016
+
+26
+
+Illumina Adapter Sequences
+
+Appendix
+Process Controls for TruSeq Kits
+Included in TruSeq DNA PCR-Free, TruSeq Nano DNA, TruSeq RNA (v1/v2/LT/HT), and TruSeq Exome Kits
+
+CTE2 - 150bp
+ATCCTGCAGATGCATCCAGTACTAGTATGGCCCGGGGGATCCTACGTTCCAAATGCAGCGAGCTCGTATAACCCTTTAAG
+AGTTGCTCTTTTTGTTTGGTAAGTTGCAAATCGAAGTTTTAGATTGAGTTCTACGTCGAGCGGCCGCGAT
+
+CTE2 - 250bp
+ATCCTGCAGATGCATCCAGTACTAGTATGGCCCGGGGGATCCTTATCTGTCAAAACCGCTAATGTCCGTTCTAAGACCGT
+CTGGAGAACACTTGCCCATCAGTGCTTTTGAACCTTTTTTTCACAGGTCCCTTCCGATTACACTGAGAAGCTGACCACAC
+CTGCTAGAAGATGGAGGTATGCAGCCCGTTAGTAGGAGTAATACTACCCAGCTTATAACCCTCAAACGTAGGGCAGATGG
+CGGCCGCGAT
+
+CTE2 - 350bp
+ATCCTGCAGATGCATCCAGTACTAGTATGGCCCGGGGGATCCTAGAGACCATTCGCGATTCCATGAGACTCCAAGGGTTC
+TGCACAACTTATGCACCTCTATTAGATCATTGTGTTCTACGAAGCCTGGACTGCATTACATATTCACAACCAACATGAGA
+AGAGCGGAATAGATGGCCGGATGTTTGGTGGCTTTGATATATTGTGAGGAGCATTGCGAACCCTAGAGCTGTCCGGTCAA
+ATAACCCCCTCACAATAAGTGTAATGTCATGGGATAATCAAAAGACTAAGGGAGGGCTTTTATAGAAGGCGTGAGGTCAT
+GCTATCCCCCTCTGAAGACGCGGCCGCGAT
+
+CTE2 - 450bp
+ATCCTGCAGATGCATCCAGTACTAGTATGGCCCGGGGGATCCGTATACGTTTCTAATTTGTAGTTAACGGTTGGATACCA
+CTTTGAGGCATGTAATATGGTACTGAGCTTCGGCACAGGGCTCAAATTGCATCATTAAATGTCTCCGATGTGGCTATATG
+TCATGGATAAAGGCAGCCCCCTATATCTTTTTTTGTGGCAGCATGGGTCCATCAAAGCAATTATTCAGGGTCTTAATGAC
+CTCCACAGCTCTAAACGTAATTCATCTGGCTTTGCCTGTACTTACTTCCTCCATGAAAAAAAGTGTTGATAATGCTCATA
+ATGCTGCCCAGCAATTTCCTCCCTTCTCAAGACTATTCTGGCTTCCTGGGTACTTAAAAACAGGGCTTAGAGTATGGCTG
+CTGACAAAATTGCACTCTAAACGCTAGCTTAGGTCTTCTGCGGCCGCGAT
+
+CTE2 - 550bp
+ATCCTGCAGATGCATCCAGTACTAGTATGGCCCGGGGGATCCGTTAGCTATCGTTCGCGAGAAAGTTAGTAGACACACAG
+GACCCAGGCGTGCAAGTCAATTTCAGCTGACTACACCGATTCTGGTTAAAAGAGCCTATGGCCACCCTTATTTTAGAGAA
+AAAAAACCACACCTCTAATGTGTTGGGCACTAGAAAAAGCTAACTACCTAGTCCGTTTCTGGACGACTTCATTGGGAATA
+ACATACCCCCCACTGTGATTAAGACTGGCACTGTCCTAATGCTTTCTTCAATAGGTTTGGCTCATGTGTGATTCCCTCTG
+GCAAACTTATAGAGGACAAGCAGAATAAACCAATTCAAGGTCGTTGTAGCTGAAGGCCTGGCCTGCCTGACAGTTAATTA
+TGAGCATGTCTTGCCCTTCATGGTGGATATTCACAGCTGAAAGTGGTATTGGCATTTTTTTCTGAGGACACAACGAGGAA
+ATCTGATAAATACGGCCACCTGAAGTCTAGCTCGGAGTTAACAATTTACCACGTTTAGAGCGGCCGCGAT
+
+CTE2 - 650bp
+ATCCTGCAGATGCATCCAGTACTAGTATGGCCCGGGGGATCCGCTCGCACTTAGCCTGTTAAGGGGTTCGCGCTCGTCTA
+GTCTGTGCTGTTGCCTGGATAGTAAATTATCATGGTACAAACTTTTAAGAGCCAGTTAAATGGAGATGGATTTAAAAAGA
+GTTATTGTAAAGTCTCCCCAGGTGTGTCATTAAATATCCCAACAGATTGCCCTGGCCTGACCCCCTAAATGCAATTTTGG
+GATTCCCTTTTAGTTGCTTTCATTAAAATGTACCAGCGCAGTAAAAAAAGCACAAAGTATATTGTTTATGTAACTCACTA
+TCTCATTTGCACTGGTTACATGGCAGCTTCAGACTGACTAAAACTACACTTTTCCCACCATGGTTCAAAGATCAACAGAA
+CTGGGCCAACAAAAGCAATTTTTTCATGTGGTCTAACTACCAACTTATTATGAGTTAAGTTACTTTTAGGTTTAAAATCA
+CAGCAGTTTTTCCCTCCACACCTCCCAGAGATACTTTCAGGGTGGCTAAACTTGGCTAAAGGCTTCCGGACCAACCCTTG
+TTTCTTTATGGTGCTTGTGTCCTGACAACCGCGTAAGGCATGGAAATTCAGCTATTTATCCGATCGTTTATATGGGCGTG
+CGGCCGCGAT
+
+Document # 1000000002694 v01
+February 2016
+
+27
+
+Illumina Adapter Sequences
+
+CTE2 - 750bp
+ATCCTGCAGATGCATCCAGTACTAGTATGGCCCGGGGGATCCTTGGACCGTTAATTCATATATCGAAGTAGCAGGTTGTT
+GCCCCGCCTGATGTTGCCACTACTTGCTCATGACAGTTTTTTTAGGCAATGCAAACTACTATTTGATATTTTTTTCCAAG
+TACAGTTGTAGGGTACTCCTTATACTGATTCTTCTGAGCCTGTACGGGGAGCATTAGGTACTGATGTAGTAGGAGTTGAG
+CTTCACAAATTCACCAGGTAAGCCCAAATTTATTTTCTGCTTGGACAGGTCCACCTCACATGGGTCTGTCTAATATATTA
+AAAGAGGGATTTTCTTTGCTGTATTGCAGCCCAGTATATCTGTTACTTACAGTAGTAGTCCATTATTGCTGGCCTAGGGG
+CTTTTGCTCCTACACGAACACCACTCTGTAAAATTTGAGGTCGTCCTTAGAGTCAAACCATTCATGGAGCGCTCTGTGCA
+TCTACCAACTATCGCTAAGCATTCACTTGGTTGGTTTAAGTGGAGGCAACTCCATTATCTTCTAGCATACCCTTCCCAGG
+CTACATGTAGAAAGAGATCTGTTGGGCCCCACTATTTTTTCACCCAGGGAAGCCTACTTTAGTTATAGCTTGCCAGAGAT
+TTTCTGTGTCATGTAGAAGTCATCCACTTTTAACACCAGGAGGTGGATGTGGGGCCAGGAAATATGTCAATAACGATACG
+GGACTTCTAACAGTGACTCGCGGCCGCGAT
+
+CTE2 - 850bp
+ATCCTGCAGATGCATCCAGTACTAGTATGGCCCGGGGGATCCTTAAGTCGTGTCCTTCTCCTACGATCTTGTGAACGATG
+GATATTTTCTTTCTAAACTTTAAACAAACAGTGGAGAGATGTTGTTGTGTGTGGAACGACGCTTAGCCTACCGAGGAAGA
+TCCAGACTACAATAGAATATGTGGCCAAAACTCTCCGCAACTTCAGCAGCAAAAAGGATATTATTGACATAACCTCCTCA
+CAAAAAGTACACAAATGGCTAAATAACAGAGCCCCTCTTTTTACTAGGGAAATGGTGGATGTGGACTTTAGAATTTAAGA
+TAATAAAGCTCTTGATCCCAATGTTATTTCCATGTGAGGGACATTAAATTGAGTAACCTTTGCCACATACCCTCTCCCAG
+AGTCCATTCTCTAAAACTTGAAGCTCCGCCCCTTTTTACGCACATTAGGCTTCCAATTACGGTCAATGGTCTTGAAGATT
+GGGAGCTTTTGAAGAGTAATAAGAACCATCACAAAAAGGAACCCAGAAGCCGGGAGTGTCTACCAAAAAAATTCAAGGGT
+TAAAAAAAAGTGACATTTTCTCCTGTTTTTTACACATGATTTTGAATGCTGATGGGTCCACGTCCAGCTCTAAAGGTAGG
+TTCATGGTTCTCCAAAGTTGCTTTCTTGTCAGAATTGAGCCACATCAGGTAGGTGGGGAAGTAGATCAGTGAGGATGCTT
+CACATGTGTGGGCACTGGGAACAGAATGCTTCAATAACACGAGCTGACGAGGGCCCGCTATGAAAAAAAAGATTCTCTGT
+GCCCCCTGGCGCCTCCGCACTTAAAGAATTGATGACCGTGCGGCCGCGAT
+
+CTE1 - 123bp
+GATCCTACGTTCCAAATGCAGCGAGCTCGTATAACCCTTTAAGAGTTGCTCTTTTTGTTTGGTAAGTTGCAAATCGAAGT
+TTTAGATTGAGTTCTACGTCGAGCGGCCGCGATATCCTGCAGATGCA
+
+CTE1 - 223bp
+GATCCTTATCTGTCAAAACCGCTAATGTCCGTTCTAAGACCGTCTGGAGAACACTTGCCCATCAGTGCTTTTGAACCTTT
+TTTTCACAGGTCCCTTCCGATTACACTGAGAAGCTGACCACACCTGCTAGAAGATGGAGGTATGCAGCCCGTTAGTAGGA
+GTAATACTACCCAGCTTATAACCCTCAAACGTAGGGCAGATGGCGGCCGCGATATCCTGCAGATGCA
+
+CTE1 - 323bp
+GATCCTAGAGACCATTCGCGATTCCATGAGACTCCAAGGGTTCTGCACAACTTATGCACCTCTATTAGATCATTGTGTTC
+TACGAAGCCTGGACTGCATTACATATTCACAACCAACATGAGAAGAGCGGAATAGATGGCCGGATGTTTGGTGGCTTTGA
+TATATTGTGAGGAGCATTGCGAACCCTAGAGCTGTCCGGTCAAATAACCCCCTCACAATAAGTGTAATGTCATGGGATAA
+TCAAAAGACTAAGGGAGGGCTTTTATAGAAGGCGTGAGGTCATGCTATCCCCCTCTGAAGACGCGGCCGCGATATCCTGC
+AGATGCA
+
+CTE1 - 423bp
+GATCCGTATACGTTTCTAATTTGTAGTTAACGGTTGGATACCACTTTGAGGCATGTAATATGGTACTGAGCTTCGGCACA
+GGGCTCAAATTGCATCATTAAATGTCTCCGATGTGGCTATATGTCATGGATAAAGGCAGCCCCCTATATCTTTTTTTGTG
+GCAGCATGGGTCCATCAAAGCAATTATTCAGGGTCTTAATGACCTCCACAGCTCTAAACGTAATTCATCTGGCTTTGCCT
+GTACTTACTTCCTCCATGAAAAAAAGTGTTGATAATGCTCATAATGCTGCCCAGCAATTTCCTCCCTTCTCAAGACTATT
+CTGGCTTCCTGGGTACTTAAAAACAGGGCTTAGAGTATGGCTGCTGACAAAATTGCACTCTAAACGCTAGCTTAGGTCTT
+CTGCGGCCGCGATATCCTGCAGATGCA
+
+CTE1 - 523bp
+GATCCGTTAGCTATCGTTCGCGAGAAAGTTAGTAGACACACAGGACCCAGGCGTGCAAGTCAATTTCAGCTGACTACACC
+GATTCTGGTTAAAAGAGCCTATGGCCACCCTTATTTTAGAGAAAAAAAACCACACCTCTAATGTGTTGGGCACTAGAAAA
+AGCTAACTACCTAGTCCGTTTCTGGACGACTTCATTGGGAATAACATACCCCCCACTGTGATTAAGACTGGCACTGTCCT
+Document # 1000000002694 v01
+February 2016
+
+28
+
+Illumina Adapter Sequences
+
+AATGCTTTCTTCAATAGGTTTGGCTCATGTGTGATTCCCTCTGGCAAACTTATAGAGGACAAGCAGAATAAACCAATTCA
+AGGTCGTTGTAGCTGAAGGCCTGGCCTGCCTGACAGTTAATTATGAGCATGTCTTGCCCTTCATGGTGGATATTCACAGC
+TGAAAGTGGTATTGGCATTTTTTTCTGAGGACACAACGAGGAAATCTGATAAATACGGCCACCTGAAGTCTAGCTCGGAG
+TTAACAATTTACCACGTTTAGAGCGGCCGCGATATCCTGCAGATGCA
+
+CTE1 - 623bp
+GATCCGCTCGCACTTAGCCTGTTAAGGGGTTCGCGCTCGTCTAGTCTGTGCTGTTGCCTGGATAGTAAATTATCATGGTA
+CAAACTTTTAAGAGCCAGTTAAATGGAGATGGATTTAAAAAGAGTTATTGTAAAGTCTCCCCAGGTGTGTCATTAAATAT
+CCCAACAGATTGCCCTGGCCTGACCCCCTAAATGCAATTTTGGGATTCCCTTTTAGTTGCTTTCATTAAAATGTACCAGC
+GCAGTAAAAAAAGCACAAAGTATATTGTTTATGTAACTCACTATCTCATTTGCACTGGTTACATGGCAGCTTCAGACTGA
+CTAAAACTACACTTTTCCCACCATGGTTCAAAGATCAACAGAACTGGGCCAACAAAAGCAATTTTTTCATGTGGTCTAAC
+TACCAACTTATTATGAGTTAAGTTACTTTTAGGTTTAAAATCACAGCAGTTTTTCCCTCCACACCTCCCAGAGATACTTT
+CAGGGTGGCTAAACTTGGCTAAAGGCTTCCGGACCAACCCTTGTTTCTTTATGGTGCTTGTGTCCTGACAACCGCGTAAG
+GCATGGAAATTCAGCTATTTATCCGATCGTTTATATGGGCGTGCGGCCGCGATATCCTGCAGATGCA
+
+CTE1 - 723bp
+GATCCTTGGACCGTTAATTCATATATCGAAGTAGCAGGTTGTTGCCCCGCCTGATGTTGCCACTACTTGCTCATGACAGT
+TTTTTTAGGCAATGCAAACTACTATTTGATATTTTTTTCCAAGTACAGTTGTAGGGTACTCCTTATACTGATTCTTCTGA
+GCCTGTACGGGGAGCATTAGGTACTGATGTAGTAGGAGTTGAGCTTCACAAATTCACCAGGTAAGCCCAAATTTATTTTC
+TGCTTGGACAGGTCCACCTCACATGGGTCTGTCTAATATATTAAAAGAGGGATTTTCTTTGCTGTATTGCAGCCCAGTAT
+ATCTGTTACTTACAGTAGTAGTCCATTATTGCTGGCCTAGGGGCTTTTGCTCCTACACGAACACCACTCTGTAAAATTTG
+AGGTCGTCCTTAGAGTCAAACCATTCATGGAGCGCTCTGTGCATCTACCAACTATCGCTAAGCATTCACTTGGTTGGTTT
+AAGTGGAGGCAACTCCATTATCTTCTAGCATACCCTTCCCAGGCTACATGTAGAAAGAGATCTGTTGGGCCCCACTATTT
+TTTCACCCAGGGAAGCCTACTTTAGTTATAGCTTGCCAGAGATTTTCTGTGTCATGTAGAAGTCATCCACTTTTAACACC
+AGGAGGTGGATGTGGGGCCAGGAAATATGTCAATAACGATACGGGACTTCTAACAGTGACTCGCGGCCGCGATATCCTGC
+AGATGCA
+
+CTE1 - 823bp
+GATCCTTAAGTCGTGTCCTTCTCCTACGATCTTGTGAACGATGGATATTTTCTTTCTAAACTTTAAACAAACAGTGGAGA
+GATGTTGTTGTGTGTGGAACGACGCTTAGCCTACCGAGGAAGATCCAGACTACAATAGAATATGTGGCCAAAACTCTCCG
+CAACTTCAGCAGCAAAAAGGATATTATTGACATAACCTCCTCACAAAAAGTACACAAATGGCTAAATAACAGAGCCCCTC
+TTTTTACTAGGGAAATGGTGGATGTGGACTTTAGAATTTAAGATAATAAAGCTCTTGATCCCAATGTTATTTCCATGTGA
+GGGACATTAAATTGAGTAACCTTTGCCACATACCCTCTCCCAGAGTCCATTCTCTAAAACTTGAAGCTCCGCCCCTTTTT
+ACGCACATTAGGCTTCCAATTACGGTCAATGGTCTTGAAGATTGGGAGCTTTTGAAGAGTAATAAGAACCATCACAAAAA
+GGAACCCAGAAGCCGGGAGTGTCTACCAAAAAAATTCAAGGGTTAAAAAAAAGTGACATTTTCTCCTGTTTTTTACACAT
+GATTTTGAATGCTGATGGGTCCACGTCCAGCTCTAAAGGTAGGTTCATGGTTCTCCAAAGTTGCTTTCTTGTCAGAATTG
+AGCCACATCAGGTAGGTGGGGAAGTAGATCAGTGAGGATGCTTCACATGTGTGGGCACTGGGAACAGAATGCTTCAATAA
+CACGAGCTGACGAGGGCCCGCTATGAAAAAAAAGATTCTCTGTGCCCCCTGGCGCCTCCGCACTTAAAGAATTGATGACC
+GTGCGGCCGCGATATCCTGCAGATGCA
+
+CTA - 150bp
+GGGGGATCCTACGTTCCAAATGCAGCGAGCTCGTATAACCCTTTAAGAGTTGCTCTTTTTGTTTGGTAAGTTGCAAATCG
+AAGTTTTAGATTGAGTTCTACGTCGAGCGGCCGCGATATCCTGCAGATGCATCCAGTACTAGTATGGCCC
+
+CTA - 250bp
+GGGGGATCCTTATCTGTCAAAACCGCTAATGTCCGTTCTAAGACCGTCTGGAGAACACTTGCCCATCAGTGCTTTTGAAC
+CTTTTTTTCACAGGTCCCTTCCGATTACACTGAGAAGCTGACCACACCTGCTAGAAGATGGAGGTATGCAGCCCGTTAGT
+AGGAGTAATACTACCCAGCTTATAACCCTCAAACGTAGGGCAGATGGCGGCCGCGATATCCTGCAGATGCATCCAGTACT
+AGTATGGCCC
+
+CTA - 350bp
+GGGGGATCCTAGAGACCATTCGCGATTCCATGAGACTCCAAGGGTTCTGCACAACTTATGCACCTCTATTAGATCATTGT
+GTTCTACGAAGCCTGGACTGCATTACATATTCACAACCAACATGAGAAGAGCGGAATAGATGGCCGGATGTTTGGTGGCT
+Document # 1000000002694 v01
+February 2016
+
+29
+
+Illumina Adapter Sequences
+
+TTGATATATTGTGAGGAGCATTGCGAACCCTAGAGCTGTCCGGTCAAATAACCCCCTCACAATAAGTGTAATGTCATGGG
+ATAATCAAAAGACTAAGGGAGGGCTTTTATAGAAGGCGTGAGGTCATGCTATCCCCCTCTGAAGACGCGGCCGCGATATC
+CTGCAGATGCATCCAGTACTAGTATGGCCC
+
+CTA - 450bp
+GGGGGATCCGTATACGTTTCTAATTTGTAGTTAACGGTTGGATACCACTTTGAGGCATGTAATATGGTACTGAGCTTCGG
+CACAGGGCTCAAATTGCATCATTAAATGTCTCCGATGTGGCTATATGTCATGGATAAAGGCAGCCCCCTATATCTTTTTT
+TGTGGCAGCATGGGTCCATCAAAGCAATTATTCAGGGTCTTAATGACCTCCACAGCTCTAAACGTAATTCATCTGGCTTT
+GCCTGTACTTACTTCCTCCATGAAAAAAAGTGTTGATAATGCTCATAATGCTGCCCAGCAATTTCCTCCCTTCTCAAGAC
+TATTCTGGCTTCCTGGGTACTTAAAAACAGGGCTTAGAGTATGGCTGCTGACAAAATTGCACTCTAAACGCTAGCTTAGG
+TCTTCTGCGGCCGCGATATCCTGCAGATGCATCCAGTACTAGTATGGCCC
+
+CTA - 550bp
+GGGGGATCCGTTAGCTATCGTTCGCGAGAAAGTTAGTAGACACACAGGACCCAGGCGTGCAAGTCAATTTCAGCTGACTA
+CACCGATTCTGGTTAAAAGAGCCTATGGCCACCCTTATTTTAGAGAAAAAAAACCACACCTCTAATGTGTTGGGCACTAG
+AAAAAGCTAACTACCTAGTCCGTTTCTGGACGACTTCATTGGGAATAACATACCCCCCACTGTGATTAAGACTGGCACTG
+TCCTAATGCTTTCTTCAATAGGTTTGGCTCATGTGTGATTCCCTCTGGCAAACTTATAGAGGACAAGCAGAATAAACCAA
+TTCAAGGTCGTTGTAGCTGAAGGCCTGGCCTGCCTGACAGTTAATTATGAGCATGTCTTGCCCTTCATGGTGGATATTCA
+CAGCTGAAAGTGGTATTGGCATTTTTTTCTGAGGACACAACGAGGAAATCTGATAAATACGGCCACCTGAAGTCTAGCTC
+GGAGTTAACAATTTACCACGTTTAGAGCGGCCGCGATATCCTGCAGATGCATCCAGTACTAGTATGGCCC
+
+CTA - 650bp
+GGGGGATCCGCTCGCACTTAGCCTGTTAAGGGGTTCGCGCTCGTCTAGTCTGTGCTGTTGCCTGGATAGTAAATTATCAT
+GGTACAAACTTTTAAGAGCCAGTTAAATGGAGATGGATTTAAAAAGAGTTATTGTAAAGTCTCCCCAGGTGTGTCATTAA
+ATATCCCAACAGATTGCCCTGGCCTGACCCCCTAAATGCAATTTTGGGATTCCCTTTTAGTTGCTTTCATTAAAATGTAC
+CAGCGCAGTAAAAAAAGCACAAAGTATATTGTTTATGTAACTCACTATCTCATTTGCACTGGTTACATGGCAGCTTCAGA
+CTGACTAAAACTACACTTTTCCCACCATGGTTCAAAGATCAACAGAACTGGGCCAACAAAAGCAATTTTTTCATGTGGTC
+TAACTACCAACTTATTATGAGTTAAGTTACTTTTAGGTTTAAAATCACAGCAGTTTTTCCCTCCACACCTCCCAGAGATA
+CTTTCAGGGTGGCTAAACTTGGCTAAAGGCTTCCGGACCAACCCTTGTTTCTTTATGGTGCTTGTGTCCTGACAACCGCG
+TAAGGCATGGAAATTCAGCTATTTATCCGATCGTTTATATGGGCGTGCGGCCGCGATATCCTGCAGATGCATCCAGTACT
+AGTATGGCCC
+
+CTA - 750bp
+GGGGGATCCTTGGACCGTTAATTCATATATCGAAGTAGCAGGTTGTTGCCCCGCCTGATGTTGCCACTACTTGCTCATGA
+CAGTTTTTTTAGGCAATGCAAACTACTATTTGATATTTTTTTCCAAGTACAGTTGTAGGGTACTCCTTATACTGATTCTT
+CTGAGCCTGTACGGGGAGCATTAGGTACTGATGTAGTAGGAGTTGAGCTTCACAAATTCACCAGGTAAGCCCAAATTTAT
+TTTCTGCTTGGACAGGTCCACCTCACATGGGTCTGTCTAATATATTAAAAGAGGGATTTTCTTTGCTGTATTGCAGCCCA
+GTATATCTGTTACTTACAGTAGTAGTCCATTATTGCTGGCCTAGGGGCTTTTGCTCCTACACGAACACCACTCTGTAAAA
+TTTGAGGTCGTCCTTAGAGTCAAACCATTCATGGAGCGCTCTGTGCATCTACCAACTATCGCTAAGCATTCACTTGGTTG
+GTTTAAGTGGAGGCAACTCCATTATCTTCTAGCATACCCTTCCCAGGCTACATGTAGAAAGAGATCTGTTGGGCCCCACT
+ATTTTTTCACCCAGGGAAGCCTACTTTAGTTATAGCTTGCCAGAGATTTTCTGTGTCATGTAGAAGTCATCCACTTTTAA
+CACCAGGAGGTGGATGTGGGGCCAGGAAATATGTCAATAACGATACGGGACTTCTAACAGTGACTCGCGGCCGCGATATC
+CTGCAGATGCATCCAGTACTAGTATGGCCC
+
+CTA - 850bp
+GGGGGATCCTTAAGTCGTGTCCTTCTCCTACGATCTTGTGAACGATGGATATTTTCTTTCTAAACTTTAAACAAACAGTG
+GAGAGATGTTGTTGTGTGTGGAACGACGCTTAGCCTACCGAGGAAGATCCAGACTACAATAGAATATGTGGCCAAAACTC
+TCCGCAACTTCAGCAGCAAAAAGGATATTATTGACATAACCTCCTCACAAAAAGTACACAAATGGCTAAATAACAGAGCC
+CCTCTTTTTACTAGGGAAATGGTGGATGTGGACTTTAGAATTTAAGATAATAAAGCTCTTGATCCCAATGTTATTTCCAT
+GTGAGGGACATTAAATTGAGTAACCTTTGCCACATACCCTCTCCCAGAGTCCATTCTCTAAAACTTGAAGCTCCGCCCCT
+TTTTACGCACATTAGGCTTCCAATTACGGTCAATGGTCTTGAAGATTGGGAGCTTTTGAAGAGTAATAAGAACCATCACA
+AAAAGGAACCCAGAAGCCGGGAGTGTCTACCAAAAAAATTCAAGGGTTAAAAAAAAGTGACATTTTCTCCTGTTTTTTAC
+ACATGATTTTGAATGCTGATGGGTCCACGTCCAGCTCTAAAGGTAGGTTCATGGTTCTCCAAAGTTGCTTTCTTGTCAGA
+
+Document # 1000000002694 v01
+February 2016
+
+30
+
+Illumina Adapter Sequences
+
+ATTGAGCCACATCAGGTAGGTGGGGAAGTAGATCAGTGAGGATGCTTCACATGTGTGGGCACTGGGAACAGAATGCTTCA
+ATAACACGAGCTGACGAGGGCCCGCTATGAAAAAAAAGATTCTCTGTGCCCCCTGGCGCCTCCGCACTTAAAGAATTGAT
+GACCGTGCGGCCGCGATATCCTGCAGATGCATCCAGTACTAGTATGGCCC
+
+CTL - 150bp
+AGTATGGCCCGGGGGATCCTACGTTCCAAATGCAGCGAGCTCGTATAACCCTTTAAGAGTTGCTCTTTTTGTTTGGTAAG
+TTGCAAATCGAAGTTTTAGATTGAGTTCTACGTCGAGCGGCCGCGATATCCTGCAGATGCATCCAGTACA
+
+CTL - 250bp
+AGTATGGCCCGGGGGATCCTTATCTGTCAAAACCGCTAATGTCCGTTCTAAGACCGTCTGGAGAACACTTGCCCATCAGT
+GCTTTTGAACCTTTTTTTCACAGGTCCCTTCCGATTACACTGAGAAGCTGACCACACCTGCTAGAAGATGGAGGTATGCA
+GCCCGTTAGTAGGAGTAATACTACCCAGCTTATAACCCTCAAACGTAGGGCAGATGGCGGCCGCGATATCCTGCAGATGC
+ATCCAGTACA
+
+CTL - 350bp
+AGTATGGCCCGGGGGATCCTAGAGACCATTCGCGATTCCATGAGACTCCAAGGGTTCTGCACAACTTATGCACCTCTATT
+AGATCATTGTGTTCTACGAAGCCTGGACTGCATTACATATTCACAACCAACATGAGAAGAGCGGAATAGATGGCCGGATG
+TTTGGTGGCTTTGATATATTGTGAGGAGCATTGCGAACCCTAGAGCTGTCCGGTCAAATAACCCCCTCACAATAAGTGTA
+ATGTCATGGGATAATCAAAAGACTAAGGGAGGGCTTTTATAGAAGGCGTGAGGTCATGCTATCCCCCTCTGAAGACGCGG
+CCGCGATATCCTGCAGATGCATCCAGTACA
+
+CTL - 450bp
+AGTATGGCCCGGGGGATCCGTATACGTTTCTAATTTGTAGTTAACGGTTGGATACCACTTTGAGGCATGTAATATGGTAC
+TGAGCTTCGGCACAGGGCTCAAATTGCATCATTAAATGTCTCCGATGTGGCTATATGTCATGGATAAAGGCAGCCCCCTA
+TATCTTTTTTTGTGGCAGCATGGGTCCATCAAAGCAATTATTCAGGGTCTTAATGACCTCCACAGCTCTAAACGTAATTC
+ATCTGGCTTTGCCTGTACTTACTTCCTCCATGAAAAAAAGTGTTGATAATGCTCATAATGCTGCCCAGCAATTTCCTCCC
+TTCTCAAGACTATTCTGGCTTCCTGGGTACTTAAAAACAGGGCTTAGAGTATGGCTGCTGACAAAATTGCACTCTAAACG
+CTAGCTTAGGTCTTCTGCGGCCGCGATATCCTGCAGATGCATCCAGTACA
+
+CTL - 550bp
+AGTATGGCCCGGGGGATCCGTTAGCTATCGTTCGCGAGAAAGTTAGTAGACACACAGGACCCAGGCGTGCAAGTCAATTT
+CAGCTGACTACACCGATTCTGGTTAAAAGAGCCTATGGCCACCCTTATTTTAGAGAAAAAAAACCACACCTCTAATGTGT
+TGGGCACTAGAAAAAGCTAACTACCTAGTCCGTTTCTGGACGACTTCATTGGGAATAACATACCCCCCACTGTGATTAAG
+ACTGGCACTGTCCTAATGCTTTCTTCAATAGGTTTGGCTCATGTGTGATTCCCTCTGGCAAACTTATAGAGGACAAGCAG
+AATAAACCAATTCAAGGTCGTTGTAGCTGAAGGCCTGGCCTGCCTGACAGTTAATTATGAGCATGTCTTGCCCTTCATGG
+TGGATATTCACAGCTGAAAGTGGTATTGGCATTTTTTTCTGAGGACACAACGAGGAAATCTGATAAATACGGCCACCTGA
+AGTCTAGCTCGGAGTTAACAATTTACCACGTTTAGAGCGGCCGCGATATCCTGCAGATGCATCCAGTACA
+
+CTL - 650bp
+AGTATGGCCCGGGGGATCCGCTCGCACTTAGCCTGTTAAGGGGTTCGCGCTCGTCTAGTCTGTGCTGTTGCCTGGATAGT
+AAATTATCATGGTACAAACTTTTAAGAGCCAGTTAAATGGAGATGGATTTAAAAAGAGTTATTGTAAAGTCTCCCCAGGT
+GTGTCATTAAATATCCCAACAGATTGCCCTGGCCTGACCCCCTAAATGCAATTTTGGGATTCCCTTTTAGTTGCTTTCAT
+TAAAATGTACCAGCGCAGTAAAAAAAGCACAAAGTATATTGTTTATGTAACTCACTATCTCATTTGCACTGGTTACATGG
+CAGCTTCAGACTGACTAAAACTACACTTTTCCCACCATGGTTCAAAGATCAACAGAACTGGGCCAACAAAAGCAATTTTT
+TCATGTGGTCTAACTACCAACTTATTATGAGTTAAGTTACTTTTAGGTTTAAAATCACAGCAGTTTTTCCCTCCACACCT
+CCCAGAGATACTTTCAGGGTGGCTAAACTTGGCTAAAGGCTTCCGGACCAACCCTTGTTTCTTTATGGTGCTTGTGTCCT
+GACAACCGCGTAAGGCATGGAAATTCAGCTATTTATCCGATCGTTTATATGGGCGTGCGGCCGCGATATCCTGCAGATGC
+ATCCAGTACA
+
+CTL - 750bp
+AGTATGGCCCGGGGGATCCTTGGACCGTTAATTCATATATCGAAGTAGCAGGTTGTTGCCCCGCCTGATGTTGCCACTAC
+TTGCTCATGACAGTTTTTTTAGGCAATGCAAACTACTATTTGATATTTTTTTCCAAGTACAGTTGTAGGGTACTCCTTAT
+ACTGATTCTTCTGAGCCTGTACGGGGAGCATTAGGTACTGATGTAGTAGGAGTTGAGCTTCACAAATTCACCAGGTAAGC
+Document # 1000000002694 v01
+February 2016
+
+31
+
+Illumina Adapter Sequences
+
+CCAAATTTATTTTCTGCTTGGACAGGTCCACCTCACATGGGTCTGTCTAATATATTAAAAGAGGGATTTTCTTTGCTGTA
+TTGCAGCCCAGTATATCTGTTACTTACAGTAGTAGTCCATTATTGCTGGCCTAGGGGCTTTTGCTCCTACACGAACACCA
+CTCTGTAAAATTTGAGGTCGTCCTTAGAGTCAAACCATTCATGGAGCGCTCTGTGCATCTACCAACTATCGCTAAGCATT
+CACTTGGTTGGTTTAAGTGGAGGCAACTCCATTATCTTCTAGCATACCCTTCCCAGGCTACATGTAGAAAGAGATCTGTT
+GGGCCCCACTATTTTTTCACCCAGGGAAGCCTACTTTAGTTATAGCTTGCCAGAGATTTTCTGTGTCATGTAGAAGTCAT
+CCACTTTTAACACCAGGAGGTGGATGTGGGGCCAGGAAATATGTCAATAACGATACGGGACTTCTAACAGTGACTCGCGG
+CCGCGATATCCTGCAGATGCATCCAGTACA
+
+CTL - 850bp
+AGTATGGCCCGGGGGATCCTTAAGTCGTGTCCTTCTCCTACGATCTTGTGAACGATGGATATTTTCTTTCTAA
+ACTTTAAACAAACAGTGGAGAGATGTTGTTGTGTGTGGAACGACGCTTAGCCTACCGAGGAAGATCCAGACTA
+CAATAGAATATGTGGCCAAAACTCTCCGCAACTTCAGCAGCAAAAAGGATATTATTGACATAACCTCCTCACA
+AAAAGTACACAAATGGCTAAATAACAGAGCCCCTCTTTTTACTAGGGAAATGGTGGATGTGGACTTTAGAATT
+TAAGATAATAAAGCTCTTGATCCCAATGTTATTTCCATGTGAGGGACATTAAATTGAGTAACCTTTGCCACAT
+ACCCTCTCCCAGAGTCCATTCTCTAAAACTTGAAGCTCCGCCCCTTTTTACGCACATTAGGCTTCCAATTACG
+GTCAATGGTCTTGAAGATTGGGAGCTTTTGAAGAGTAATAAGAACCATCACAAAAAGGAACCCAGAAGCCGGG
+AGTGTCTACCAAAAAAATTCAAGGGTTAAAAAAAAGTGACATTTTCTCCTGTTTTTTACACATGATTTTGAAT
+GCTGATGGGTCCACGTCCAGCTCTAAAGGTAGGTTCATGGTTCTCCAAAGTTGCTTTCTTGTCAGAATTGAGC
+CACATCAGGTAGGTGGGGAAGTAGATCAGTGAGGATGCTTCACATGTGTGGGCACTGGGAACAGAATGCTTCA
+ATAACACGAGCTGACGAGGGCCCGCTATGAAAAAAAAGATTCTCTGTGCCCCCTGGCGCCTCCGCACTTAAAG
+AATTGATGACCGTGCGGCCGCGATATCCTGCAGATGCATCCAGTACA
+
+Document # 1000000002694 v01
+February 2016
+
+32
+
+Illumina Adapter Sequences
+
+Legacy Kits
+The kits listed in this section are no longer sold.
+
+Nextera DNA Sample Prep Kit (Epicentre Biotechnologies)
+(Obsolete)
+As a replacement, use catalog # FC-121-1031.
+
+Transposon Sequences
+5’-GCCTCCCTCGCGCCATCAGAGATGTGTATAAGAGACAG
+5’-GCCTTGCCAGCCCGCTCAGAGATGTGTATAAGAGACAG
+
+Adapters (showing optional bar code)
+5'-AATGATACGGCGACCACCGAGATCTACACGCCTCCCTCGCGCCATCAG
+5'-CAAGCAGAAGACGGCATACGAGAT[barcode]CGGTCTGCCTTGCCAGCCCGCTCAG-3'
+
+PCR Primers
+5'-AATGATACGGCGACCACCGA
+5'-CAAGCAGAAGACGGCATACGA
+
+Oligonucleotide Sequences for Genomic DNA
+(Obsolete)
+
+Adapters
+5' P-GATCGGAAGAGCTCGTATGCCGTCTTCTGCTTG
+5' ACACTCTTTCCCTACACGACGCTCTTCCGATCT
+
+PCR Primers
+5' AATGATACGGCGACCACCGAGATCTACACTCTTTCCCTACACGACGCTCTTCCGATCT
+5' CAAGCAGAAGACGGCATACGAGCTCTTCCGATCT
+
+Genomic DNA Sequencing Primer
+5' ACACTCTTTCCCTACACGACGCTCTTCCGATCT
+
+Document # 1000000002694 v01
+February 2016
+
+33
+
+Illumina Adapter Sequences
+
+Oligonucleotide Sequences for Paired End DNA
+(Obsolete)
+
+PE Adapters
+5' P-GATCGGAAGAGCGGTTCAGCAGGAATGCCGAG
+5' ACACTCTTTCCCTACACGACGCTCTTCCGATCT
+
+PE PCR Primer 1.0
+5' AATGATACGGCGACCACCGAGATCTACACTCTTTCCCTACACGACGCTCTTCCGATCT
+
+PE PCR Primer 2.0
+5' CAAGCAGAAGACGGCATACGAGATCGGTCTCGGCATTCCTGCTGAACCGCTCTTCCGATCT
+
+PE Read 1 Sequencing Primer
+5' ACACTCTTTCCCTACACGACGCTCTTCCGATCT
+
+PE Read 2 Sequencing Primer
+5' CGGTCTCGGCATTCCTGCTGAACCGCTCTTCCGATCT
+
+Oligonucleotide Sequences for the Multiplexing Sample Prep Oligo
+Only Kit
+(Obsolete)
+
+Multiplexing Adapters
+5' P-GATCGGAAGAGCACACGTCT
+5' ACACTCTTTCCCTACACGACGCTCTTCCGATCT
+
+Multiplexing PCR Primer 1.0
+5' AATGATACGGCGACCACCGAGATCTACACTCTTTCCCTACACGACGCTCTTCCGATCT
+
+Multiplexing PCR Primer 2.0
+5' GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT
+
+Multiplexing Read 1 Sequencing Primer
+5' ACACTCTTTCCCTACACGACGCTCTTCCGATCT
+
+Multiplexing Index Read Sequencing Primer
+5' GATCGGAAGAGCACACGTCTGAACTCCAGTCAC
+Document # 1000000002694 v01
+February 2016
+
+34
+
+Illumina Adapter Sequences
+
+Multiplexing Read 2 Sequencing Primer
+5' GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT
+
+PCR Primer Index Sequences 1–12
+PCR Primer, Index 1
+5’ CAAGCAGAAGACGGCATACGAGATCGTGATGTGACTGGAGTTC
+PCR Primer, Index 2
+5’ CAAGCAGAAGACGGCATACGAGATACATCGGTGACTGGAGTTC
+PCR Primer, Index 3
+5’ CAAGCAGAAGACGGCATACGAGATGCCTAAGTGACTGGAGTTC
+PCR Primer, Index 4
+5’ CAAGCAGAAGACGGCATACGAGATTGGTCAGTGACTGGAGTTC
+PCR Primer, Index 5
+5’ CAAGCAGAAGACGGCATACGAGATCACTGTGTGACTGGAGTTC
+PCR Primer, Index 6
+5’ CAAGCAGAAGACGGCATACGAGATATTGGCGTGACTGGAGTTC
+PCR Primer, Index 7
+5’ CAAGCAGAAGACGGCATACGAGATGATCTGGTGACTGGAGTTC
+PCR Primer, Index 8
+5’ CAAGCAGAAGACGGCATACGAGATTCAAGTGTGACTGGAGTTC
+PCR Primer, Index 9
+5’ CAAGCAGAAGACGGCATACGAGATCTGATCGTGACTGGAGTTC
+PCR Primer, Index 10
+5’ CAAGCAGAAGACGGCATACGAGATAAGCTAGTGACTGGAGTTC
+PCR Primer, Index 11
+5’ CAAGCAGAAGACGGCATACGAGATGTAGCCGTGACTGGAGTTC
+PCR Primer, Index 12
+5’ CAAGCAGAAGACGGCATACGAGATTACAAGGTGACTGGAGTTC
+
+Oligonucleotide Sequences for the v1 and v1.5 Small RNA Kits
+(Obsolete)
+
+RT Primer
+5' CAAGCAGAAGACGGCATACGA
+
+Document # 1000000002694 v01
+February 2016
+
+35
+
+Illumina Adapter Sequences
+
+5' RNA Adapter
+5' GUUCAGAGUUCUACAGUCCGACGAUC
+
+3' RNA Adapter
+5' P-UCGUAUGCCGUCUUCUGCUUGUidT
+
+v1.5 Small RNA 3' Adapter
+5' /5rApp/ATCTCGTATGCCGTCTTCTGCTTG/3ddC/
+
+Small RNA PCR Primer 1
+5' CAAGCAGAAGACGGCATACGA
+
+Small RNA PCR Primer 2
+5' AATGATACGGCGACCACCGACAGGTTCAGAGTTCTACAGTCCGA
+
+Small RNA Sequencing Primer
+5' CGACAGGTTCAGAGTTCTACAGTCCGACGATC
+
+Document # 1000000002694 v01
+February 2016
+
+36
+
+Illumina Adapter Sequences
+
+Revision History
+Document
+
+Date
+
+Description of Change
+
+Document # 1000000002694 v01
+
+February 2016
+
+Corrected i5 adapter names for TruSight One to
+E502–E505.
+Added adapters for TruSight RNA Pan-Cancer,
+TruSeq DNA Methylation, and TruSeq Ribo Profile.
+Added MiniSeq where appropriate for reverse
+complement sequences.
+Added introduction, which explains when the
+reverse complement is required in the sample sheet.
+
+Document # 1000000002694 v00
+
+October 2015
+
+Added information for the following TruSight kits:
+TruSight Cardio, TruSight Myeloid Sequencing
+Panel, TruSight One, TruSight Rapid Capture,
+TruSight Tumor 15, and TruSight Tumor 26.
+Created a TruSeq Amplicon section for TruSeq
+Custom Amplicon 1.5, TruSeq Amplicon Cancer
+Panel, and TruSeq Custom Amplicon Low Input.
+Marked obsolete kits as obsolete.
+Grouped legacy kit information in new section titled
+Legacy Kits.
+Reformatted and reorganized the contents, and
+assigned document # 1000000002694.
+
+Document # 1000000002694 v01
+February 2016
+
+37
+
+Illumina Adapter Sequences
+
+Illumina • 1.800.809.4566 toll-free (U.S.) • +1.858.202.4566 tel • techsupport@illumina.com • www.illumina.com
+For research use only
+© 2016 Illumina, Inc. All rights reserved.
+Illumina, 24sure, BaseSpace, BeadArray, BlueFish, BlueFuse, BlueGnome, cBot, CSPro, CytoChip, DesignStudio, Epicentre, ForenSeq,
+Genetic Energy, GenomeStudio, GoldenGate, HiScan, HiSeq, HiSeq X, Infinium, iScan, iScan, iSelect, MiniSeq, MiSeq, MiSeqDx,
+MiSeq FGx, NeoPrep, NextBio, Nextera, NextSeq, Powered by Illumina, SureMDA, TruGenome, TruSeq, TruSight, Understand Your
+Genome, UYG, VeraCode, verify, VeriSeq, the pumpkin orange color, and the Genetic Energy streaming bases design are trademarks or
+registered trademarks of Illumina, Inc. All other brands and names contained herein are the property of their respective owners.
+
+Document # 1000000002694 v01
+February 2016
+
+38
+
+

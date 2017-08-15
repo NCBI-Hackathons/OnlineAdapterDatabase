@@ -25,10 +25,23 @@ class Adaptor(models.Model):
     kit = models.ForeignKey('Kit')
 
 
+class DatabaseManager(models.Manager):
+    """
+    Allow use of natural keys in fixture data
+    """
+    def get_by_natural_key(self, name):
+        return self.get(name=name)
+
+
 class Database(models.Model):
-    name = models.CharField(max_length=100)
+    objects = DatabaseManager()
+
+    name = models.CharField(max_length=100, unique=True)
     template_url = models.CharField(max_length=250)
     url = models.CharField(max_length=250)
+
+    def natural_key(self):
+        return (self.name,)
 
 
 class Run(models.Model):

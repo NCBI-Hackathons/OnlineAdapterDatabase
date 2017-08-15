@@ -2,6 +2,7 @@
 
 Django==1.11.4
 django-filter==1.0.4
+coreapi==2.3.1
 djangorestframework==3.6.3
 djangorestframework-csv==2.0.0
 dj_database_url==0.4.2
@@ -11,6 +12,7 @@ django_postgrespool==0.3.1
 Markdown==2.6.8
 pytz==2017.2
 gunicorn==19.7.1
+PyYAML==3.12
 
 # graphql
 

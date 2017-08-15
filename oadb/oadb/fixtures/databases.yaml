@@ -1,0 +1,16 @@
+---
+- model: oadb.database
+  fields: 
+    name: NCBI Sequence Read Archives
+    url: https://trace.ncbi.nlm.nih.gov/
+    template_url: 'https://trace.ncbi.nlm.nih.gov/Traces/sra/?run={accession}'
+- model: oadb.database
+  fields:
+    name: European Bioinformatics Institute (EMBL-EBI)
+    url: http://www.ebi.ac.uk/
+    template_url: 'http://www.ebi.ac.uk/ena/data/view/{accession}'
+- model: oadb.database
+  fields:
+    name: DNA DataBank of Japan
+    url: http://trace.ddbj.nig.ac.jp/DRASearch/
+    template_url: 'http://trace.ddbj.nig.ac.jp/DRASearch/run?acc={accession}'

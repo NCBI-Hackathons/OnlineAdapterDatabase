@@ -10,10 +10,10 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
-import os
+from os.path import dirname, join, abspath
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = dirname(dirname(dirname(abspath(__file__))))
 
 
 # Quick-start development settings - unsuitable for production
@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'kkwc*$-%++l2=vhvpzp9^c9-(8hj_0t$1+j8b@n2)*r^dxfy%$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -77,17 +77,18 @@ WSGI_APPLICATION = 'oadb.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-if 'DATABASE_URL' in os.environ:
-    import dj_database_url
-    DATABASES = { 'default': dj_database_url.config() }
-    DATABASES['default']['ENGINE'] = 'django_postgrespool'
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        }
+#if 'DATABASE_URL' in os.environ:
+#    import dj_database_url
+#    DATABASES = { 'default': dj_database_url.config() }
+#    DATABASES['default']['ENGINE'] = 'django_postgrespool'
+#else:
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': join(BASE_DIR, 'db.sqlite3'),
     }
+}
 
 AUTH_USER_MODEL = 'oadb.User'
 
@@ -127,7 +128,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/public/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'public')
+STATIC_ROOT = join(BASE_DIR, 'public')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 REST_FRAMEWORK = {

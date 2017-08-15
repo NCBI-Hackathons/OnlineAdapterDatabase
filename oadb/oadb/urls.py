@@ -18,6 +18,9 @@ from django.contrib import admin
 from .views import *
 from rest_framework import routers
 from rest_framework.documentation import include_docs_urls
+from graphene_django.views import GraphQLView
+from .schema import schema
+
 
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
@@ -26,9 +29,11 @@ router.register(r'kit', KitViewSet)
 router.register(r'database', DatabaseViewSet)
 router.register(r'run', RunViewSet)
 
+
 urlpatterns = [
     url(r'^', include(router.urls)),
     url(r'^admin/', admin.site.urls),
     url(r'^docs/', include_docs_urls(title='AdapterBase API')),
+    url(r'^graphql/', GraphQLView.as_view(graphiql=True, schema=schema)),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]

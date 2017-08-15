@@ -11,16 +11,17 @@ class User(AbstractUser):
 
 
 class Kit(models.Model):
-    vendor = models.CharField(max_length=100)
-    name = models.CharField(max_length=100)
-    version = models.CharField(max_length=100)
-    model = models.CharField(max_length=100)
+    vendor = models.CharField(max_length=100, null=True, blank=True)
+    name = models.CharField(max_length=100, unique=True)
+    version = models.CharField(max_length=100, null=True, blank=True)
+    model = models.CharField(max_length=100, null=True, blank=True)
     user = models.ForeignKey('User')
 
 
 class Adaptor(models.Model):
-    expression = models.CharField(max_length=100)
+    sequence = models.CharField(max_length=100)
     barcode = models.CharField(max_length=100, default='')
+    user = models.ForeignKey('User')
     kit = models.ForeignKey('Kit')
 
 

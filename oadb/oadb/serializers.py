@@ -11,13 +11,13 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
 class AdaptorSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Adaptor
-        fields = ('expression',)
+        fields = ('barcode', 'sequence',)
 
 
 class KitSerializer(serializers.HyperlinkedModelSerializer):
 	class Meta:
 		model = Kit
-		fields = ('vendor', 'name', 'version', 'model', 'user')
+		fields = ('name', 'version', 'user')
 
 
 class DatabaseSerializer(serializers.HyperlinkedModelSerializer):

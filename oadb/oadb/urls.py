@@ -15,25 +15,29 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from .views import *
+from . import views
 from rest_framework import routers
 from rest_framework.documentation import include_docs_urls
 from graphene_django.views import GraphQLView
-from .schema import schema
+
+
+# Disable GraphQL
+# from .schema import schema
 
 
 router = routers.DefaultRouter()
-router.register(r'users', UserViewSet)
-router.register(r'adaptor', AdaptorViewSet)
-router.register(r'kit', KitViewSet)
-router.register(r'database', DatabaseViewSet)
-router.register(r'run', RunViewSet)
+router.register(r'users', views.UserViewSet)
+router.register(r'adaptor', views.AdaptorViewSet)
+router.register(r'kit', views.KitViewSet)
+router.register(r'database', views.DatabaseViewSet)
+router.register(r'run', views.RunViewSet)
 
 
 urlpatterns = [
-    url(r'^', include(router.urls)),
+    url(r'^$', views.HomeView.as_view(), name='oadb-home'),
+    url(r'^api/', include(router.urls)),
     url(r'^admin/', admin.site.urls),
     url(r'^docs/', include_docs_urls(title='AdapterBase API')),
-    url(r'^graphql/', GraphQLView.as_view(graphiql=True, schema=schema)),
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    # url(r'^graphql/', GraphQLView.as_view(graphiql=True, schema=schema)),
+    url(r'^api-auth/', include('rest_framework.urls')),
 ]

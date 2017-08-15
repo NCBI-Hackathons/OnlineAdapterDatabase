@@ -1,0 +1,13 @@
+.skipnav { display: none; }
+
+.navbar {
+	background: #2C2C2C;
+	color: white;
+	border: none;
+	border-top: 5px solid #A30000;
+	border-radius: 0;
+	width: 100%;
+	/*position: fixed;
+	left: 0;
+	top: 0; */
+}

@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE>
 <head>
 <html>
@@ -9,6 +10,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/
 bootstrap.min.css"/>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/> 
+<link rel="stylesheet" href="{% static 'oadb/css/style.css' %}"/>
 {% block morestyles %}{% endblock %}
 {% endblock %}
 </head>
@@ -17,16 +19,7 @@ bootstrap.min.css"/>
 	<a href="#content" class="skipnav">Skip Navigation</a>
 </div>
 <div class="header">
-	<div class="container-fluid">
-		<div class="row">
-			{% block header %}
-				<div class="brand">
-					<h1>AdapterBase</h1>
-					<span>A database of NGS kit adapter sequences</span>
-				</div>
-			{% endblock %}
-		</div>
-	</div>
+	{% block navbar %}{% include "oadb/navbar.html" %}{% endblock navbar %}
 </div>
 <div id="content">
 {% block content %}{% endblock %}

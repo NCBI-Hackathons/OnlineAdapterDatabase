@@ -16,7 +16,8 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from .views import *
-from rest_framework import routers 
+from rest_framework import routers
+from rest_framework.documentation import include_docs_urls
 
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
@@ -28,5 +29,6 @@ router.register(r'run', RunViewSet)
 urlpatterns = [
     url(r'^', include(router.urls)),
     url(r'^admin/', admin.site.urls),
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    url(r'^docs/', include_docs_urls(title='AdapterBase API')),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]

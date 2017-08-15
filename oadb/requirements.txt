@@ -1,5 +1,12 @@
+# runtime packages
+
 Django==1.11.4
 django-filter==1.0.4
 djangorestframework==3.6.3
+dj_database_url==0.4.2
+psycopg2==2.7.3
+django_postgrespool==0.3.1
 Markdown==2.6.8
 pytz==2017.2
+
+# test packages

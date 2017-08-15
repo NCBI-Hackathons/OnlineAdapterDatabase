@@ -25,6 +25,20 @@ class AdaptorNode(DjangoObjectType):
         interfaces = (Node,)
 
 
+class RunNode(DjangoObjectType):
+
+    class Meta:
+        model = Run
+        interfaces = (Node,)
+
+
+class DatabaseNode(DjangoObjectType):
+
+    class Meta:
+        model = Database
+        interfaces = (Node,)
+
+
 class Query(ObjectType):
     user = Node.Field(UserNode)
     all_users = DjangoConnectionField(UserNode)
@@ -34,6 +48,12 @@ class Query(ObjectType):
 
     adaptor = Node.Field(AdaptorNode)
     all_adaptors = DjangoConnectionField(AdaptorNode)
+
+    run = Node.Field(RunNode)
+    all_runs = DjangoConnectionField(RunNode)
+
+    database = Node.Field(DatabaseNode)
+    all_databases = DjangoConnectionField(DatabaseNode)
 
 
 schema = Schema(query=Query)

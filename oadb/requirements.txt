@@ -6,6 +6,7 @@ djangorestframework==3.6.3
 djangorestframework-csv==2.0.0
 dj_database_url==0.4.2
 psycopg2==2.7.3
+whitenoise==3.3.0
 django_postgrespool==0.3.1
 Markdown==2.6.8
 pytz==2017.2

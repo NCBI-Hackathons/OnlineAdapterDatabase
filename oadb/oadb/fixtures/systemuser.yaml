@@ -1,0 +1,7 @@
+- model: oadb.user
+  fields:
+    is_superuser: false
+    username: system
+    is_active: true
+    date_joined: 2017-08-15 18:27:30.939042+00:00
+    is_staff: true

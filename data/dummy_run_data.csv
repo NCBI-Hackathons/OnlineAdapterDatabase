@@ -1,0 +1,4 @@
+Accession,owner,database,is_public,5’ adapter,3’ adapter,platform
+SRR123456,Chaim Schramm,SRA,yes,Nextera DNA Index 1 N701,Nextera XT Index2 S505,Illumina HiSeq 4000
+ERR987654,Bob Smith,ENA,yes,TruSight Rapid Capture N712,TruSight Rapid Capture E517,Illumina MiSeq
+MyRun20170815-1,F. Michael Williams,internal,no,TruSeq HT D704,TruSeq HT D508,Illumina NextSeq

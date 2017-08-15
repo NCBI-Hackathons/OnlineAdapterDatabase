@@ -1,12 +1,6 @@
-<!DOCTYPE>
-<html>
-<head>
-</head>
-<body>
-<div class="brand">
-	<h1>AdaptorBase</h1>
-	<p>A database for NGS dataset adaptors</p>
-</div>
+{% extends 'oadb/layout.html' %}
+
+{% block content %}
 <div class="links">
 	<ul>
 		<li><a href="{% url 'api-root' %}">REST API</a></li>
@@ -14,5 +8,4 @@
 		<li><a href="{% url 'kit-list' %}">All Kits</a></li>
 	</ul>
 </div>
-</body>
-</html>
+{% endblock %}

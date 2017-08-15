@@ -1,0 +1,41 @@
+<!DOCTYPE>
+<head>
+<html>
+<title>{% block title %}Adapter Base{% endblock %}</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge; chrome">
+{% block styles %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/
+bootstrap.min.css"/>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/> 
+{% block morestyles %}{% endblock %}
+{% endblock %}
+</head>
+<body>
+<div class="skipnav">
+	<a href="#content" class="skipnav">Skip Navigation</a>
+</div>
+<div class="header">
+	<div class="container-fluid">
+		<div class="row">
+			{% block header %}
+				<div class="brand">
+					<h1>AdapterBase</h1>
+					<span>A database of NGS kit adapter sequences</span>
+				</div>
+			{% endblock %}
+		</div>
+	</div>
+</div>
+<div id="content">
+{% block content %}{% endblock %}
+</div>
+{% block scripts %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/
+bootstrap.min.js"></script>
+{% block morescripts %}{% endblock %}
+{% endblock %}
+</body>
+

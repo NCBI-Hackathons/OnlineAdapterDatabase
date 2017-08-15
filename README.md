@@ -4,36 +4,33 @@
 
 Adapters are short sequences that are attached to cDNA templates during preparation of next generation sequencing (NGS) libraries. Depending on the preparation of the NGS library and how it is sequenced, the raw NGS data may be contaminated with the adapter sequences. See [Didion et al. 2017](https://peerj.com/preprints/2452/) for more details.
 
-Adapter trimming is a critical component of NGS data preprocessing. To trim adapters appropriately, it is necessary to know the sequences of the adapters that were used. However, adapter sequences are poorly documented and often are not included in the metadata of public database submissions (e.g. [SRA](https://www.ncbi.nlm.nih.gov/sra), [ENA](http://www.ebi.ac.uk/ena)).
-
-## Goals
-
-The goals of the AdapterBase are as follows, in decreasing order of importance:
-
-1. Create a database schema to store adapter sequences and related metadata, and to link adapters to sequencing datasets. Adapters come in two flavors: 1) standard, widely used adapters (e.g. those found in Illumina NGS library preparation kits), and 2) custom adapters.
-2. Create an API to access the data in the database. Ideally, this will be a GraphQL API, but REST is also fine for a prototype.
-3. Create a simple web interface to browse and manage the data in the database.
-4. Create language-specific bindings for the API. Preferably, Python will be the first language supported, but the responsible team can choose whichever language in which they're most comfortable.
-5. Integrate the AdpaterBase API into [Atropos](https://github.com/jdidion/atropos), an NGS read trimming tool written in Python.
+Adapter trimming is a critical component of NGS data preprocessing. To trim adapters appropriately, it is necessary to know the sequences of the adapters that were used. However, adapter sequences are poorly documented and often are not included in the metadata of public database submissions ([SRA](http://www.ncbi.nlm.nih.gov/sra), [ENA](http://www.ebi.ac.uk/ena), and [DDBJ](http://www.ddbj.nig.ac.jp)).
 
 ## System Design
 
-We have settled on Python 3 for our implementation language. The database will be implemented in SQLite??? and the web interface and API will be implemented in Django.
+AdapterBase is implemented in SQLite3 and Django with the primary API implemented in REST. Lists of kits and adapter sequences have been extracted from [Illumina's documentation](https://support.illumina.com/content/dam/illumina-support/documents/documentation/chemistry_documentation/experiment-design/illumina-adapter-sequences_1000000002694-01.pdf). An initial list of runs is being populated by automatic detection of adapters using [Atropos](https://github.com/jdidion/atropos).
 
-### Database
+## Usage
 
-### API
+Currently, AdapterBase can be accessed from the Hackathon AWS instance by mapping port 80 back to the local host. A permanent, publically facing home will be determined later. 
 
-### Web Interface
+## Remaining Goals
 
-### Language Bindings
+1. Complete implementation of website/API
+2. Pre-populate Run database from SRA using Atropos
+3. Find a home for web implementation and build Docker image
+4. User group implementation and security features
 
-### Atropos Integration
+### Stretch goals/post-hackathon
+
+5. Continue building out run database with manual curation of SRA datasets
+6. Integrate the AdpaterBase API into Atropos
 
 ## Project Team
 
-- Chaim A Schramm, Vaccine Research Center, NIAID, NIH, chaim.schramm@nih.gov
+AdapterBase was intitially developed as part of an NCBI-sponsored hackathon at the National Library of Medicine, August 14-16th, 2017.
+- John P Didion (project lead), NHGRI/NIH, john.didion@nih.gov
 - Dan Davis, Systems/Applications Architect, OCCS/AB, NLM, NIH, daniel.davis@nih.gov
 - Scott Lewis, Pulmonary Critical Care Medicine, Washington University in St. Louis, slewis3827@gmail.com
-- John P Didion, NHGRI/NIH, john.didion@nih.gov
+- Chaim A Schramm, Vaccine Research Center, NIAID, NIH, chaim.schramm@nih.gov
 - Vamsi Vungutur OCCS/AB NLM, NIH vamsi.vungutur@nih.gov

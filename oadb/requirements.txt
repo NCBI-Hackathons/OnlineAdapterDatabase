@@ -8,5 +8,6 @@ psycopg2==2.7.3
 django_postgrespool==0.3.1
 Markdown==2.6.8
 pytz==2017.2
+gunicorn==19.7.1
 
 # test packages

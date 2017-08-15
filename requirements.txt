@@ -1,1 +1,0 @@
--r oadb/requirements.txt

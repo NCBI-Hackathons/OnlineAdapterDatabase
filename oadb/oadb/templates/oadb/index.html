@@ -1,11 +1,18 @@
 {% extends 'oadb/layout.html' %}
 
 {% block content %}
-<div class="links">
-	<ul>
-		<li><a href="{% url 'api-root' %}">REST API</a></li>
-		<li><a href="{% url 'run-list' %}">All Runs</a></li>
-		<li><a href="{% url 'kit-list' %}">All Kits</a></li>
-	</ul>
+<div class="container">
+	<div class="row">
+		<h2>Background</h2>
+		<p>Adapters are short sequences that are attached to cDNA templates during preparation of next generation sequencing (NGS) libraries. Depending on the preparation of the NGS library and how it is sequenced, the raw NGS data may be contaminated with the adapter sequences. See Didion et al. 2017 for more details.</p>
+		<p>Adapter trimming is a critical component of NGS data preprocessing. To trim adapters appropriately, it is necessary to know the sequences of the adapters that were used. However, adapter sequences are poorly documented and often are not 	included in the metadata of public database submissions (SRA, ENA, and DDBJ).</p>
+	</div>
+	<duv class="row">
+		<ul>
+			<li><a href="{% url 'api-root' %}">REST API</a></li>
+			<li><a href="{% url 'run-list' %}">All Runs</a></li>
+			<li><a href="{% url 'kit-list' %}">All Kits</a></li>
+		</ul>
+	</duv>
 </div>
 {% endblock %}

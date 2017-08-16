@@ -34,5 +34,5 @@ class RunSerializer(serializers.HyperlinkedModelSerializer):
         model = Run
         fields = (
             'accession', 'is_public', 'is_inferred',
-            'user', 'database'
+            'user', 'database', 'three_seq', 'five_seq'
         )

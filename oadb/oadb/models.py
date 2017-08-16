@@ -72,3 +72,12 @@ class Run(models.Model):
     three_prime = models.ForeignKey('Adapter', null=True, related_name='three')
     five_prime = models.ForeignKey('Adapter', null=True, related_name='five')
     sequencing_instrument = models.CharField(max_length=50, null=True)
+
+    @property
+    def three_seq(self):
+        return self.three_prime.full_sequence
+
+    @property
+    def five_seq(self):
+        return self.five_prime.full_sequence
+

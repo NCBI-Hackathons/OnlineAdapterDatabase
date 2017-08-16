@@ -1,4 +1,4 @@
-from oadb.models import User, Adaptor, Kit, Run, Database
+from oadb.models import User, Adapter, Kit, Run, Database
 from rest_framework import serializers
 
 
@@ -7,16 +7,20 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         model = User
         fields = ('url', 'username', 'email', 'groups')
 
-class AdaptorSerializer(serializers.HyperlinkedModelSerializer):
+
+class AdapterSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        model = Adaptor
-        fields = ('barcode', 'universal_sequence','index_sequence', 'full_sequence', 'index_type')
+        model = Adapter
+        fields = (
+            'id', 'barcode', 'universal_sequence', 'index_sequence',
+            'full_sequence', 'index_type'
+        )
 
 
 class KitSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Kit
-        fields = ('vendor', 'kit', 'subkit', 'version', 'status', 'user')
+        fields = ('id', 'vendor', 'kit', 'subkit', 'version', 'status', 'user')
 
 
 class DatabaseSerializer(serializers.HyperlinkedModelSerializer):

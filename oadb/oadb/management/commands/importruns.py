@@ -1,6 +1,6 @@
 from django.core.management.base import BaseCommand, CommandError
 import csv
-from oadb.models import User, Kit, Adaptor, Run, Database
+from oadb.models import User, Kit, Adapter, Run, Database
 import re
 from collections import namedtuple
 

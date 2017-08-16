@@ -7,7 +7,7 @@ from rest_framework import viewsets
 # from rest_framework.permissions import AllowAny
 # from rest_framework.response import Response
 # from rest_framework_swagger import renderers
-from .models import Adaptor, Kit, Database, Run
+from .models import Adapter, Kit, Database, Run
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAdminUser
 from rest_framework.decorators import permission_classes
 from collections import OrderedDict
@@ -26,9 +26,9 @@ class UserViewSet(viewsets.ModelViewSet):
     serializer_class = serializers.UserSerializer
 
 @permission_classes((IsAuthenticatedOrReadOnly, ))
-class AdaptorViewSet(viewsets.ModelViewSet):
+class AdapterViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
-        queryset = Adaptor.objects.all()
+        queryset = Adapter.objects.all()
         pk = self.request.query_params.get('kit_id', '')
         name = self.request.query_params.get('kit', '')
         barcode = self.request.query_params.get('barcode', '')
@@ -47,7 +47,7 @@ class AdaptorViewSet(viewsets.ModelViewSet):
             queryset.filter(universal_sequence=un_seq) 
         
         return queryset
-    serializer_class = serializers.AdaptorSerializer
+    serializer_class = serializers.AdapterSerializer
 
 @permission_classes((IsAuthenticatedOrReadOnly, ))
 class KitViewSet(viewsets.ModelViewSet):

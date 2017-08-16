@@ -29,7 +29,7 @@ IDX_CHOICES = (
     ('i7', 'i7'))
 
 
-class Adaptor(models.Model):
+class Adapter(models.Model):
     universal_sequence = models.CharField(max_length=100)
     index_sequence = models.CharField(max_length=100)
     full_sequence = models.CharField(max_length=100)
@@ -37,6 +37,9 @@ class Adaptor(models.Model):
     barcode = models.CharField(max_length=100, default='')
     user = models.ForeignKey('User')
     kit = models.ForeignKey('Kit', related_name='adaptors')
+
+    class Meta:
+        db_table = 'oadb_adaptor'
 
 
 class DatabaseManager(models.Manager):
@@ -63,6 +66,6 @@ class Run(models.Model):
     is_inferred = models.BooleanField(default=True)
     database = models.ForeignKey(Database, null=True)
     user = models.ForeignKey(User, null=False)
-    three_prime = models.ForeignKey('Adaptor', null=True, related_name='three')
-    five_prime = models.ForeignKey('Adaptor', null=True, related_name='five')
+    three_prime = models.ForeignKey('Adapter', null=True, related_name='three')
+    five_prime = models.ForeignKey('Adapter', null=True, related_name='five')
     sequencing_instrument = models.CharField(max_length=50, null=True)

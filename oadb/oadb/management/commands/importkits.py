@@ -1,6 +1,6 @@
 from django.core.management.base import BaseCommand, CommandError
 import csv
-from oadb.models import User, Kit, Adaptor, Run
+from oadb.models import User, Kit, Adapter, Run
 import re
 from collections import namedtuple
 
@@ -90,7 +90,7 @@ class Command(BaseCommand):
                 if row.barcode == 'universal':
                     self.kit2useq[kit.id] = row.index_seq
                 else:
-                    Adaptor.objects.create(
+                    Adapter.objects.create(
                         barcode=row.barcode,
                         index_sequence=row.index_seq,
                         index_type=row.index,
@@ -103,7 +103,7 @@ class Command(BaseCommand):
             self.rowcount += 1
         # Update all objects with the universal sequence
         for kit, universal_seq in self.kit2useq.items():
-            Adaptor.objects.filter(kit_id=kit).update(
+            Adapter.objects.filter(kit_id=kit).update(
                 universal_sequence=universal_seq
             )
 
@@ -119,7 +119,7 @@ class Command(BaseCommand):
 
         if opts['clear']:
             Run.objects.all().delete()
-            Adaptor.objects.all().delete()
+            Adapter.objects.all().delete()
             Kit.objects.all().delete()
 
         with open(opts['csvfile'], 'r') as f:

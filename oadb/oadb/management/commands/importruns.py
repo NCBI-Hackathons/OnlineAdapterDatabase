@@ -1,8 +1,9 @@
 from django.core.management.base import BaseCommand, CommandError
 import csv
 from oadb.models import User, Kit, Adapter, Run, Database
-import re
+import sys
 from collections import namedtuple
+
 
 CSV_COLUMNS = [
     'accession',
@@ -88,6 +89,34 @@ class Command(BaseCommand):
                 self.build_header_map(rawrow)
             else:
                 row = self.build_row_data(rawrow)
+                three = None
+                five = None
+                database = None
+                try:
+                    three = Adapter.objects.get(
+                        kit=row.five_prime,
+                        version='').id
+                    five = Adapter.objects.get(
+                        kit=row.three_prime,
+                        version='').id
+                except Kit.DoesNotExist:
+                    sys.stderr.write('line %d: unable to locate kits' % self.rowcount)
+
+                try:
+                    database = Adapter.objects.get(name=row.database)
+                except:
+                    sys.stderr.write('line %d: unable to locate database' % self.rowcount)
+
+                Run.objects.create(
+                    accession=row.accession,
+                    database_id=database.id,
+                    is_public=row.is_public,
+                    user_id=user.id,
+                    three_prime_id=three,
+                    five_prime_id=five,
+                    sequencing_instrument=row.platform,
+                )
+
                 printable_row = row[0:2] + row[4:]
                 print(', '.join(printable_row))
             self.rowcount += 1

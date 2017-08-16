@@ -32,8 +32,8 @@ If you want to spin up a local copy of AdapterBase:
 3. Create and enter a virtual environment (e.g. `python3 -m venv /path/to/venv; source /path/to/venv/bin/activate`)
 4. From the oadb directory, run buildoadb.sh
 5. From the oadb directory, create a superuser for the database by running `./manage.py createsuperuser`
-6. From the oadb directory, start the server by running `./runoadb.sh -p 80` 
-7. Open a new browser tab and navigate to localhost:80
+6. From the oadb directory, start the server by running `./runoadb.sh -p 8080` 
+7. Open a new browser tab and navigate to localhost:8080
 
 ### Web interface vignettes
 

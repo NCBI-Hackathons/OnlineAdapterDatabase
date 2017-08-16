@@ -20,7 +20,7 @@ AdapterBase is implemented in SQLite3 and Django with the primary API implemente
 
 ## Usage
 
-Currently, AdapterBase can be accessed from the Hackathon AWS instance by mapping port 80 back to the local host. A permanent, publically facing home will be determined later.
+Currently, AdapterBase can be accessed from the Hackathon AWS instance by mapping port 80 back to the local host. A permanent, publically facing home will be determined later. To use the AWS instance, please see [these instructions](AWSDEMO.md).
 
 ### Local installation
 

@@ -56,7 +56,8 @@ If you want to spin up a local copy of AdapterBase:
 
 5. Continue building out run database with manual curation of SRA datasets
 6. Integrate the AdpaterBase API into Atropos
-
+7. Develop a script to scan a set of SRA accessions for adapters and match identified adapter names against the LIBRARY_CONSTRUCTION_PROTOCOL block in the SRA metadata.
+ 
 ## Manuscript
 
 A draft manuscript describing AdapterBase may be found [here](https://docs.google.com/document/d/1MefhJkUDHlx5zbiIymqCaFHPAOzTIfC0We6qj2aUAY8/edit?usp=sharing).

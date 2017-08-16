@@ -36,7 +36,7 @@ class Adaptor(models.Model):
     index_type = models.CharField(max_length=5, choices=IDX_CHOICES)
     barcode = models.CharField(max_length=100, default='')
     user = models.ForeignKey('User')
-    kit = models.ForeignKey('Kit')
+    kit = models.ForeignKey('Kit', related_name='adaptors')
 
 
 class DatabaseManager(models.Manager):

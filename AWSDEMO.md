@@ -39,24 +39,7 @@ The simplest for our demo is to run the Django/gunicorn server as root on port 8
       cd oadb
       ./oadbbuild.sh
 
-- Launch or connect to "screen" so that the server remains if you disconnect
-    * look for active screen servers by entering:
-
-          screen -ls
-
-    * if you find one, attach to it:
-
-          screen -X demo
-
-    * otherwise launch one:
-
-          screen -S demo
-
-- In screen, the server may already be running - Ctrl-C if so, and re-launch
-
-    ./oadbrun.sh -p 80
-
-- If the server was not running, you are probably in a new screen:
+- Become root and get back where you were:
 
     # Become root
     sudo su - 
@@ -70,4 +53,5 @@ The simplest for our demo is to run the Django/gunicorn server as root on port 8
 - Start the server on port 80
 
     ./runoadb.sh -p 80
+
 

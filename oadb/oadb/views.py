@@ -29,7 +29,6 @@ class UserViewSet(viewsets.ModelViewSet):
 class AdaptorViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         queryset = Adaptor.objects.all()
-        filters = {}
         pk = self.request.query_params.get('kit_id', '')
         name = self.request.query_params.get('kit', '')
         barcode = self.request.query_params.get('barcode', '')
@@ -62,5 +61,13 @@ class DatabaseViewSet(viewsets.ModelViewSet):
 
 @permission_classes((IsAuthenticatedOrReadOnly, ))
 class RunViewSet(viewsets.ModelViewSet):
-    queryset = Run.objects.all()
+    def get_queryset(self):
+        queryset = Run.objects.all()
+        accession_id = self.request.query_params.get('accession_id', '')
+        accession = self.request.query_params.get('accession', '')
+        if accession_id:
+            queryset.filter(accession_id=accession_id)
+        if accession:
+            queryset.filter(accession=accession)
+        return queryset
     serializer_class = serializers.RunSerializer

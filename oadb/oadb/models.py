@@ -18,8 +18,8 @@ class Kit(models.Model):
     user = models.ForeignKey('User')
 
 IDX_CHOICES = (
-    (':5', '5'),
-    (':7', '7'))
+    ('i5', 'i5'),
+    ('i7', 'i7'))
 
 class Adaptor(models.Model):
     universal_sequence = models.CharField(max_length=100)
@@ -38,10 +38,8 @@ class DatabaseManager(models.Manager):
     def get_by_natural_key(self, name):
         return self.get(name=name)
 
-
 class Database(models.Model):
     objects = DatabaseManager()
-
     name = models.CharField(max_length=100, unique=True)
     template_url = models.CharField(max_length=250)
     url = models.CharField(max_length=250)
@@ -49,10 +47,20 @@ class Database(models.Model):
     def natural_key(self):
         return (self.name,)
 
+class RunManager(models.Manager):
+
+    def get_by_natural_key(self, accession):
+        return self.get(accession=accession)
 
 class Run(models.Model):
-    accession = models.ForeignKey('Adaptor')
-    is_public = models.BooleanField(default=True)
-    database = models.ForeignKey(Database)
-    sequencing_instrument = models.CharField(max_length=50)
+    accession = models.CharField(max_length=100)
+    is_public = models.BooleanField(default=False)
+    database = models.ForeignKey(Database, null=True)
+    three_prime = models.ForeignKey('Adaptor', null=True, related_name='three')
+    five_prime = models.ForeignKey('Adaptor', null=True, related_name='five')
+    sequencing_instrument = models.CharField(max_length=50, null=True)
+
+
+    def natural_key(self):
+        return (self.accession)
 

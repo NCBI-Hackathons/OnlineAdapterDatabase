@@ -30,7 +30,7 @@ router.register(r'users', views.UserViewSet)
 router.register(r'adaptor', views.AdaptorViewSet, 'Adaptor')
 router.register(r'kit', views.KitViewSet)
 router.register(r'database', views.DatabaseViewSet)
-router.register(r'run', views.RunViewSet)
+router.register(r'run', views.RunViewSet, 'Run')
 
 
 urlpatterns = [

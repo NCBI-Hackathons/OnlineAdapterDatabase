@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/99953467.svg)](https://zenodo.org/badge/latestdoi/99953467)
+
 # AdapterBase
 
 ## Background

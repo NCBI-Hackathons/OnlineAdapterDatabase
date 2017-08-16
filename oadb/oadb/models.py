@@ -11,15 +11,21 @@ class User(AbstractUser):
 
 
 class Kit(models.Model):
+    # aka manufacturer
     vendor = models.CharField(max_length=100, null=True, blank=True)
+    # aka subkit
     name = models.CharField(max_length=100, unique=True)
     version = models.CharField(max_length=100, null=True, blank=True)
+    # aka kit
     model = models.CharField(max_length=100, null=True, blank=True)
+    # user 1 (system) used for built-in kits
     user = models.ForeignKey('User')
+
 
 IDX_CHOICES = (
     ('i5', 'i5'),
     ('i7', 'i7'))
+
 
 class Adaptor(models.Model):
     universal_sequence = models.CharField(max_length=100)
@@ -38,6 +44,7 @@ class DatabaseManager(models.Manager):
     def get_by_natural_key(self, name):
         return self.get(name=name)
 
+
 class Database(models.Model):
     objects = DatabaseManager()
     name = models.CharField(max_length=100, unique=True)
@@ -47,20 +54,22 @@ class Database(models.Model):
     def natural_key(self):
         return (self.name,)
 
+
 class RunManager(models.Manager):
 
     def get_by_natural_key(self, accession):
         return self.get(accession=accession)
 
+
 class Run(models.Model):
     accession = models.CharField(max_length=100)
     is_public = models.BooleanField(default=False)
+    is_inferred = models.BooleanField(default=True)
     database = models.ForeignKey(Database, null=True)
+    user = models.ForeignKey(User, null=False)
     three_prime = models.ForeignKey('Adaptor', null=True, related_name='three')
     five_prime = models.ForeignKey('Adaptor', null=True, related_name='five')
     sequencing_instrument = models.CharField(max_length=50, null=True)
 
-
     def natural_key(self):
         return (self.accession)
-

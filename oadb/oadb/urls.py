@@ -27,7 +27,7 @@ from graphene_django.views import GraphQLView
 
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
-router.register(r'adaptor', views.AdaptorViewSet)
+router.register(r'adaptor', views.AdaptorViewSet, 'Adaptor')
 router.register(r'kit', views.KitViewSet)
 router.register(r'database', views.DatabaseViewSet)
 router.register(r'run', views.RunViewSet)

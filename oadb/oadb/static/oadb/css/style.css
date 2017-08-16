@@ -11,3 +11,34 @@
 	left: 0;
 	top: 0; */
 }
+
+.brandbar {
+	height: 20px;
+	width: 100%;
+	border: none;
+	padding: 0;
+	background-color: blue;
+}
+
+.brandbar .universal {
+	display: inline-block;
+	float: left;
+	height: 20px;
+	width: 25%;
+	background-color: green;
+}
+.brandbar .indexed {
+	float: right;
+	display: inline-block;
+	height: 20px;
+	background-color: red;
+	width: 35%;
+}
+.brandbar .indexed > .sixbp {
+	height: 20px;
+	display: inline-block;
+	margin-left: 43%;
+	margin-right: 43%;
+	background-color: purple;
+	width: 14%;
+}

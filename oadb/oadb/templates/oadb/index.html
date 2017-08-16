@@ -6,13 +6,16 @@
 		<h2>Background</h2>
 		<p>Adapters are short sequences that are attached to cDNA templates during preparation of next generation sequencing (NGS) libraries. Depending on the preparation of the NGS library and how it is sequenced, the raw NGS data may be contaminated with the adapter sequences. See Didion et al. 2017 for more details.</p>
 		<p>Adapter trimming is a critical component of NGS data preprocessing. To trim adapters appropriately, it is necessary to know the sequences of the adapters that were used. However, adapter sequences are poorly documented and often are not 	included in the metadata of public database submissions (SRA, ENA, and DDBJ).</p>
-	</div>
-	<duv class="row">
+		<h2>What we provide</h2>
+		<p>AdapterBase provides an API and web page, together with a database, supporting the following use cases:</p>
 		<ul>
-			<li><a href="{% url 'api-root' %}">REST API</a></li>
-			<li><a href="{% url 'run-list' %}">All Runs</a></li>
-			<li><a href="{% url 'kit-list' %}">All Kits</a></li>
-		</ul>
-	</duv>
+		  <li>Get adapter sequences used by run in the database.  The run is identified by assession number.</li>
+		  <li>Deposit adapter information for a run</li>
+		  <li>Adding new kits and/or adapter sequences</li>
+		 </ul>
+		 <h2>Related Literature</h2>
+		 <ul>
+		 </ul>
+	</div>
 </div>
 {% endblock %}

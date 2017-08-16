@@ -58,7 +58,7 @@ class Run(models.Model):
     database = models.ForeignKey(Database, null=True)
     three_prime = models.ForeignKey('Adaptor', null=True, related_name='three')
     five_prime = models.ForeignKey('Adaptor', null=True, related_name='five')
-    sequencing_instrument = models.CharField(max_length=50., null=True)
+    sequencing_instrument = models.CharField(max_length=50, null=True)
 
 
     def natural_key(self):

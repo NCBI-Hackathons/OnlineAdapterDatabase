@@ -33,7 +33,7 @@ class AdaptorViewSet(viewsets.ModelViewSet):
         name = self.request.query_params.get('kit', '')
         barcode = self.request.query_params.get('barcode', '')
         index_type = self.request.query_params.get('index_type', '')
-        un_seq = self.request.query_params.get('univers', '')
+        un_seq = self.request.query_params.get('universal_sequence', '')
 
         if pk:
             queryset.filter(kit_id=pk)
@@ -44,7 +44,7 @@ class AdaptorViewSet(viewsets.ModelViewSet):
         if index_type:
             queryset.filter(index_type=index_type)
         if un_seq:
-            queryset.filter(universal_sequence=un_seq)
+            queryset.filter(universal_sequence=un_seq) 
         
         return queryset
     serializer_class = serializers.AdaptorSerializer
@@ -66,7 +66,7 @@ class RunViewSet(viewsets.ModelViewSet):
         accession_id = self.request.query_params.get('accession_id', '')
         accession = self.request.query_params.get('accession', '')
         if accession_id:
-            queryset.filter(accession_id=accession_id)
+            queryset = queryset.filter(three_prime_id=accession_id) | queryset.filter(five_prime_id=accession_id)
         if accession:
             queryset.filter(accession=accession)
         return queryset

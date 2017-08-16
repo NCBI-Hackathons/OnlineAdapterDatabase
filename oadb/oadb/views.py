@@ -90,7 +90,7 @@ class RunViewSet(viewsets.ModelViewSet):
     serializer_class = serializers.RunSerializer
 
 
-def OutFile(request):
+def GenFasta(request):
 
     queryset = Kit.objects.all()
 
@@ -104,18 +104,17 @@ def OutFile(request):
         queryset = queryset.filter(subkit=subkit)
     if vendor:
         vendor = queryset.filter(vendor=vendor)
-    
-    with open ("adaptors.fasta", "w") as writeFile:
-        for kit in queryset:
-            kit_name = ">{}{}{}{}".format(kit.vendor, kit.kit, kit.subkit, kit.version)
-            for adaptor in kit.adaptors.all():
-                adaptor_string = "{}{}\n{}\n".format(kit_name, adaptor.barcode, adaptor.full_sequence)
-                writeFile.write(adaptor_string)
+    Full_String =  ""
+   
+    for kit in queryset:
+        kit_name = ">{}{}{}{}".format(kit.vendor, kit.kit, kit.subkit, kit.version)
+        for adaptor in kit.adaptors.all():
+            adaptor_string = "{}{}\n{}\n".format(kit_name, adaptor.barcode, adaptor.full_sequence)
+            Full_String+=adaptor_string
 
-    with open('adaptors.fasta', 'r') as readFile:
-        response = HttpResponse(readFile.read(), content_type='application/force-download')
-        response['Content-Disposition'] = 'inline; filename=adaptors.fasta' 
-        return response
+    response = HttpResponse(Full_String, content_type='application/force-download')
+    response['Content-Disposition'] = 'inline; filename=adaptors.txt' 
+    return response
 
 
 

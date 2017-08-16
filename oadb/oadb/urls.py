@@ -19,7 +19,7 @@ from . import views
 from rest_framework import routers
 from rest_framework.documentation import include_docs_urls
 from graphene_django.views import GraphQLView
-from .views import OutFile
+from .views import GenFasta
 
 
 # Disable GraphQL
@@ -41,5 +41,5 @@ urlpatterns = [
     url(r'^docs/', include_docs_urls(title='AdapterBase API')),
     # url(r'^graphql/', GraphQLView.as_view(graphiql=True, schema=schema)),
     url(r'^api-auth/', include('rest_framework.urls')),
-    url(r'^outfile/?$', OutFile, name='out_file'),
+    url(r'^gen_fasta/?$', GenFasta, name='gen_fasta'),
 ]

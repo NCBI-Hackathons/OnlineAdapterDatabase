@@ -25,6 +25,9 @@ class Command(BaseCommand):
                             help='Specify a user name for imported kits')
         parser.add_argument('--userid', metavar='ID', type=int, default=None,
                             help='Specify a user identifier for imported kits')
+        parser.add_argument('--format', metavar='FORMAT', default='scott',
+                            choices=['scott', 'chaim'],
+                            help='Specify format of input CSV')
         parser.add_argument('--clear', action='store_true', default=False,
                             help='Clear database before submitting information')
 
@@ -107,6 +110,42 @@ class Command(BaseCommand):
                 universal_sequence=universal_seq
             )
 
+    def import_chaim_csv(self, user, csvfile):
+        kitreader = csv.reader(csvfile, delimiter=',', quotechar='"')
+        self.rowcount = 0
+        self.nkits = 0
+        self.nadapters = 0
+        for rawrow in kitreader:
+            oldname, fullseq = rawrow
+            vendor = 'illumina'
+            status = 3
+            try:
+                kit = Kit.objects.get(
+                    vendor=vendor,
+                    kit=oldname,
+                    subkit='',
+                    version='')
+            except Kit.DoesNotExist:
+                kit = Kit.objects.create(
+                    vendor=vendor,
+                    kit=oldname,
+                    subkit='',
+                    version='',
+                    user_id=user.id)
+                self.nkits += 1
+            Adapter.objects.create(
+                barcode=oldname,
+                index_sequence='',
+                index_type='i5',
+                full_sequence=fullseq,
+                kit_id=kit.id,
+                user_id=user.id,
+            )
+            self.nadapters += 1
+            self.rowcount += 1
+            print(', '.join(rawrow))
+        print('Imported %d kits and %d adapters' % (self.nkits, self.nadapters))
+
     def handle(self, *args, **opts):
 
         user = None
@@ -123,4 +162,7 @@ class Command(BaseCommand):
             Kit.objects.all().delete()
 
         with open(opts['csvfile'], 'r') as f:
-            self.import_csv(user, f)
+            if opts['format'] == 'chaim':
+                self.import_chaim_csv(user, f)
+            else:
+                self.import_csv(user, f)

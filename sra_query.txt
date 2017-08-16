@@ -1,0 +1,5 @@
+.mode 'csv'
+.output datasources/sra_query_results.csv
+select run_accession,instrument_model from sra where description like "%metavir%" limit 30;
+select run_accession,instrument_model from sra where library_construction_protocol like "%nextera index kit%" and library_construction_protocol not like "%fluidigm%" and library_layout like "PAIRED%" limit 30;
+select run_accession,instrument_model from sra where library_construction_protocol like "%truseq%" and library_construction_protocol not like "%fluidigm%" and library_layout like "PAIRED%" limit 30;

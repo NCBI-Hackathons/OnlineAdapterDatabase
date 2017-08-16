@@ -8,27 +8,30 @@ Adapter trimming is a critical component of NGS data preprocessing. To trim adap
 
 ### Target Users
 
-**fill in here**
+AdapterBase is designed to make life easier for scientists who want to re-analyze data from the SRA. The goal is to be able to enter a run accession number (eg. SRR123456) into either the web interface or the command-line API and get out the sequences of the adapters that were used to create the library. This information will also eventually be exposed via Python bindings, so that adapter trimming programs like Atropos can access them directly.
+
+Because a database is only as useful as the quality of the data in it, we also provide the ability for the groups doing the sequencing to create entries for their data in AdapterBase at the same time as depositing it in the SRA/ENA/DDBJ. We have begun to prepopulate the database with annotations of existing data done by automatic detection of adapters using [Atropos](https://github.com/jdidion/atropos). Similarly, we have extracted lists of kits and adapter sequences have been extracted from [Illumina's documentation](https://support.illumina.com/content/dam/illumina-support/documents/documentation/chemistry_documentation/experiment-design/illumina-adapter-sequences_1000000002694-01.pdf), and users can add data for other kits as available.
 
 ## System Design
 
-AdapterBase is implemented in SQLite3 and Django with the primary API implemented in REST. Lists of kits and adapter sequences have been extracted from [Illumina's documentation](https://support.illumina.com/content/dam/illumina-support/documents/documentation/chemistry_documentation/experiment-design/illumina-adapter-sequences_1000000002694-01.pdf). An initial list of runs is being populated by automatic detection of adapters using [Atropos](https://github.com/jdidion/atropos). (**Do we need more here??**)
+AdapterBase is implemented in SQLite3 and Django with the primary API implemented in REST. Access to the database is via web (URL TBD), command line, and/or Python bindings.
 
 ![AdapterBase schema](assets/SystemDesign.png)
 
 ## Usage
 
-Currently, AdapterBase can be accessed from the Hackathon AWS instance by mapping port 80 back to the local host. A permanent, publically facing home will be determined later.  **COMPLETE THIS SECTION**
+Currently, AdapterBase can be accessed from the Hackathon AWS instance by mapping port 80 back to the local host. A permanent, publically facing home will be determined later.
 
 ### Local installation
 
-If you want to spin up a local copy of AdapterBase: (**Replace with code/vignette!**)
+If you want to spin up a local copy of AdapterBase:
 1. Make sure python3 is installed
 2. Clone or download this git repository
-3. Create and enter a virtual environemnt
-4. Run buildoadb.sh
-5. Create a superuser for the database
-6. Start the server by runnin startoadb.sha 
+3. Create and enter a virtual environment (e.g. `python3 -m venv /path/to/venv; source /path/to/venv/bin/activate`)
+4. From the oadb directory, run buildoadb.sh
+5. Switch to superuser and re-enter the same virtual environment
+6. From the oadb directory, start the server by running `./runoadb.sh -p 80` 
+7. Open a new broswer tab and navigate to localhost:80
 
 ### Web interface vignettes
 
@@ -53,6 +56,10 @@ If you want to spin up a local copy of AdapterBase: (**Replace with code/vignett
 
 5. Continue building out run database with manual curation of SRA datasets
 6. Integrate the AdpaterBase API into Atropos
+
+## Manuscript
+
+A draft manuscript describing AdapterBase may be found [here](https://docs.google.com/document/d/1MefhJkUDHlx5zbiIymqCaFHPAOzTIfC0We6qj2aUAY8/edit?usp=sharing).
 
 ## Project Team
 

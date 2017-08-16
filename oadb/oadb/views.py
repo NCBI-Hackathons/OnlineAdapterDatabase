@@ -51,8 +51,24 @@ class AdaptorViewSet(viewsets.ModelViewSet):
 
 @permission_classes((IsAuthenticatedOrReadOnly, ))
 class KitViewSet(viewsets.ModelViewSet):
-    queryset = Kit.objects.all()
     serializer_class = serializers.KitSerializer
+
+    def get_queryset(self):
+        queryset = Kit.objects.all()
+
+        kit = self.request.query_params.get('kit', '')
+        subkit = self.request.query_params.get('subkit', '')
+        vendor = self.request.query_params.get('vendor', '')
+
+        if kit:
+            queryset = queryset.filter(kit=kit)
+        if subkit:
+            queryset = queryset.filter(subkit=subkit)
+        if vendor:
+            vendor = queryset.filter(vendor=vendor)
+
+        return queryset
+
 
 @permission_classes((IsAuthenticatedOrReadOnly, ))
 class DatabaseViewSet(viewsets.ModelViewSet):

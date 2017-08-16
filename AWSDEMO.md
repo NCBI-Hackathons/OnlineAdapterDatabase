@@ -52,15 +52,22 @@ The simplest for our demo is to run the Django/gunicorn server as root on port 8
 
           screen -S demo
 
-- In screen, the server may already be running - Ctrl-C if so
+- In screen, the server may already be running - Ctrl-C if so, and re-launch
 
-- Make sure that the `root` user is in the virtualenv, if not:
+    ./oadbrun.sh -p 80
 
-    cd ~ubuntu
-    . venv/bin/activate
+- If the server was not running, you are probably in a new screen:
 
-- Rerun the software
+    # Become root
+    sudo su - 
 
+    # Activate the virtualenv
+    . ~ubuntu/venv/bin/activate
+
+    # Go to the Django project directory
     cd ~ubuntu/oadb-active/OnlineAdapterDatabase/oadb
-    ./runoadb.sh
+
+- Start the server on port 80
+
+    ./runoadb.sh -p 80
 

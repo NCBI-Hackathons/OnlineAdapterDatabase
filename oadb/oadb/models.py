@@ -17,9 +17,15 @@ class Kit(models.Model):
     model = models.CharField(max_length=100, null=True, blank=True)
     user = models.ForeignKey('User')
 
+IDX_CHOICES = (
+    (':5', '5'),
+    (':7', '7'))
 
 class Adaptor(models.Model):
-    sequence = models.CharField(max_length=100)
+    universal_sequence = models.CharField(max_length=100)
+    index_sequence = models.CharField(max_length=100)
+    full_sequence = models.CharField(max_length=100)
+    index_type = models.CharField(max_length=5, choices=IDX_CHOICES)
     barcode = models.CharField(max_length=100, default='')
     user = models.ForeignKey('User')
     kit = models.ForeignKey('Kit')

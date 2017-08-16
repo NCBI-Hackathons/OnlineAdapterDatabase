@@ -8,7 +8,7 @@ CSV_COLUMNS = [
     'kit', 'subkit', 'barcode',
     'index_seq', 'index',
     'adapter_seq', 'version',
-    'manufacturer', 'model_range'
+    'manufacturer', 'model_range', 'status'
 ]
 
 RowData = namedtuple('RowData', CSV_COLUMNS)
@@ -40,6 +40,9 @@ class Command(BaseCommand):
     def build_row_data(self, rawrow):
         if len(rawrow) < len(self.name2col):
             raise CommandError('line %d: too few columns' % self.rowcount)
+        statusval = rawrow[self.name2col['status']]
+        if len(statusval) == 0:
+            statusval = '0'
         row = RowData(
             kit=re.sub('_', ' ', rawrow[self.name2col['kit']]).strip(),
             subkit=re.sub('_', ' ', rawrow[self.name2col['subkit']]).strip(),
@@ -50,6 +53,7 @@ class Command(BaseCommand):
             version=rawrow[self.name2col['version']],
             manufacturer=rawrow[self.name2col['manufacturer']],
             model_range=rawrow[self.name2col['model_range']],
+            status=statusval,
         )
         return row
 
@@ -78,7 +82,9 @@ class Command(BaseCommand):
                         kit=row.kit,
                         subkit=row.subkit,
                         version=row.version,
-                        user_id=user.id)
+                        status=int(row.status),
+                        user_id=user.id,
+                    )
                     self.nkits += 1
                 if row.barcode == 'universal':
                     self.kit2useq[kit.id] = row.index_seq

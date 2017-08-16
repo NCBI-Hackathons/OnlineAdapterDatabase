@@ -7,11 +7,10 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         model = User
         fields = ('url', 'username', 'email', 'groups')
 
-
 class AdaptorSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Adaptor
-        fields = ('barcode', 'sequence',)
+        fields = ('barcode', 'universal_sequence','index_sequence', 'full_sequence', 'index_type')
 
 
 class KitSerializer(serializers.HyperlinkedModelSerializer):

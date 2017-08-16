@@ -54,13 +54,6 @@ class Database(models.Model):
     def natural_key(self):
         return (self.name,)
 
-
-class RunManager(models.Manager):
-
-    def get_by_natural_key(self, accession):
-        return self.get(accession=accession)
-
-
 class Run(models.Model):
     accession = models.CharField(max_length=100)
     is_public = models.BooleanField(default=False)
@@ -70,6 +63,3 @@ class Run(models.Model):
     three_prime = models.ForeignKey('Adaptor', null=True, related_name='three')
     five_prime = models.ForeignKey('Adaptor', null=True, related_name='five')
     sequencing_instrument = models.CharField(max_length=50, null=True)
-
-    def natural_key(self):
-        return (self.accession)

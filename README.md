@@ -8,11 +8,11 @@ Adapter trimming is a critical component of NGS data preprocessing. To trim adap
 
 ### Target Users
 
-**fill in here**
+Computational Biologists using data found in SRA, particular for contig generation or local reassembly.
 
 ## System Design
 
-AdapterBase is implemented in SQLite3 and Django with the primary API implemented in REST. Lists of kits and adapter sequences have been extracted from [Illumina's documentation](https://support.illumina.com/content/dam/illumina-support/documents/documentation/chemistry_documentation/experiment-design/illumina-adapter-sequences_1000000002694-01.pdf). An initial list of runs is being populated by automatic detection of adapters using [Atropos](https://github.com/jdidion/atropos). (**Do we need more here??**)
+AdapterBase is implemented in SQLite3 and Django with the primary API implemented in REST. Lists of kits and adapter sequences have been extracted from [Illumina's documentation](https://support.illumina.com/content/dam/illumina-support/documents/documentation/chemistry_documentation/experiment-design/illumina-adapter-sequences_1000000002694-01.pdf). An initial list of runs is being populated by automatic detection of adapters using [Atropos](https://github.com/jdidion/atropos).
 
 ![AdapterBase schema](assets/SystemDesign.png)
 

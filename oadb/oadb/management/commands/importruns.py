@@ -1,7 +1,36 @@
 from django.core.management.base import BaseCommand, CommandError
 import csv
-from oadb.models import User, Kit, Adaptor
+from oadb.models import User, Kit, Adaptor, Run, Database
 import re
+from collections import namedtuple
+
+CSV_COLUMNS = [
+    'accession',
+    'username',
+    'database',
+    'is_public',
+    'five_prime',
+    'three_prime',
+    'platform',
+]
+
+CSV_COLUMN_ALIASES = {
+    'owner': 'username',
+    "5' adapter": 'five_prime',
+    "3' adapter": 'three_prime',
+}
+
+CSV_BOOL_VALUES = {
+    'yes': True,
+    'no': False,
+    'true': True,
+    'false': False,
+    't': True,
+    '0': False,
+    '1': True
+}
+
+RowData = namedtuple('RowData', CSV_COLUMNS)
 
 
 class Command(BaseCommand):
@@ -14,6 +43,54 @@ class Command(BaseCommand):
                             help='Specify a user name for imported kits')
         parser.add_argument('--userid', metavar='ID', type=int, default=None,
                             help='Specify a user identifier for imported kits')
+        parser.add_argument('--clear', action='store_true', default=False,
+                            help='Clear database before submitting information')
+
+    def build_header_map(self, rawrow):
+        self.name2col = {}
+        for i in range(0, len(rawrow)):
+            colname = rawrow[i].lower()
+            if colname in CSV_COLUMN_ALIASES:
+                colname = CSV_COLUMN_ALIASES[colname]
+            if colname not in CSV_COLUMNS:
+                raise CommandError('%s: invalid column name' % colname)
+            self.name2col[colname] = i
+        if len(self.name2col.keys()) != len(CSV_COLUMNS):
+            raise CommandError('csv is missing required columns')
+
+    def parse_bool(self, dataval):
+        v = dataval.strip().lower()
+        if v not in CSV_BOOL_VALUES:
+            raise CommandError('line %d: %s: incorrect boolean data')
+        return CSV_BOOL_VALUES[v]
+
+    def build_row_data(self, rawrow):
+        if len(rawrow) < len(self.name2col):
+            raise CommandError('line %d: too few columns' % self.rowcount)
+
+        row = RowData(
+            accession=rawrow[self.name2col['accession']],
+            username=rawrow[self.name2col['username']],
+            database=rawrow[self.name2col['database']],
+            is_public=self.parse_bool(rawrow[self.name2col['is_public']]),
+            five_prime=rawrow[self.name2col['five_prime']],
+            three_prime=rawrow[self.name2col['three_prime']],
+            platform=rawrow[self.name2col['platform']],
+        )
+        return row
+
+    def import_csv(self, user, csvfile):
+        kitreader = csv.reader(csvfile, delimiter=',', quotechar='"')
+        self.rowcount = 0
+        self.nruns = 0
+        for rawrow in kitreader:
+            if self.rowcount == 0:
+                self.build_header_map(rawrow)
+            else:
+                row = self.build_row_data(rawrow)
+                printable_row = row[0:2] + row[4:]
+                print(', '.join(printable_row))
+            self.rowcount += 1
 
     def handle(self, *args, **opts):
 
@@ -25,21 +102,10 @@ class Command(BaseCommand):
         else:
             raise CommandError('Either username or userid is required')
 
+        if opts['clear']:
+            Run.objects.all().delete()
+            Adaptor.objects.all().delete()
+            Kit.objects.all().delete()
+
         with open(opts['csvfile'], 'r') as f:
-            kitreader = csv.reader(f, delimiter=',', quotechar='"')
-            rowcount = 0
-            for row in kitreader:
-                if rowcount > 0:
-                    kitname = re.sub('_', ' ', row[0]).strip()
-                    try:
-                        kit = Kit.objects.get(name=kitname)
-                    except Kit.DoesNotExist:
-                        kit = Kit.objects.create(name=kitname, user_id=user.id)
-                    Adaptor.objects.create(
-                        barcode=row[1],
-                        sequence=row[2],
-                        kit_id=kit.id,
-                        user_id=user.id,
-                    )
-                    print(', '.join(row))
-                rowcount += 1
+            self.import_csv(user, f)

@@ -11,6 +11,7 @@ from .models import Adaptor, Kit, Database, Run
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAdminUser
 from rest_framework.decorators import permission_classes
 from collections import OrderedDict
+from django.http import HttpResponse
 
 
 User = get_user_model()
@@ -87,3 +88,37 @@ class RunViewSet(viewsets.ModelViewSet):
             queryset.filter(accession=accession)
         return queryset
     serializer_class = serializers.RunSerializer
+
+
+def OutFile(request):
+
+    queryset = Kit.objects.all()
+
+    kit = request.GET.get('kit', '')
+    subkit = request.GET.get('subkit', '')
+    vendor = request.GET.get('vendor', '')
+
+    if kit:
+        queryset = queryset.filter(kit=kit)
+    if subkit:
+        queryset = queryset.filter(subkit=subkit)
+    if vendor:
+        vendor = queryset.filter(vendor=vendor)
+    
+    with open ("adaptors.fasta", "w") as writeFile:
+        for kit in queryset:
+            kit_name = ">{}{}{}{}".format(kit.vendor, kit.kit, kit.subkit, kit.version)
+            for adaptor in kit.adaptors.all():
+                adaptor_string = "{}{}\n{}\n".format(kit_name, adaptor.barcode, adaptor.full_sequence)
+                writeFile.write(adaptor_string)
+
+    with open('adaptors.fasta', 'r') as readFile:
+        response = HttpResponse(readFile.read(), content_type='application/force-download')
+        response['Content-Disposition'] = 'inline; filename=adaptors.fasta' 
+        return response
+
+
+
+
+
+

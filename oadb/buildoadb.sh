@@ -6,6 +6,6 @@ pip install -r requirements.txt
 ./manage.py migrate
 ./manage.py loaddata oadb/fixtures/databases.yaml
 ./manage.py loaddata oadb/fixtures/systemuser.yaml
-./manage.py importkits ../data/oadb_illumina_raw_data.csv --username system
+./manage.py importkits ../data/oadb_illumina_raw_dataV2.csv --username system --clear
 ./manage.py collectstatic --clear --noinput
 

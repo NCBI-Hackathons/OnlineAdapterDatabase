@@ -1,7 +1,17 @@
 from django.core.management.base import BaseCommand, CommandError
 import csv
-from oadb.models import User, Kit, Adaptor
+from oadb.models import User, Kit, Adaptor, Run
 import re
+from collections import namedtuple
+
+CSV_COLUMNS = [
+    'kit', 'subkit', 'barcode',
+    'index_seq', 'index',
+    'adapter_seq', 'version',
+    'manufacturer', 'model_range', 'status'
+]
+
+RowData = namedtuple('RowData', CSV_COLUMNS)
 
 
 class Command(BaseCommand):
@@ -14,6 +24,82 @@ class Command(BaseCommand):
                             help='Specify a user name for imported kits')
         parser.add_argument('--userid', metavar='ID', type=int, default=None,
                             help='Specify a user identifier for imported kits')
+        parser.add_argument('--clear', action='store_true', default=False,
+                            help='Clear database before submitting information')
+
+    def build_header_map(self, rawrow):
+        self.name2col = {}
+        for i in range(0, len(rawrow)):
+            colname = rawrow[i]
+            if colname not in CSV_COLUMNS:
+                raise CommandError('%s: invalid column name' % colname)
+            self.name2col[colname] = i
+        if len(self.name2col.keys()) != len(CSV_COLUMNS):
+            raise CommandError('csv is missing required columns')
+
+    def build_row_data(self, rawrow):
+        if len(rawrow) < len(self.name2col):
+            raise CommandError('line %d: too few columns' % self.rowcount)
+        statusval = rawrow[self.name2col['status']]
+        if len(statusval) == 0:
+            statusval = '0'
+        row = RowData(
+            kit=re.sub('_', ' ', rawrow[self.name2col['kit']]).strip(),
+            subkit=re.sub('_', ' ', rawrow[self.name2col['subkit']]).strip(),
+            barcode=rawrow[self.name2col['barcode']],
+            index_seq=rawrow[self.name2col['index_seq']],
+            index=rawrow[self.name2col['index']],
+            adapter_seq=rawrow[self.name2col['adapter_seq']],
+            version=rawrow[self.name2col['version']],
+            manufacturer=rawrow[self.name2col['manufacturer']],
+            model_range=rawrow[self.name2col['model_range']],
+            status=statusval,
+        )
+        return row
+
+    def import_csv(self, user, csvfile):
+        kitreader = csv.reader(csvfile, delimiter=',', quotechar='"')
+        self.rowcount = 0
+        self.nkits = 0
+        self.nadapters = 0
+        self.kit2useq = {}
+        for rawrow in kitreader:
+            if self.rowcount == 0:
+                self.build_header_map(rawrow)
+            else:
+                row = self.build_row_data(rawrow)
+                # kit = re.sub('_', ' ', row.kit).strip()
+                # subkit = re.sub('_', ' ', row.subkit).strip()
+                try:
+                    kit = Kit.objects.get(
+                        vendor=row.manufacturer,
+                        kit=row.kit,
+                        subkit=row.subkit,
+                        version=row.version)
+                except Kit.DoesNotExist:
+                    kit = Kit.objects.create(
+                        vendor=row.manufacturer,
+                        kit=row.kit,
+                        subkit=row.subkit,
+                        version=row.version,
+                        status=int(row.status),
+                        user_id=user.id,
+                    )
+                    self.nkits += 1
+                if row.barcode == 'universal':
+                    self.kit2useq[kit.id] = row.index_seq
+                else:
+                    Adaptor.objects.create(
+                        barcode=row.barcode,
+                        index_sequence=row.index_seq,
+                        index_type=row.index,
+                        full_sequence=row.adapter_seq,
+                        kit_id=kit.id,
+                        user_id=user.id,
+                    )
+                    self.nadapters += 1
+                print(', '.join(row))
+            self.rowcount += 1
 
     def handle(self, *args, **opts):
 
@@ -25,21 +111,10 @@ class Command(BaseCommand):
         else:
             raise CommandError('Either username or userid is required')
 
+        if opts['clear']:
+            Run.objects.all().delete()
+            Adaptor.objects.all().delete()
+            Kit.objects.all().delete()
+
         with open(opts['csvfile'], 'r') as f:
-            kitreader = csv.reader(f, delimiter=',', quotechar='"')
-            rowcount = 0
-            for row in kitreader:
-                if rowcount > 0:
-                    kitname = re.sub('_', ' ', row[0]).strip()
-                    try:
-                        kit = Kit.objects.get(name=kitname)
-                    except Kit.DoesNotExist:
-                        kit = Kit.objects.create(name=kitname, user_id=user.id)
-                    Adaptor.objects.create(
-                        barcode=row[1],
-                        sequence=row[2],
-                        kit_id=kit.id,
-                        user_id=user.id,
-                    )
-                    print(', '.join(row))
-                rowcount += 1
+            self.import_csv(user, f)

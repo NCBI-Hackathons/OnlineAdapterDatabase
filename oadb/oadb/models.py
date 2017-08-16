@@ -12,14 +12,16 @@ class User(AbstractUser):
 
 class Kit(models.Model):
     # aka manufacturer
-    vendor = models.CharField(max_length=100, null=True, blank=True)
-    # aka subkit
-    name = models.CharField(max_length=100, unique=True)
-    version = models.CharField(max_length=100, null=True, blank=True)
-    # aka kit
-    model = models.CharField(max_length=100, null=True, blank=True)
+    vendor = models.CharField(max_length=100)
+    kit = models.CharField(max_length=100)
+    subkit = models.CharField(max_length=100)
+    version = models.CharField(max_length=100)
+    status = models.IntegerField(default=0)
     # user 1 (system) used for built-in kits
     user = models.ForeignKey('User')
+
+    class Meta:
+        unique_together = ('kit', 'subkit', 'version',)
 
 
 IDX_CHOICES = (

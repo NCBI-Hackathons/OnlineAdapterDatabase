@@ -16,7 +16,7 @@ class AdaptorSerializer(serializers.HyperlinkedModelSerializer):
 class KitSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Kit
-        fields = ('name', 'version', 'user')
+        fields = ('vendor', 'kit', 'subkit', 'version', 'status', 'user')
 
 
 class DatabaseSerializer(serializers.HyperlinkedModelSerializer):

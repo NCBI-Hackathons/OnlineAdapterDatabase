@@ -16,6 +16,7 @@ RowData = namedtuple('RowData', CSV_COLUMNS)
 
 class Command(BaseCommand):
     help = 'Imports kits and adapters from a CSV'
+    output_transaction = True
 
     def add_arguments(self, parser):
         parser.add_argument('csvfile', type=str,
@@ -100,6 +101,11 @@ class Command(BaseCommand):
                     self.nadapters += 1
                 print(', '.join(row))
             self.rowcount += 1
+        # Update all objects with the universal sequence
+        for kit, universal_seq in self.kit2useq.items():
+            Adaptor.objects.filter(kit_id=kit).update(
+                universal_sequence=universal_seq
+            )
 
     def handle(self, *args, **opts):
 

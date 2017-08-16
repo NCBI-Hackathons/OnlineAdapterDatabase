@@ -104,8 +104,6 @@ class Command(BaseCommand):
 
         if opts['clear']:
             Run.objects.all().delete()
-            Adaptor.objects.all().delete()
-            Kit.objects.all().delete()
 
         with open(opts['csvfile'], 'r') as f:
             self.import_csv(user, f)

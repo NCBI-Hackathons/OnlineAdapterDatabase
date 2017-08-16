@@ -56,6 +56,7 @@ class Database(models.Model):
     def natural_key(self):
         return (self.name,)
 
+
 class Run(models.Model):
     accession = models.CharField(max_length=100)
     is_public = models.BooleanField(default=False)

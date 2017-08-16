@@ -32,4 +32,7 @@ class DatabaseSerializer(serializers.HyperlinkedModelSerializer):
 class RunSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Run
-        fields = ('accession', 'is_public', 'database')
+        fields = (
+            'accession', 'is_public', 'is_inferred',
+            'user', 'database'
+        )

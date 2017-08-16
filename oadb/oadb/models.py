@@ -59,6 +59,9 @@ class Database(models.Model):
     def natural_key(self):
         return (self.name,)
 
+    def __str__(self):
+        return self.name
+
 
 class Run(models.Model):
     accession = models.CharField(max_length=100)

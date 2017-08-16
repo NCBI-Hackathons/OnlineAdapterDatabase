@@ -7,13 +7,16 @@
 		<ul class="nav navbar-nav pull-right">
 			<li class="dropdown">
 				<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-					Data <span class="caret"></span>
+					Data Admin <span class="caret"></span>
 				</a>
 				<ul class="dropdown-menu">
 					<li><a href="/api/kit/">Kits</a></li>
 					<li><a href="/api/adapter/">Adapters</a></li>
 					<li><a href="/api/run/">Runs</a></li>
 				</ul>
+			</li>
+			<li>
+				<a href="/docs">API</a>
 			</li>
 			{% if user.is_authenticated %}
 				{% optional_logout request user %}

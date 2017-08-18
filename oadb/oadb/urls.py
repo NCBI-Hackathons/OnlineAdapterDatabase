@@ -13,16 +13,15 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
+from django.conf import settings
 from django.conf.urls import url, include
 from django.contrib import admin
-from . import views
 from rest_framework import routers
 from rest_framework.documentation import include_docs_urls
 from graphene_django.views import GraphQLView
 
-
-# Disable GraphQL
-# from .schema import schema
+from . import views
+from .schema import schema
 
 
 router = routers.DefaultRouter()
@@ -38,6 +37,7 @@ urlpatterns = [
     url(r'^api/', include(router.urls)),
     url(r'^admin/', admin.site.urls),
     url(r'^docs/', include_docs_urls(title='AdapterBase API')),
-    # url(r'^graphql/', GraphQLView.as_view(graphiql=True, schema=schema)),
+    url(r'^graphql/', GraphQLView.as_view(graphiql=True, schema=schema)),
     url(r'^api-auth/', include('rest_framework.urls')),
 ]
+

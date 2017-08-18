@@ -2,7 +2,7 @@
 
 BINDADDR="0.0.0.0"
 BINDPORT=8000
-SETTINGS=oadb.settings.dev
+SETTINGS=oadb.settings.standalone
 VENV_PATH=""
 
 while getopts "a:p:s:v:h" opt; do

@@ -5,14 +5,18 @@ django-filter==1.0.4
 coreapi==2.3.1
 djangorestframework==3.6.3
 djangorestframework-csv==2.0.0
-dj_database_url==0.4.2
-psycopg2==2.7.3
 whitenoise==3.3.0
-django_postgrespool==0.3.1
 Markdown==2.6.8
 pytz==2017.2
 gunicorn==19.7.1
 PyYAML==3.12
+
+# It was a mistake to support PostgreSQL during a hackathon,
+# and they are getting in the way of creating a Docker image
+
+#dj_database_url==0.4.2
+#django_postgrespool==0.3.1
+#psycopg2==2.7.3
 
 # graphql
 

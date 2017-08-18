@@ -6,6 +6,11 @@ RUN apt-get install -y python3-pip build-essential python-virtualenv
 COPY oadb /opt/oadb/oadb/
 COPY data /opt/oadb/data/
 
+ENV DJANGO_SETTINGS_MODULE oadb.settings.standalone
 WORKDIR /opt/oadb/oadb
-RUN ./buildoadb.sh -v /opt/oadb/oadb/venv
+RUN ./buildoadb.sh -v venv
+
+EXPOSE 8000
+
+CMD ./runoadb.sh -v venv
 

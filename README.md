@@ -27,13 +27,29 @@ Currently, AdapterBase can be accessed from the Hackathon AWS instance by mappin
 ### Local installation
 
 If you want to spin up a local copy of AdapterBase:
+
 1. Make sure python3 is installed
 2. Clone or download this git repository
-3. Create and enter a virtual environment (e.g. `python3 -m venv /path/to/venv; source /path/to/venv/bin/activate`)
-4. From the oadb directory, run buildoadb.sh
-5. Switch to superuser and re-enter the same virtual environment
-6. From the oadb directory, start the server by running `./runoadb.sh -p 80` 
-7. Open a new broswer tab and navigate to localhost:80
+3. From the oadb directory, enter `./buildoadb.sh -v venv`
+4. From the oadb directory, enter `./runoadb.sh -v venv` 
+5. Open a new broswer tab and navigate to `http://localhost:8000`
+
+These scripts are for simplicity, you can examine them to see what they do.
+
+### Docker installation
+
+You can build a docker image using the following incantations:
+
+    sudo docker pull ubuntu:16.04
+    sudo docker build -t oadb:latest .
+
+You can start the application in the background using the following incantation:
+
+    sudo docker run -d -p 8000:8000 --name oadb oadb:latest
+
+As before, open a new browser and navigate to `http://localhost:8000`
+
+    sudo docker run -d -p 8000:8000 --name oadb oadb:latest
 
 ### Web interface vignettes
 

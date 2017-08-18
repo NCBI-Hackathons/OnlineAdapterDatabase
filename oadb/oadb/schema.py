@@ -1,4 +1,4 @@
-from .models import User, Kit, Adaptor, Database, Run
+from .models import User, Kit, Adapter, Database, Run
 from graphene import ObjectType, Node, Schema
 from graphene_django.fields import DjangoConnectionField
 from graphene_django.types import DjangoObjectType
@@ -18,10 +18,10 @@ class KitNode(DjangoObjectType):
         interfaces = (Node,)
 
 
-class AdaptorNode(DjangoObjectType):
+class AdapterNode(DjangoObjectType):
 
     class Meta:
-        model = Adaptor
+        model = Adapter
         interfaces = (Node,)
 
 
@@ -46,8 +46,8 @@ class Query(ObjectType):
     kit = Node.Field(KitNode)
     all_kits = DjangoConnectionField(KitNode)
 
-    adaptor = Node.Field(AdaptorNode)
-    all_adaptors = DjangoConnectionField(AdaptorNode)
+    adapter = Node.Field(AdapterNode)
+    all_adapters = DjangoConnectionField(AdapterNode)
 
     run = Node.Field(RunNode)
     all_runs = DjangoConnectionField(RunNode)

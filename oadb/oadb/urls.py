@@ -28,8 +28,10 @@ router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
 router.register(r'adapter', views.AdapterViewSet, 'Adapter')
 router.register(r'kit', views.KitViewSet, 'Kit')
+router.register(r'adapterkit', views.AdapterKitViewSet, 'AdapterKit')
 router.register(r'database', views.DatabaseViewSet)
 router.register(r'run', views.RunViewSet, 'Run')
+router.register(r'runplus', views.RunAdapterViewSet, 'runplus')
 
 
 urlpatterns = [

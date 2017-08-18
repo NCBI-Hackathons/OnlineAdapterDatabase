@@ -50,6 +50,12 @@ class AdapterViewSet(viewsets.ModelViewSet):
     serializer_class = serializers.AdapterSerializer
 
 @permission_classes((IsAuthenticatedOrReadOnly, ))
+class AdapterKitViewSet(viewsets.ModelViewSet):
+    queryset = Adapter.objects.select_related('kit').all()
+    serializer_class = serializers.AdapterKitSerializer
+    # TODO: add filtering with django-filter
+
+@permission_classes((IsAuthenticatedOrReadOnly, ))
 class KitViewSet(viewsets.ModelViewSet):
     serializer_class = serializers.KitSerializer
 
@@ -77,6 +83,8 @@ class DatabaseViewSet(viewsets.ModelViewSet):
 
 @permission_classes((IsAuthenticatedOrReadOnly, ))
 class RunViewSet(viewsets.ModelViewSet):
+    serializer_class = serializers.RunSerializer
+
     def get_queryset(self):
         queryset = Run.objects.all()
         accession_id = self.request.query_params.get('accession_id', '')
@@ -86,4 +94,9 @@ class RunViewSet(viewsets.ModelViewSet):
         if accession:
             queryset.filter(accession=accession)
         return queryset
-    serializer_class = serializers.RunSerializer
+
+@permission_classes((IsAuthenticatedOrReadOnly, ))
+class RunAdapterViewSet(viewsets.ModelViewSet):
+    queryset = Run.objects.select_related('three_prime').select_related('five_prime').all()
+    serializer_class = serializers.RunAdapterSerializer
+    # TODO: add filtering with django-filter

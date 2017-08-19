@@ -3,11 +3,14 @@ from django.contrib.auth.models import AbstractUser
 
 
 class User(AbstractUser):
-    un = models.CharField(max_length=150)
+    un = models.CharField(max_length=150, unique=True)
     login_type = models.CharField(max_length=25)
     affiliation = models.CharField(max_length=150)
     website = models.CharField(max_length=150)
     is_staff = models.BooleanField(default=False)
+
+    class Meta:
+        ordering = ('un',)
 
 
 class Kit(models.Model):
@@ -20,8 +23,16 @@ class Kit(models.Model):
     # user 1 (system) used for built-in kits
     user = models.ForeignKey('User')
 
+    @property
+    def name(self):
+        return '%s %s %s %s' % (self.vendor, self.kit, self.subkit, self.version)
+
+    def __str__(self):
+        return self.name
+
     class Meta:
         unique_together = ('kit', 'subkit', 'version',)
+        ordering = ('vendor', 'kit', 'subkit',)
 
 
 IDX_CHOICES = (
@@ -38,8 +49,40 @@ class Adapter(models.Model):
     user = models.ForeignKey('User')
     kit = models.ForeignKey('Kit', related_name='adaptors')
 
+    def __str__(self):
+        return self.barcode
+
     class Meta:
         db_table = 'oadb_adaptor'
+        ordering = ('kit', 'barcode',)
+
+
+class AdapterKit(models.Model):
+    """
+    Model for a view joining Adapter to Kit
+    """
+    universal_sequence = models.CharField(max_length=100)
+    index_sequence = models.CharField(max_length=100)
+    full_sequence = models.CharField(max_length=100)
+    index_type = models.CharField(max_length=5, choices=IDX_CHOICES)
+    barcode = models.CharField(max_length=100, default='')
+    vendor = models.CharField(max_length=100)
+    kit = models.CharField(max_length=100)
+    subkit = models.CharField(max_length=100)
+    version = models.CharField(max_length=100)
+    status = models.IntegerField(default=0)
+
+    @property
+    def name(self):
+        return '%s %s %s %s (%s)' % (self.vendor, self.kit, self.subkit, self.version, self.barcode)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        managed = False
+        db_table = 'oadb_adapterkit'
+        ordering = ('kit', 'subkit', 'version','barcode',)
 
 
 class DatabaseManager(models.Manager):
@@ -62,6 +105,9 @@ class Database(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        ordering = ('name',)
+
 
 class Run(models.Model):
     accession = models.CharField(max_length=100)
@@ -73,11 +119,9 @@ class Run(models.Model):
     five_prime = models.ForeignKey('Adapter', null=True, related_name='five')
     sequencing_instrument = models.CharField(max_length=50, null=True)
 
-    @property
-    def three_seq(self):
-        return self.three_prime.full_sequence
+    def __str__(self):
+        return self.accession
 
-    @property
-    def five_seq(self):
-        return self.five_prime.full_sequence
+    class Meta:
+        ordering = ('accession', 'user',)
 

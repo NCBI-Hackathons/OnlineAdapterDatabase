@@ -31,14 +31,13 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'graphene_django',
+    'django_filters',
     'oadb',
 ]
 
@@ -90,6 +89,8 @@ DATABASES = {
     }
 }
 
+# Authentication
+
 AUTH_USER_MODEL = 'oadb.User'
 
 # Password validation
@@ -137,8 +138,8 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
     ),
      'DEFAULT_RENDERER_CLASSES': (
-        'oadb.renderers.AdminRenderer',
         'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',
     ),
     'PAGE_SIZE': 10
 }

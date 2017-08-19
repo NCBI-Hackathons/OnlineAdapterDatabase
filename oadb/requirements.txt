@@ -1,6 +1,6 @@
 # runtime packages
 
-Django==1.11.4
+Django==1.11.2
 django-filter==1.0.4
 coreapi==2.3.1
 djangorestframework==3.6.3
@@ -20,8 +20,8 @@ PyYAML==3.12
 
 # graphql
 
-graphene==1.4.1
-graphene-django==1.3
+#graphene==1.4.1
+#graphene-django==1.3
 
 
 # test packages

@@ -1,4 +1,4 @@
-from oadb.models import User, Adapter, Kit, Run, Database
+from oadb.models import User, Adapter, AdapterKit, Kit, Run, Database
 from rest_framework import serializers
 
 
@@ -31,8 +31,22 @@ class AdapterKitSerializer(serializers.ModelSerializer):
     class Meta:
         model = Adapter
         fields = (
-            'id', 'barcode', 'index_type', 'index_sequence', 'full_sequence', 'kit', 'user',
+            'id', 'barcode', 'index_type', 'index_sequence',
+            'universal_sequence', 'full_sequence',
+            'kit', 'user'
         )
+
+
+class AdapterKitFlatSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = AdapterKit
+        fields = (
+            'id', 'barcode', 'index_type', 'index_sequence',
+            'universal_sequence', 'full_sequence',
+            'vendor', 'kit', 'subkit', 'version', 'status'
+        )
+
+
 
 class DatabaseSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
@@ -46,6 +60,7 @@ class RunSerializer(serializers.HyperlinkedModelSerializer):
         fields = (
             'id', 'accession', 'is_public', 'is_inferred', 'user', 'database', 
         )
+
 
 class RunAdapterSerializer(serializers.ModelSerializer):
     three_prime = AdapterKitSerializer(many=False, read_only=True)

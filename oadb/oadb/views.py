@@ -7,7 +7,7 @@ from rest_framework import viewsets
 # from rest_framework.permissions import AllowAny
 # from rest_framework.response import Response
 # from rest_framework_swagger import renderers
-from .models import Adapter, Kit, Database, Run
+from .models import Adapter, AdapterKit, Kit, Database, Run
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAdminUser
 from rest_framework.decorators import permission_classes
 from django_filters import rest_framework as filters
@@ -19,6 +19,10 @@ User = get_user_model()
 
 class HomeView(TemplateView):
     template_name = 'oadb/index.html'
+
+
+class AdminView(TemplateView):
+    template_name = 'oadb/admin.html'
 
 
 @permission_classes((IsAdminUser, ))
@@ -37,18 +41,12 @@ class AdapterViewSet(viewsets.ModelViewSet):
     filter_fields = ('barcode', 'index_sequence',)
 
 
-class AdapterKitFilterSet(filters.FilterSet):
-    class Meta:
-        fields = ('barcode', 'index_sequence',)
-        model = Adapter
-
-
 @permission_classes((IsAuthenticatedOrReadOnly, ))
 class AdapterKitViewSet(viewsets.ModelViewSet):
-    queryset = Adapter.objects.select_related('kit').all()
-    serializer_class = serializers.AdapterKitSerializer
+    queryset = AdapterKit.objects.all()
+    serializer_class = serializers.AdapterKitFlatSerializer
     filter_backends = (filters.DjangoFilterBackend,)
-    filter_class = AdapterKitFilterSet
+    filter_fields = ('vendor', 'kit', 'subkit', 'barcode', 'version', 'index_type')
 
 
 @permission_classes((IsAuthenticatedOrReadOnly, ))

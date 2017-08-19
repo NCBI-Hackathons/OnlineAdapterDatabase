@@ -25,7 +25,7 @@ class Kit(models.Model):
 
     @property
     def name(self):
-        return '%s %s %s %s' % (self.vendor, self.kit, self.subkit, self.vendor)
+        return '%s %s %s %s' % (self.vendor, self.kit, self.subkit, self.version)
 
     def __str__(self):
         return self.name
@@ -55,6 +55,34 @@ class Adapter(models.Model):
     class Meta:
         db_table = 'oadb_adaptor'
         ordering = ('kit', 'barcode',)
+
+
+class AdapterKit(models.Model):
+    """
+    Model for a view joining Adapter to Kit
+    """
+    universal_sequence = models.CharField(max_length=100)
+    index_sequence = models.CharField(max_length=100)
+    full_sequence = models.CharField(max_length=100)
+    index_type = models.CharField(max_length=5, choices=IDX_CHOICES)
+    barcode = models.CharField(max_length=100, default='')
+    vendor = models.CharField(max_length=100)
+    kit = models.CharField(max_length=100)
+    subkit = models.CharField(max_length=100)
+    version = models.CharField(max_length=100)
+    status = models.IntegerField(default=0)
+
+    @property
+    def name(self):
+        return '%s %s %s %s (%s)' % (self.vendor, self.kit, self.subkit, self.version, self.barcode)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        managed = False
+        db_table = 'oadb_adapterkit'
+        ordering = ('kit', 'subkit', 'version','barcode',)
 
 
 class DatabaseManager(models.Manager):

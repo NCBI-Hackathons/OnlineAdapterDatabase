@@ -31,7 +31,6 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -39,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'django_filters',
-    'graphene_django',
     'oadb',
 ]
 
@@ -90,6 +88,8 @@ DATABASES = {
         'NAME': join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+# Authentication
 
 AUTH_USER_MODEL = 'oadb.User'
 

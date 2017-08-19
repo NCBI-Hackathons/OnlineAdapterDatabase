@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'django_filters',
     'graphene_django',
     'oadb',
 ]
@@ -137,8 +138,8 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
     ),
      'DEFAULT_RENDERER_CLASSES': (
-        'oadb.renderers.AdminRenderer',
         'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',
     ),
     'PAGE_SIZE': 10
 }

@@ -5,7 +5,8 @@ from rest_framework import serializers
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User
-        fields = ('url', 'username', 'email', 'groups')
+        fields = ('id', 'username', 'email', 'groups',)
+
 
 
 class AdapterSerializer(serializers.ModelSerializer):
@@ -36,15 +37,14 @@ class AdapterKitSerializer(serializers.ModelSerializer):
 class DatabaseSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Database
-        fields = ('name', 'template_url', 'url')
+        fields = ('id', 'name', 'template_url', 'url')
 
 
 class RunSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Run
         fields = (
-            'accession', 'is_public', 'is_inferred',
-            'user', 'database', 'three_seq', 'five_seq'
+            'id', 'accession', 'is_public', 'is_inferred', 'user', 'database', 
         )
 
 class RunAdapterSerializer(serializers.ModelSerializer):
@@ -54,5 +54,5 @@ class RunAdapterSerializer(serializers.ModelSerializer):
     class Meta:
         model = Run
         fields = (
-            'accession', 'is_public', 'is_inferred', 'three_prime', 'five_prime', 'user',
+            'id', 'accession', 'is_public', 'is_inferred', 'three_prime', 'five_prime', 'user',
         )

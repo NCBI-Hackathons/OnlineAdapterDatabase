@@ -1,6 +1,6 @@
 # runtime packages
 
-Django==1.11.4
+Django==1.10.7
 django-filter==1.0.4
 coreapi==2.3.1
 djangorestframework==3.6.3
@@ -10,6 +10,11 @@ Markdown==2.6.8
 pytz==2017.2
 gunicorn==19.7.1
 PyYAML==3.12
+
+# New stuff we may not keep
+django-haystack==2.6.1
+Whoosh==2.7.4
+drf-haystack==1.6.1
 
 # It was a mistake to support PostgreSQL during a hackathon,
 # and they are getting in the way of creating a Docker image

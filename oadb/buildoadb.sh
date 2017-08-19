@@ -34,7 +34,5 @@ rm -f db.sqlite3
 ./manage.py loaddata oadb/fixtures/databases.yaml
 ./manage.py loaddata oadb/fixtures/systemuser.yaml
 ./manage.py importkits ../data/oadb_illumina_raw_dataV2.csv --username system --clear
-./manage.py importkits ../data/old_adapters.csv --username system --format chaim
-./manage.py loaddata oadb/fixtures/dummyrun.yaml
 ./manage.py collectstatic --clear --noinput
 

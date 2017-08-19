@@ -3,14 +3,14 @@ from django.contrib.auth.models import AbstractUser
 
 
 class User(AbstractUser):
-    un = models.CharField(max_length=150, unique=True)
+    un = models.CharField(max_length=150)
     login_type = models.CharField(max_length=25)
     affiliation = models.CharField(max_length=150)
     website = models.CharField(max_length=150)
     is_staff = models.BooleanField(default=False)
 
     class Meta:
-        ordering = ('un',)
+        ordering = ('username',)
 
 
 class Kit(models.Model):

@@ -37,12 +37,18 @@ class AdapterViewSet(viewsets.ModelViewSet):
     filter_fields = ('barcode', 'index_sequence',)
 
 
+class AdapterKitFilterSet(filters.FilterSet):
+    class Meta:
+        fields = ('barcode', 'index_sequence',)
+        model = Adapter
+
+
 @permission_classes((IsAuthenticatedOrReadOnly, ))
 class AdapterKitViewSet(viewsets.ModelViewSet):
     queryset = Adapter.objects.select_related('kit').all()
     serializer_class = serializers.AdapterKitSerializer
     filter_backends = (filters.DjangoFilterBackend,)
-    filter_fields = ('barcode', 'index_sequence',)
+    filter_class = AdapterKitFilterSet
 
 
 @permission_classes((IsAuthenticatedOrReadOnly, ))

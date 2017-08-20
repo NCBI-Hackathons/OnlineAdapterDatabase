@@ -1,4 +1,5 @@
 from rest_framework import renderers
+from rest_framework import pagination
 import json
 import time
 from io import StringIO
@@ -11,15 +12,11 @@ class FastaAdapterKitRenderer(renderers.BaseRenderer):
     charset = 'utf-8'
 
     def render(self, data, media_type=None, renderer_context=None):
-        count = data['count']
         when = time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())
         sbuf = StringIO()
-        sbuf.write(';AdapterBase Fasta %d total results at %s\n' % (count, when))
-        if data['next']:
-            sbuf.write(';Next %s\n' % data['next'])
-        if data['previous']:
-            sbuf.write(';Previous %s\n' % data['previous'])
-        for result in data['results']:
+        sbuf.write(';AdapterBase Fasta results at %s\n' % when)
+        sbuf.write(';Sequence format: oadb|<vendor>;<kit>;<subkit>;<version>|<barcode>\n')
+        for result in data:
             sbuf.write('>oadb|%s;%s;%s;%s|%s\n' % (
                 result['vendor'],
                 result['kit'],
@@ -49,7 +46,7 @@ class CSVAdapterKitRenderer(renderers.BaseRenderer):
             'Full Sequence',
         ))
         
-        for result in data['results']:
+        for result in data:
             writer.writerow((
                 result['vendor'],
                 result['kit'],
@@ -60,3 +57,5 @@ class CSVAdapterKitRenderer(renderers.BaseRenderer):
                 result['full_sequence']
             ))
         return sbuf.getvalue().encode(self.charset)
+
+

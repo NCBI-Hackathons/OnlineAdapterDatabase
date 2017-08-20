@@ -2,7 +2,6 @@ from django.contrib.auth import get_user_model
 from django.views.generic import TemplateView
 from . import serializers
 from rest_framework import viewsets
-from rest_framework import generics
 from .models import Adapter, AdapterKit, Kit, Database, Run
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAdminUser
 from rest_framework.decorators import permission_classes
@@ -10,7 +9,7 @@ from rest_framework import renderers
 from django_filters import rest_framework as filters
 from collections import OrderedDict
 
-from . import renderers as oadb_renderers
+from . import helpers
 
 
 User = get_user_model()
@@ -48,10 +47,18 @@ class AdapterKitViewSet(viewsets.ReadOnlyModelViewSet):
 
     renderer_classes = (
         renderers.JSONRenderer,
-        oadb_renderers.CSVAdapterKitRenderer,
-        oadb_renderers.FastaAdapterKitRenderer,
+        helpers.CSVAdapterKitRenderer,
+        helpers.FastaAdapterKitRenderer,
         renderers.BrowsableAPIRenderer
     )
+
+    @property
+    def paginator(self):
+        renderer = self.request.accepted_renderer
+        if renderer.format=='fasta' or renderer.format=='csv':
+            return None
+        else:
+            return super(AdapterKitViewSet, self).paginator
 
     def finalize_response(self, req, resp, *args, **kwargs):
         resp = super(AdapterKitViewSet, self).finalize_response(req, resp, *args, **kwargs)

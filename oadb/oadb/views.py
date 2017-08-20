@@ -40,7 +40,7 @@ class AdapterViewSet(viewsets.ModelViewSet):
     filter_fields = ('barcode', 'index_sequence',)
 
 
-class AdapterKitView(viewsets.ReadOnlyModelViewSet):
+class AdapterKitViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = AdapterKit.objects.all()
     serializer_class = serializers.AdapterKitFlatSerializer
     filter_backends = (filters.DjangoFilterBackend,)
@@ -54,7 +54,7 @@ class AdapterKitView(viewsets.ReadOnlyModelViewSet):
     )
 
     def finalize_response(self, req, resp, *args, **kwargs):
-        resp = super(AdapterKitView, self).finalize_response(req, resp, *args, **kwargs)
+        resp = super(AdapterKitViewSet, self).finalize_response(req, resp, *args, **kwargs)
         if resp.accepted_renderer.format == 'fasta':
             resp['content-disposition'] = 'attachment; filename=adapterkits.fasta'
         elif resp.accepted_renderer.format == 'csv':

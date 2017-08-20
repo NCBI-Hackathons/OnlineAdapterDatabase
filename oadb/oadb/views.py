@@ -2,16 +2,15 @@ from django.contrib.auth import get_user_model
 from django.views.generic import TemplateView
 from . import serializers
 from rest_framework import viewsets
-# from rest_framework.views import APIView
-# from rest_framework.schemas import SchemaGenerator
-# from rest_framework.permissions import AllowAny
-# from rest_framework.response import Response
-# from rest_framework_swagger import renderers
+from rest_framework import generics
 from .models import Adapter, AdapterKit, Kit, Database, Run
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAdminUser
 from rest_framework.decorators import permission_classes
+from rest_framework import renderers
 from django_filters import rest_framework as filters
 from collections import OrderedDict
+
+from . import renderers as oadb_renderers
 
 
 User = get_user_model()
@@ -41,12 +40,26 @@ class AdapterViewSet(viewsets.ModelViewSet):
     filter_fields = ('barcode', 'index_sequence',)
 
 
-@permission_classes((IsAuthenticatedOrReadOnly, ))
-class AdapterKitViewSet(viewsets.ModelViewSet):
+class AdapterKitViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = AdapterKit.objects.all()
     serializer_class = serializers.AdapterKitFlatSerializer
     filter_backends = (filters.DjangoFilterBackend,)
     filter_fields = ('vendor', 'kit', 'subkit', 'barcode', 'version', 'index_type')
+
+    renderer_classes = (
+        renderers.JSONRenderer,
+        oadb_renderers.CSVAdapterKitRenderer,
+        oadb_renderers.FastaAdapterKitRenderer,
+        renderers.BrowsableAPIRenderer
+    )
+
+    def finalize_response(self, req, resp, *args, **kwargs):
+        resp = super(AdapterKitViewSet, self).finalize_response(req, resp, *args, **kwargs)
+        if resp.accepted_renderer.format == 'fasta':
+            resp['content-disposition'] = 'attachment; filename=adapterkits.fasta'
+        elif resp.accepted_renderer.format == 'csv':
+            resp['content-disposition'] = 'attachment; filename=adapterkits.csv'
+        return resp
 
 
 @permission_classes((IsAuthenticatedOrReadOnly, ))

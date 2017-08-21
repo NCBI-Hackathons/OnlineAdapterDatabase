@@ -1,7 +1,36 @@
 - model: oadb.user
   fields:
+    password: ''
+    last_login: null
     is_superuser: false
     username: system
+    first_name: ''
+    last_name: ''
+    email: ''
     is_active: true
     date_joined: 2017-08-15 18:27:30.939042+00:00
+    un: ''
+    login_type: ''
+    affiliation: ''
+    website: ''
     is_staff: true
+    groups: []
+    user_permissions: []
+- model: oadb.user
+  fields:
+    password: pbkdf2_sha256$36000$m2AlEVfUEBij$Wxi4k7OrSaUh/c2+qrhy/RCIIyuSbFz32p/LqB0z8C4=
+    last_login: null
+    is_superuser: true
+    username: admin
+    first_name: ''
+    last_name: ''
+    email: ''
+    is_active: true
+    date_joined: 2017-08-21 17:59:52.960130+00:00
+    un: ''
+    login_type: ''
+    affiliation: ''
+    website: ''
+    is_staff: true
+    groups: []
+    user_permissions: []

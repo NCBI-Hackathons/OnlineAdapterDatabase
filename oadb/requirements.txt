@@ -9,6 +9,7 @@ Markdown==2.6.8
 pytz==2017.2
 gunicorn==19.7.1
 PyYAML==3.12
+sqlparse==0.2.3
 
 # It was a mistake to support PostgreSQL during a hackathon,
 # and they are getting in the way of creating a Docker image

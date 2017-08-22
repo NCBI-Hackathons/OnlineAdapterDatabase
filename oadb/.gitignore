@@ -2,3 +2,6 @@
 *.pyo
 /db.sqlite3
 /public
+/node_modules/
+/app/bundles/
+/webpack-stats.json

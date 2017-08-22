@@ -10,8 +10,8 @@
     ]
   },
   "scripts": {
-    "build": "./node_modules/.bin/webpack",
-    "watch": "./node_modules/.bin/webpack --watch",
+    "build": "webpack",
+    "watch": "webpack --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

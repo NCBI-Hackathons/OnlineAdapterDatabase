@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'django_filters',
+    'webpack_loader',
     'oadb',
 ]
 
@@ -130,7 +131,17 @@ USE_TZ = True
 
 STATIC_URL = '/public/'
 STATIC_ROOT = join(BASE_DIR, 'public')
+STATICFILES_DIRS = (
+    join(BASE_DIR, 'app'),
+)
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'BUNDLE_DIR_NAME': 'bundles/',
+        'STATS_FILE': join(BASE_DIR, 'webpack-stats.json'),
+    }
+}
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (

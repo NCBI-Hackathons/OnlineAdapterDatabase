@@ -4,7 +4,10 @@
   "description": "A database of Adapter sequences for genomics",
   "main": "app/index.js",
   "babel": {
-    "presets": ["es2015", "react"]
+    "presets": [
+      "es2015",
+      "react"
+    ]
   },
   "scripts": {
     "build": "./node_modules/.bin/webpack",
@@ -30,6 +33,7 @@
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "webpack": "^3.5.5",
-    "webpack-bundle-tracker": "^0.2.0"
+    "webpack-bundle-tracker": "^0.2.0",
+    "webpack-cleanup-plugin": "^0.5.1"
   }
 }

@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import App from './app';
+
 
 ReactDOM.render(
-    <h3>React admin component</h3>,
+    <App/>,
     document.getElementById('react-app')
 );

@@ -1,7 +1,7 @@
-var React = require('react');
+import React from 'react';
 
-module.exports = React.createClass({
-    render: function() {
-        return `<h3>React Admin component</h3>`;
-    }
-});
+export default class App extends React.Component {
+    render() {
+        return <h3>React admin application</h3>;
+    };
+}

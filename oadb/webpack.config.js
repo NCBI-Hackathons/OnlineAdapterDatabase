@@ -5,10 +5,10 @@ var WebpackCleanup = require('webpack-cleanup-plugin');
 module.exports = {
     context: __dirname,
 
-    entry: './app/js/index',
+    entry: './react/js/index',
 
     output: {
-        path: path.resolve('./app/bundles'),
+        path: path.resolve('./react/bundles'),
         filename: "[name]-[hash].js"
     },
 
@@ -19,8 +19,18 @@ module.exports = {
 
     module: {
         loaders: [
-            {test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel-loader'}
-        ]
+            {
+                test: /\.jsx?$/,
+                exclude: /node_modules/,
+                loader: 'babel-loader',
+                options: {
+                    presets: [
+                        'react',
+                        'es2015'
+                    ]
+                }
+            }
+        ],
     },
 
     resolve: {

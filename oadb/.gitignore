@@ -3,5 +3,5 @@
 /db.sqlite3
 /public
 /node_modules/
-/app/bundles/
+/react/bundles/
 /webpack-stats.json

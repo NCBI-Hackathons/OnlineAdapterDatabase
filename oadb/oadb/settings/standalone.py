@@ -132,7 +132,7 @@ USE_TZ = True
 STATIC_URL = '/public/'
 STATIC_ROOT = join(BASE_DIR, 'public')
 STATICFILES_DIRS = (
-    join(BASE_DIR, 'app'),
+    join(BASE_DIR, 'react'),
 )
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 

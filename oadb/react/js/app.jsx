@@ -1,8 +1,15 @@
 import React from 'react';
 import { Router, Route } from 'react-router';
 import { createBrowserHistory } from 'history';
+import $ from 'jquery';
 
 const history = createBrowserHistory();
+
+/* This jquery turns the absolute navigation actions into browser history actions */
+$('.react-nav a').click(function(ev) {
+    ev.stopPropagation();
+    history.push(this.getAttribute('href'), null);
+});
 
 class KitList extends React.Component {
     render() {

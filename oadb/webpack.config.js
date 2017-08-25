@@ -9,7 +9,7 @@ module.exports = {
 
     output: {
         path: path.resolve('./react/bundles'),
-        filename: "[name]-[hash].js"
+        filename: "[name].bundle.js"
     },
 
     plugins: [

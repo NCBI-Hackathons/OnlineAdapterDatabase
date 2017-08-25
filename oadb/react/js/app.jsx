@@ -13,19 +13,19 @@ $('.react-nav a').click(function(ev) {
 
 class KitList extends React.Component {
     render() {
-        return <h3>List of kits</h3>
+        return <h3>Datatable of kits</h3>
     }
 }
 
 class AdapterList extends React.Component {
     render() {
-        return <h3>List of adapters</h3>
+        return <h3>Datatable of adapters</h3>
     }
 }
 
 class RunList extends React.Component {
     render() {
-        return <h3>List of runs</h3>
+        return <h3>Datatable of runs</h3>
     }
 }
 

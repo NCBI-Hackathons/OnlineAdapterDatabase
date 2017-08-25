@@ -1,5 +1,5 @@
 {% extends 'oadb/layout.html' %}
-{% load render_bundle from webpack_loader %}
+{% load static %}
 
 {% block content %}
 <div class="container">
@@ -8,5 +8,5 @@
 	</div>
 	<div id="react-app"></div>
 </div>
-{% render_bundle 'main' %}
+<link src="{% static 'main.bundle.js' %}"/>
 {% endblock %}

@@ -1,5 +1,6 @@
 *.pyc
 *.pyo
+/npm-debug.log
 /db.sqlite3
 /public
 /node_modules/

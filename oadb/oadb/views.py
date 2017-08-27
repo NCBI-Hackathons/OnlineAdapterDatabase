@@ -5,7 +5,9 @@ from rest_framework import viewsets
 from .models import Adapter, AdapterKit, Kit, Database, Run
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAdminUser
 from rest_framework.decorators import permission_classes
-from rest_framework import renderers
+from rest_framework.decorators import api_view, renderer_classes
+from rest_framework_swagger.renderers import OpenAPIRenderer
+from rest_framework import renderers, response, schemas
 from django_filters import rest_framework as filters
 from collections import OrderedDict
 
@@ -14,6 +16,8 @@ from . import helpers
 
 User = get_user_model()
 
+generator = schemas.SchemaGenerator(title='AdapterBase API')
+
 
 class HomeView(TemplateView):
     template_name = 'oadb/index.html'
@@ -21,6 +25,17 @@ class HomeView(TemplateView):
 
 class AdminView(TemplateView):
     template_name = 'oadb/admin.html'
+
+
+@api_view(['get'])
+@renderer_classes([OpenAPIRenderer])
+def schema_view(request):
+    """
+    A schema view that returns all paths in OpenAPI format
+    """
+    # We omit the request parameter so that the API returns all paths
+    schema = generator.get_schema()
+    return response.Response(schema)
 
 
 @permission_classes((IsAdminUser, ))

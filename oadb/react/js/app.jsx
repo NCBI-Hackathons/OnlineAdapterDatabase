@@ -15,9 +15,13 @@ $('.react-nav a').click(function(ev) {
 class KitList extends React.Component {
 	render() {
 		return (
-			<div>
-				<h3>Datatable of kits</h3>
-				<KitForm/>
+			<div className="container">
+        <div className="row">
+          <div className="col-md-6">
+			      <h3>Datatable of kits</h3>
+  				  <KitForm/>
+          </div>
+        </div>
 			</div>
 		)
 	}

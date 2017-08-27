@@ -17,7 +17,10 @@ from django.conf import settings
 from django.conf.urls import url, include
 from django.contrib import admin
 from rest_framework import routers
+from rest_framework.renderers import CoreJSONRenderer
+from rest_framework_swagger.renderers import OpenAPIRenderer
 from rest_framework.documentation import include_docs_urls
+from rest_framework.schemas import get_schema_view
 from django.contrib.auth.decorators import login_required
 
 from . import views
@@ -33,11 +36,18 @@ router.register(r'run', views.RunViewSet, 'Run')
 router.register(r'runplus', views.RunAdapterViewSet, 'runplus')
 
 
+schema_view = get_schema_view(
+    title='AdapterBase API',
+    renderer_classes=[ CoreJSONRenderer, OpenAPIRenderer ]
+)
+
+
 urlpatterns = [
     url(r'^$', views.HomeView.as_view(), name='oadb-home'),
     url(r'^api/', include(router.urls)),
     url(r'^docs/', include_docs_urls(title='AdapterBase API')),
-    url(r'^admin/', views.AdminView.as_view(), name='oadb-admin'),
+    url(r'^schema/', schema_view, name='oadb-schema'),
+    url(r'^admin/', login_required(views.AdminView.as_view()), name='oadb-admin'),
     url(r'^api-auth/', include('rest_framework.urls')),
 ]
 

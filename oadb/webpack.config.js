@@ -1,24 +1,27 @@
 var path = require("path");
-var BundleTracker = require('webpack-bundle-tracker');
-var WebpackCleanup = require('webpack-cleanup-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     context: __dirname,
 
-    entry: './react/js/index',
+    entry: './react/entry',
 
     output: {
-        path: path.resolve('./react/bundles'),
+        path: path.resolve('./dist'),
         filename: "[name].bundle.js"
     },
 
     plugins: [
-        new BundleTracker({filename: './webpack-stats.json'}),
-        new WebpackCleanup()
+        new ExtractTextPlugin("[name].bundle.css")
     ],
 
     module: {
         loaders: [
+            {
+                test: /\.css$/,
+                exclude: /node_modules/,
+                loader: ExtractTextPlugin.extract("style-loader", "css-loader")
+            },
             {
                 test: /\.jsx?$/,
                 exclude: /node_modules/,

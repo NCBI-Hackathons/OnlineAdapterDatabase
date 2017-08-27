@@ -76,11 +76,11 @@ WSGI_APPLICATION = 'oadb.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-#if 'DATABASE_URL' in os.environ:
+# if 'DATABASE_URL' in os.environ:
 #    import dj_database_url
 #    DATABASES = { 'default': dj_database_url.config() }
 #    DATABASES['default']['ENGINE'] = 'django_postgrespool'
-#else:
+# else:
 
 DATABASES = {
     'default': {
@@ -131,7 +131,7 @@ USE_TZ = True
 STATIC_URL = '/public/'
 STATIC_ROOT = join(BASE_DIR, 'public')
 STATICFILES_DIRS = (
-    join(BASE_DIR, 'react/bundles'),
+    join(BASE_DIR, 'dist'),
 )
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 

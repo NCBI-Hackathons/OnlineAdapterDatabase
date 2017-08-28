@@ -16,12 +16,12 @@ class KitList extends React.Component {
 	render() {
 		return (
 			<div className="container">
-        <div className="row">
-          <div className="col-md-6">
-			      <h3>Datatable of kits</h3>
-  				  <KitForm/>
-          </div>
-        </div>
+                <div className="row">
+                    <div className="col-md-6">
+                        <h3>Create Kit:</h3>
+                        <KitForm/>
+                    </div>
+                </div>
 			</div>
 		)
 	}

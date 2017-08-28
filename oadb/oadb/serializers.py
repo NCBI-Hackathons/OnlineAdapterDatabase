@@ -10,6 +10,8 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class AdapterSerializer(serializers.ModelSerializer):
+    barcode = serializers.CharField(label='Adapter Barcode')
+
     class Meta:
         model = Adapter
         fields = (

@@ -21,11 +21,12 @@ from . import views
 
 
 router = routers.DefaultRouter()
-router.register(r'users', views.UserViewSet)
+router.register(r'schema', views.SchemaViewSet, 'schema')
+router.register(r'users', views.UserViewSet, 'users')
 router.register(r'adapter', views.AdapterViewSet, 'Adapter')
 router.register(r'kit', views.KitViewSet, 'Kit')
 router.register(r'adapterkit', views.AdapterKitViewSet, 'AdapterKit')
-router.register(r'database', views.DatabaseViewSet)
+router.register(r'database', views.DatabaseViewSet, 'database')
 router.register(r'run', views.RunViewSet, 'Run')
 router.register(r'runplus', views.RunAdapterViewSet, 'runplus')
 
@@ -34,7 +35,6 @@ urlpatterns = [
     url(r'^$', views.HomeView.as_view(), name='oadb-home'),
     url(r'^api/', include(router.urls)),
     url(r'^docs/', include_docs_urls(title='AdapterBase API')),
-    url(r'^schema/', views.schema_view, name='oadb-schema'),
     url(r'^admin/', views.AdminView.as_view(), name='oadb-admin'),
     url(r'^api-auth/', include('rest_framework.urls')),
 ]

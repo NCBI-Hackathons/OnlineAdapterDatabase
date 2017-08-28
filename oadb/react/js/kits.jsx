@@ -34,7 +34,7 @@ export class KitForm extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('/schema').then(res => {
+    axios.get('/api/schema/?format=openapi').then(res => {
       var operation = res.data.paths['/api/kit/']['post'];
       var newschema = operation.parameters[0].schema;
       this.setSchema(newschema);
@@ -44,14 +44,13 @@ export class KitForm extends React.Component {
   render() {
     return (
     	<div>
-    		<span>Enter todo information:</span>
-    		<Form schema={this.state.schema} 
+    		<Form schema={this.state.schema}
     					onChange={log("changed")}
     					onSubmit={log("submitted")}
     					onError={log("errors")} />
-        <h4>JSON Schema for For</h4>
-        <pre>{this.state.preschema}</pre>
+            <h4>JSON Schema:</h4>
+            <pre>{this.state.preschema}</pre>
     	</div>
     )
-	}
+  }
 }

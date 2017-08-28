@@ -15,7 +15,7 @@ class User(AbstractUser):
 
 class Kit(models.Model):
     # aka manufacturer
-    vendor = models.CharField(max_length=100)
+    vendor = models.CharField(max_length=100, help_text='Vendor of NGS adapter kit')
     kit = models.CharField(max_length=100)
     subkit = models.CharField(max_length=100)
     version = models.CharField(max_length=100)
@@ -42,7 +42,7 @@ IDX_CHOICES = (
 
 class Adapter(models.Model):
     universal_sequence = models.CharField(max_length=100)
-    index_sequence = models.CharField(max_length=100)
+    index_sequence = models.CharField(verbose_name='Index Sequence', max_length=100)
     full_sequence = models.CharField(max_length=100)
     index_type = models.CharField(max_length=5, choices=IDX_CHOICES)
     barcode = models.CharField(max_length=100, default='')

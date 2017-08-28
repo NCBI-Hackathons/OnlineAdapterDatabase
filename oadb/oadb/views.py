@@ -1,15 +1,14 @@
 from django.contrib.auth import get_user_model
 from django.views.generic import TemplateView
 from . import serializers
-from rest_framework import viewsets
 from .models import Adapter, AdapterKit, Kit, Database, Run
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAdminUser
 from rest_framework.decorators import permission_classes
-from rest_framework.decorators import api_view, renderer_classes
-from rest_framework_swagger.renderers import OpenAPIRenderer
-from rest_framework import renderers, response, schemas
+from rest_framework import viewsets, renderers, response, schemas
 from django_filters import rest_framework as filters
+from openapi_codec import OpenAPICodec
 from collections import OrderedDict
+
 
 from . import helpers
 
@@ -27,15 +26,28 @@ class AdminView(TemplateView):
     template_name = 'oadb/admin.html'
 
 
-@api_view(['get'])
-@renderer_classes([OpenAPIRenderer])
-def schema_view(request):
+class CustomOpenAPIRenderer(renderers.BaseRenderer):
     """
-    A schema view that returns all paths in OpenAPI format
+    An OpenAPI renderer that depends only on openapi_codec rather than on django-rest-swagger
     """
-    # We omit the request parameter so that the API returns all paths
-    schema = generator.get_schema()
-    return response.Response(schema)
+    media_type = 'application/openapi+json'
+    format = 'openapi'
+
+    def render(self, data, media_type=None, renderer_context=None):
+        codec = OpenAPICodec()
+        return codec.encode(data)
+
+
+class SchemaViewSet(viewsets.ViewSet):
+    """
+    Return the schema in OpenAPI format
+    """
+    base_name = 'schema'
+    renderer_classes = [CustomOpenAPIRenderer, renderers.JSONRenderer, renderers.BrowsableAPIRenderer]
+
+    def list(self, request, format=None):
+        schema = generator.get_schema()
+        return response.Response(schema)
 
 
 @permission_classes((IsAdminUser, ))

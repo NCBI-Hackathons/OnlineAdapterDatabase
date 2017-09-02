@@ -71,6 +71,7 @@ class KitAdapterViewSet(viewsets.ModelViewSet):
     queryset = Kit.objects.all().prefetch_related('adapters')
     serializer_class = serializers.KitAdapterSerializer
     filter_backends = (filters.DjangoFilterBackend,)
+    metedata_class = OpenAPIMetadata
     field_fields = ('id', 'vendor', 'kit', 'subkit',)
 
 
@@ -108,6 +109,7 @@ class DownloadViewSet(viewsets.ReadOnlyModelViewSet):
 class KitViewSet(viewsets.ModelViewSet):
     queryset = Kit.objects.all()
     serializer_class = serializers.KitSerializer
+    metadata_class = OpenAPIMetadata
     filter_backends = (filters.DjangoFilterBackend,)
     filter_fields = ('vendor', 'kit', 'subkit',)
 

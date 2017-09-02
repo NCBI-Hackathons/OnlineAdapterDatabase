@@ -1,27 +1,41 @@
 from collections import OrderedDict
-from rest_framework.metadata import BaseMetadata
+from rest_framework.metadata import SimpleMetadata
 
 
-class OpenAPIMetadata(BaseMetadata):
+class OpenAPIMetadata(SimpleMetadata):
+
+    def mutate_parameters(self, params):
+        for name, props in params.items():
+            if 'label' in props:
+                props['title'] = props.pop('label')
+            if 'required' in props:
+                props.pop('required')
+            if 'min_legnth' in props:
+                props['minLength'] = props.pop('min_length')
+            if 'max_length' in props:
+                props['maxLength'] = props.pop('max_length')
+            if props['type'] == 'choice':
+                choices = props.pop('choices')
+                types = list(set(type(c['value']) for c in choices))
+                if len(types) == 1:
+                    if types[0] == str:
+                        props['type'] = 'string'
+                    elif types[0] == int:
+                        props['type'] = 'integer'
+                props['enum'] = [c['value'] for c in choices]
+                if 'default' not in props:
+                    props['default'] = props['enum'][0]
+
+    def required_parameters(self, params):
+        return [name for name, props in params.items() if props.get('required', False)]
 
     def determine_metadata(self, request, view):
-        metadata = OrderedDict()
-        metadata['swagger'] = '2.0'
-        metadata['info'] = OrderedDict()
-        metadata['info']['title'] = view.get_view_name()
-        metadata['info']['description'] = view.get_view_description()
-        metadata['info']['version'] = ''
-        metadata['produces'] = [parser.media_type for parser in view.parser_classes]
-        metadata['consumes'] = [renderer.media_type for renderer in view.renderer_classes]
-        if hasattr('view', 'get_serializer'):
-            paths = self.determine_paths(request, view)
-            if paths:
-                metadata['paths'] = paths
-        return metadata
-
-    def determine_paths(self, request, view):
-        paths = {}
-        for method in {'PUT', 'POST'} & set(view.allowed_methods):
-            paths[request.path] = {}
-            paths[request.path][method] = {}
-        return paths
+        drf = super().determine_metadata(request, view)
+        openapi = OrderedDict()
+        openapi['title'] = drf['name']
+        openapi['type'] = 'object'
+        params = drf['actions']['POST']
+        openapi['required'] = self.required_parameters(params)
+        self.mutate_parameters(params)
+        openapi['properties'] = params
+        return openapi

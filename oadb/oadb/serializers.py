@@ -10,25 +10,39 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class AdapterSerializer(serializers.ModelSerializer):
-    barcode = serializers.CharField(label='Adapter Barcode')
+    user = serializers.StringRelatedField(read_only=True)
 
     class Meta:
         model = Adapter
         fields = (
             'id', 'barcode', 'universal_sequence', 'index_sequence',
-            'full_sequence', 'index_type',
+            'full_sequence', 'index_type', 'user'
         )
 
 
 class KitSerializer(serializers.ModelSerializer):
+    user = serializers.StringRelatedField(read_only=True)
+
     class Meta:
         model = Kit
         fields = ('id', 'vendor', 'kit', 'subkit', 'version', 'status', 'user')
 
 
+class KitAdapterSerializer(serializers.ModelSerializer):
+    adapters = AdapterSerializer(many=True, required=False)
+    user = serializers.StringRelatedField(read_only=True)
+
+    class Meta:
+        model = Kit
+        fields = (
+            'id', 'vendor', 'kit', 'subkit', 'version', 
+            'status', 'user', 'adapters'
+        )
+
+
 class AdapterKitSerializer(serializers.ModelSerializer):
     kit = KitSerializer(many=False, read_only=True)
-    user = serializers.HyperlinkedRelatedField(many=False, read_only=True, view_name='user-detail')
+    user = serializers.StringRelatedField(read_only=True)
 
     class Meta:
         model = Adapter

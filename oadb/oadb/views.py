@@ -7,7 +7,7 @@ from rest_framework.decorators import permission_classes
 from rest_framework import viewsets, renderers, response, schemas
 from django_filters import rest_framework as filters
 from openapi_codec import OpenAPICodec
-from collections import OrderedDict
+from .metadata import OpenAPIMetadata
 
 
 from . import helpers
@@ -58,15 +58,23 @@ class UserViewSet(viewsets.ModelViewSet):
     filter_fields = ('username', 'email',)
 
 
-@permission_classes((IsAuthenticatedOrReadOnly, ))
+#@permission_classes((IsAuthenticatedOrReadOnly, ))
 class AdapterViewSet(viewsets.ModelViewSet):
     queryset = Adapter.objects.all()
     serializer_class = serializers.AdapterSerializer
+    metadata_class = OpenAPIMetadata
     filter_backends = (filters.DjangoFilterBackend,)
     filter_fields = ('barcode', 'index_sequence',)
 
 
-class AdapterKitViewSet(viewsets.ReadOnlyModelViewSet):
+class KitAdapterViewSet(viewsets.ModelViewSet):
+    queryset = Kit.objects.all().prefetch_related('adapters')
+    serializer_class = serializers.KitAdapterSerializer
+    filter_backends = (filters.DjangoFilterBackend,)
+    field_fields = ('id', 'vendor', 'kit', 'subkit',)
+
+
+class DownloadViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = AdapterKit.objects.all()
     serializer_class = serializers.AdapterKitFlatSerializer
     filter_backends = (filters.DjangoFilterBackend,)
@@ -85,10 +93,10 @@ class AdapterKitViewSet(viewsets.ReadOnlyModelViewSet):
         if renderer.format=='fasta' or renderer.format=='csv':
             return None
         else:
-            return super(AdapterKitViewSet, self).paginator
+            return super().paginator
 
     def finalize_response(self, req, resp, *args, **kwargs):
-        resp = super(AdapterKitViewSet, self).finalize_response(req, resp, *args, **kwargs)
+        resp = super().finalize_response(req, resp, *args, **kwargs)
         if resp.accepted_renderer.format == 'fasta':
             resp['content-disposition'] = 'attachment; filename=adapterkits.fasta'
         elif resp.accepted_renderer.format == 'csv':
@@ -96,7 +104,7 @@ class AdapterKitViewSet(viewsets.ReadOnlyModelViewSet):
         return resp
 
 
-@permission_classes((IsAuthenticatedOrReadOnly, ))
+#@permission_classes((IsAuthenticatedOrReadOnly, ))
 class KitViewSet(viewsets.ModelViewSet):
     queryset = Kit.objects.all()
     serializer_class = serializers.KitSerializer

@@ -88,3 +88,7 @@ AdapterBase was intitially developed as part of an NCBI-sponsored hackathon at t
 - Scott Lewis, Pulmonary Critical Care Medicine, Washington University in St. Louis, slewis3827@gmail.com
 - Chaim A Schramm, Vaccine Research Center, NIAID, NIH, chaim.schramm@nih.gov
 - Vamsi Vungutur OCCS/AB NLM, NIH vamsi.vungutur@nih.gov
+
+## Other
+
+* https://support.illumina.com/bulletins/2016/12/what-sequences-do-i-use-for-adapter-trimming.html
